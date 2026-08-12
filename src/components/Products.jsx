@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
-import { Heart, ShoppingBag, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Heart, ShoppingBag, Star, Check } from 'lucide-react'
 import { products } from '../data/content.js'
+import { useCart } from '../context/CartContext.jsx'
 
 const filters = ['All', 'Rings', 'Necklaces', 'Earrings', 'Bracelets']
 
@@ -11,11 +13,19 @@ const tagStyle = {
 
 export default function Products() {
   const [active, setActive] = useState('All')
+  const { addToCart } = useCart()
+  const [addedId, setAddedId] = useState(null)
 
   const filtered = useMemo(
     () => (active === 'All' ? products : products.filter((p) => p.category === active)),
     [active]
   )
+
+  const handleAddClick = (p) => {
+    addToCart(p)
+    setAddedId(p.id)
+    setTimeout(() => setAddedId(null), 2000)
+  }
 
   return (
     <section id="products" className="bg-white py-20">
@@ -47,7 +57,7 @@ export default function Products() {
           {filtered.map((p) => (
             <article
               key={p.id}
-              className="group relative rounded-3xl overflow-hidden bg-ivory border border-ink/5 hover:shadow-soft transition-shadow duration-300"
+              className="group relative rounded-3xl overflow-hidden bg-ivory border border-ink/5 hover:shadow-soft transition-shadow duration-300 flex flex-col justify-between"
             >
               {p.tag && (
                 <span className={`absolute top-3 left-3 z-10 text-[10px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full ${tagStyle[p.tag]}`}>
@@ -56,30 +66,34 @@ export default function Products() {
               )}
               <button
                 aria-label="Add to wishlist"
-                className="absolute top-3 right-3 z-10 h-8 w-8 flex items-center justify-center rounded-full bg-white/90 text-ink/60 hover:text-ruby transition-colors"
+                className="absolute top-3 right-3 z-10 h-8 w-8 flex items-center justify-center rounded-full bg-white/90 text-ink/60 hover:text-ruby transition-colors shadow-sm"
               >
                 <Heart size={15} />
               </button>
 
-              <div className="aspect-[4/5] overflow-hidden">
+              <Link to={`/product/${p.id}`} className="block overflow-hidden aspect-[4/5] bg-white">
                 <img
                   src={p.img}
                   alt={p.name}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-              </div>
+              </Link>
 
-              <div className="p-4 sm:p-5">
-                <p className="text-[11px] uppercase tracking-wide text-ink/40">{p.category}</p>
-                <h3 className="font-display text-base sm:text-lg text-ink mt-1 leading-snug">{p.name}</h3>
+              <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <p className="text-[11px] uppercase tracking-wide text-ink/40">{p.category}</p>
+                  <Link to={`/product/${p.id}`} className="hover:text-gold transition-colors">
+                    <h3 className="font-display text-base sm:text-lg text-ink mt-1 leading-snug">{p.name}</h3>
+                  </Link>
 
-                <div className="flex items-center gap-1 mt-2">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={12} className="fill-gold text-gold" />
-                  ))}
+                  <div className="flex items-center gap-1 mt-2">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} size={12} className="fill-gold text-gold" />
+                    ))}
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-between mt-3">
+                <div className="flex items-center justify-between mt-4 border-t border-ink/5 pt-3">
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-lg text-ink">${p.price}</span>
                     {p.oldPrice && (
@@ -87,10 +101,11 @@ export default function Products() {
                     )}
                   </div>
                   <button
+                    onClick={() => handleAddClick(p)}
                     aria-label={`Add ${p.name} to bag`}
-                    className="h-9 w-9 flex items-center justify-center rounded-full bg-ink text-ivory hover:bg-emerald-dark transition-colors"
+                    className="h-9 w-9 flex items-center justify-center rounded-full bg-ink text-ivory hover:bg-emerald-dark transition-all duration-300 active:scale-90"
                   >
-                    <ShoppingBag size={15} />
+                    {addedId === p.id ? <Check size={14} className="text-emerald-light" /> : <ShoppingBag size={15} />}
                   </button>
                 </div>
               </div>

@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react'
+import { useCart } from '../context/CartContext.jsx'
 
 const links = [
-  { name: 'Rings', href: '/#products' },
-  { name: 'Necklaces', href: '/#products' },
-  { name: 'Earrings', href: '/#products' },
-  { name: 'Bracelets', href: '/#products' },
-  { name: 'Wedding Collection', href: '/collections/wedding' },
-  { name: 'Journal', href: '/#products' }
+  { name: 'Home', href: '/' },
+  { name: 'Collections', href: '/collections' },
+  { name: 'Contact Us', href: '/contact' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'FAQ', href: '/faq' }
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
+  const { cartCount } = useCart()
 
   const handleLinkClick = (e, href) => {
     if (href.startsWith('/#')) {
@@ -75,7 +76,9 @@ export default function Navbar() {
             </button>
             <button aria-label="Cart" className="relative inline-flex p-2 rounded-full hover:bg-ink/5 transition-colors text-ink/70 hover:text-ink">
               <ShoppingBag size={19} />
-              <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-ruby text-[10px] leading-4 text-white text-center font-semibold">2</span>
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-ruby text-[10px] leading-4 text-white text-center font-semibold animate-pulse">{cartCount}</span>
+              )}
             </button>
             <button
               aria-label="Toggle menu"

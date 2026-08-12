@@ -8,6 +8,12 @@ import Reviews from './components/Reviews.jsx'
 import Brands from './components/Brands.jsx'
 import Footer from './components/Footer.jsx'
 import WeddingCollection from './components/WeddingCollection.jsx'
+import Collections from './components/Collections.jsx'
+import ProductDetails from './components/ProductDetails.jsx'
+import ContactUs from './components/ContactUs.jsx'
+import CustomerReviews from './components/CustomerReviews.jsx'
+import FaqPage from './components/FaqPage.jsx'
+import { CartProvider } from './context/CartContext.jsx'
 
 function Home() {
   return (
@@ -24,15 +30,22 @@ function Home() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ivory">
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/collections/wedding" element={<WeddingCollection />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen bg-ivory">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/collections" element={<Collections />} />
+            <Route path="/collections/wedding" element={<WeddingCollection />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/reviews" element={<CustomerReviews />} />
+            <Route path="/faq" element={<FaqPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </CartProvider>
   )
 }

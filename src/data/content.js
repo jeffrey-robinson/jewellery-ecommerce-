@@ -127,3 +127,48 @@ export const brands = [
   'AURELIA',
   'CASCADE HOUSE',
 ]
+
+export const weddingProducts = [
+  {
+    id: 'w1',
+    name: 'Aura Leaf Bridal Choker',
+    category: 'Necklace',
+    price: 1850,
+    rating: 5,
+    tag: 'Signature Piece',
+    material: '22kt Solid Yellow Gold',
+    stones: '1.2ct Hand-cut Round Brilliant Diamonds',
+    weight: '34.5 grams',
+    description: 'A breathtaking handcrafted choker featuring cascading leaf motifs that drape elegantly against the collarbone. Hand-cut micro-facets catch and reflect ambient light, creating an ethereal glow perfect for your special day.',
+    img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=80',
+    features: ['Individually numbered certificate', 'Custom fit sizing included', 'Lifetime warranty']
+  },
+  {
+    id: 'w2',
+    name: 'Royal Heritage Filigree Kada',
+    category: 'Kada',
+    price: 1250,
+    rating: 5,
+    tag: 'Heritage Design',
+    material: '18kt Antique Brushed Gold',
+    stones: 'Uncut Polki Diamonds & Ruby Accents',
+    weight: '28.2 grams',
+    description: 'An open-work filigree bangle inspired by royal Indian craftsmanship. Finished with a delicate brushed-satin texture, this heritage Kada blends timeless traditions with a modern, lightweight structured silhouette.',
+    img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80',
+    features: ['Sizing safety lock mechanism', 'Custom engravings available', 'Heritage collection case']
+  },
+  {
+    id: 'w3',
+    name: 'Starlight Interlocking Link Bracelet',
+    category: 'Chain Bracelet',
+    price: 890,
+    rating: 5,
+    tag: 'Modern Classic',
+    material: '18kt Solid Yellow Gold',
+    stones: '0.75ct Micro-pave Solitaire Diamonds',
+    weight: '14.8 grams',
+    description: 'Bold interlocking gold chains adorned with round-cut starlight diamonds. Sleek, minimal, and structural, it represents an unbroken bond. Designed to stand alone or layer elegantly with other heirloom cuffs.',
+    img: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=80',
+    features: ['Reinforced security clasp', 'Adjustable link length', 'Premium velvet pouch']
+  }
+]
