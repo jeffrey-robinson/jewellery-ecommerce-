@@ -1,14 +1,36 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import { categories } from '../data/content.js'
 
 const colorThemes = {
   emerald: 'from-emerald/25 to-emerald/0 text-emerald-dark',
   ruby: 'from-ruby/25 to-ruby/0 text-ruby-dark',
   gold: 'from-gold/30 to-gold/0 text-gold-dark',
-  sapphire: 'from-sapphire/25 to-sapphire/0 text-sapphire',
 }
+
+const customCollections = [
+  {
+    name: 'Necklace',
+    count: '3 pieces',
+    color: 'ruby',
+    img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80',
+    href: '/product/w1'
+  },
+  {
+    name: 'Kada',
+    count: '3 pieces',
+    color: 'emerald',
+    img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80',
+    href: '/product/w2'
+  },
+  {
+    name: 'Chain Bracelet',
+    count: '3 pieces',
+    color: 'gold',
+    img: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=600&q=80',
+    href: '/product/w3'
+  }
+]
 
 export default function Collections() {
   useEffect(() => {
@@ -68,14 +90,14 @@ export default function Collections() {
             <p className="text-xs text-ink/50 mt-0.5">Explore pieces designed for clean, everyday light</p>
           </div>
           <span className="text-xs uppercase tracking-wider text-ink/40 font-semibold">
-            {categories.length} Categories
+            {customCollections.length} Categories
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((c) => (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {customCollections.map((c) => (
             <Link
-              to="/#products"
+              to={c.href}
               key={c.name}
               className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 shadow-sm hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
             >
