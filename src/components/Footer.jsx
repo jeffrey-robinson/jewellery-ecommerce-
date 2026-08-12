@@ -23,10 +23,11 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="relative inline-flex h-8 w-8 items-center justify-center">
-                <span className="absolute inset-0 bg-facet-gradient facet-badge" />
-              </span>
-              <span className="font-display text-2xl">JEM</span>
+              <img 
+                src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
+                alt="Brand Logo" 
+                className="h-10 w-auto object-contain rounded-md"
+              />
             </div>
             <p className="text-sm text-ivory/60 mt-4 max-w-xs leading-relaxed">
               Minimal jewellery, faceted by hand. Cut for everyday light.

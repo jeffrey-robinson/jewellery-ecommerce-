@@ -42,12 +42,13 @@ export default function Navbar() {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
             }} 
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2 group"
           >
-            <span className="relative inline-flex h-8 w-8 items-center justify-center">
-              <span className="absolute inset-0 bg-facet-gradient facet-badge group-hover:scale-110 transition-transform duration-300" />
-            </span>
-            <span className="font-display text-2xl tracking-tight text-ink">JEM</span>
+            <img 
+              src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
+              alt="Brand Logo" 
+              className="h-10 sm:h-12 w-auto object-contain hover:scale-[1.03] transition-transform duration-300 rounded-md"
+            />
           </Link>
 
           {/* Desktop links */}
