@@ -94,15 +94,15 @@ export default function ProductDetails() {
       </nav>
 
       {/* Main Layout */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 lg:gap-16">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 lg:gap-16 perspective-1000">
         
         {/* Left: Product Images Gallery */}
         <div className="flex flex-col gap-4">
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white border border-ink/5 group shadow-sm">
+          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white border border-ink/5 group premium-3d-card shadow-soft-3d">
             <img 
               src={selectedImage} 
               alt={product.name} 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out premium-3d-deep"
             />
             {product.tag && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-gold text-ink rounded-full">
@@ -128,7 +128,7 @@ export default function ProductDetails() {
         </div>
 
         {/* Right: Product Details & Purchase Actions */}
-        <div className="flex flex-col justify-between py-2">
+        <div className="flex flex-col justify-between py-2 premium-3d-inner">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-gold mb-1 inline-block">
               {product.category}
@@ -345,21 +345,21 @@ export default function ProductDetails() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
             {related.map((p) => (
               <Link
                 key={p.id}
                 to={`/product/${p.id}`}
-                className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:border-gold/20 transition-all duration-300 flex flex-col justify-between premium-3d-card shadow-soft-3d"
               >
-                <div className="aspect-[4/5] overflow-hidden bg-ivory">
+                <div className="aspect-[4/5] overflow-hidden bg-ivory premium-3d-deep shadow-sm">
                   <img
                     src={p.img}
                     alt={p.name}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
-                <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between border-t border-ink/5">
+                <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between border-t border-ink/5 premium-3d-inner">
                   <div>
                     <p className="text-[10px] uppercase tracking-wide text-ink/40">{p.category}</p>
                     <h3 className="font-display text-base text-ink mt-1 group-hover:text-gold transition-colors duration-300 min-h-[44px] leading-snug">{p.name}</h3>

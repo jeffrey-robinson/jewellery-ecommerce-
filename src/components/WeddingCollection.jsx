@@ -97,23 +97,23 @@ export default function WeddingCollection() {
           <span className="text-xs uppercase tracking-wider text-gold font-semibold">Heirloom Catalog</span>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
           {collectionHighlights.map((col) => (
             <div 
               key={col.id} 
-              className="group relative bg-white border border-ink/5 rounded-3xl overflow-hidden hover:shadow-soft hover:border-gold/30 transition-all duration-500 flex flex-col justify-between"
+              className="group relative bg-white border border-ink/5 hover:border-gold/20 rounded-3xl overflow-hidden premium-3d-card shadow-soft-3d transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-ivory relative">
+              <div className="aspect-[4/5] overflow-hidden bg-ivory relative premium-3d-deep shadow-sm">
                 <img 
                   src={col.img} 
                   alt={col.name} 
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
                   {col.category}
                 </span>
               </div>
-              <div className="p-6 flex flex-col items-start flex-grow">
+              <div className="p-6 flex flex-col items-start flex-grow premium-3d-inner">
                 <h3 className="font-display text-xl text-ink group-hover:text-gold transition-colors duration-300">
                   {col.name}
                 </h3>
@@ -122,7 +122,7 @@ export default function WeddingCollection() {
                 </p>
                 <Link 
                   to={`/product/${col.id}`}
-                  className="mt-6 px-5 py-2.5 rounded-full border border-ink/10 group-hover:border-gold group-hover:bg-gold group-hover:text-ink text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 active:scale-95 self-stretch justify-center"
+                  className="mt-6 px-5 py-2.5 rounded-full border border-ink/15 group-hover:border-gold group-hover:bg-gold group-hover:text-ink text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 hover:scale-102 active:scale-95 self-stretch justify-center"
                 >
                   Explore Collection <ArrowRight size={13} />
                 </Link>
@@ -140,7 +140,7 @@ export default function WeddingCollection() {
           <p className="text-xs text-ink/50 mt-1 font-body">Browse specifications, sizing options, and diamond grading details</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
           {weddingProducts.map((product) => {
             const isWishlisted = wishlist.includes(product.id)
             const isAdded = addedId === product.id
@@ -148,10 +148,10 @@ export default function WeddingCollection() {
             return (
               <div 
                 key={product.id} 
-                className="group relative flex flex-col bg-white border border-ink/5 hover:border-gold/30 hover:shadow-soft transition-all duration-500 rounded-2xl overflow-hidden"
+                className="group relative flex flex-col bg-white border border-ink/5 hover:border-gold/20 transition-all duration-500 rounded-2xl overflow-hidden premium-3d-card shadow-soft-3d"
               >
                 {/* Image Section */}
-                <div className="relative overflow-hidden aspect-[4/5] bg-ivory">
+                <div className="relative overflow-hidden aspect-[4/5] bg-ivory premium-3d-deep shadow-sm">
                   <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
                     {product.category}
                   </span>
@@ -173,14 +173,14 @@ export default function WeddingCollection() {
                     <button 
                       onClick={() => setSelectedProduct(product)}
                       aria-label="Quick View" 
-                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300"
+                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
                     >
                       <Eye size={18} />
                     </button>
                     <button 
                       onClick={() => handleAddToCart(product)}
                       aria-label="Add to Cart" 
-                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300"
+                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
                     >
                       <ShoppingBag size={18} />
                     </button>
@@ -188,7 +188,7 @@ export default function WeddingCollection() {
                 </div>
 
                 {/* Details Section */}
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col flex-grow premium-3d-inner">
                   <span className="text-[11px] font-semibold uppercase tracking-widest text-gold mb-1">
                     {product.material}
                   </span>

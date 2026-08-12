@@ -94,22 +94,22 @@ export default function Collections() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 perspective-1000">
           {customCollections.map((c) => (
             <Link
               to={c.href}
               key={c.name}
-              className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 shadow-sm hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
+              className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:border-gold/20 transition-all duration-500 flex flex-col justify-between premium-3d-card shadow-soft-3d"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${colorThemes[c.color]} opacity-70 z-10`} />
-              <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
+              <div className="relative aspect-[4/5] overflow-hidden bg-ivory premium-3d-deep shadow-sm">
                 <img
                   src={c.img}
                   alt={c.name}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="relative p-5 bg-white z-20 flex items-center justify-between border-t border-ink/5">
+              <div className="relative p-5 bg-white z-20 flex items-center justify-between border-t border-ink/5 premium-3d-inner">
                 <div>
                   <h3 className="font-display text-lg text-ink group-hover:text-gold transition-colors duration-300">{c.name}</h3>
                   <p className="text-xs text-ink/50 mt-0.5">{c.count}</p>

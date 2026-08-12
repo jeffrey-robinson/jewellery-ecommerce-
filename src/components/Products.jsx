@@ -53,11 +53,11 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
           {filtered.map((p) => (
             <article
               key={p.id}
-              className="group relative rounded-3xl overflow-hidden bg-ivory border border-ink/5 hover:shadow-soft transition-shadow duration-300 flex flex-col justify-between"
+              className="group relative rounded-3xl overflow-hidden bg-ivory border border-ink/5 hover:border-gold/20 transition-all duration-300 flex flex-col justify-between premium-3d-card shadow-soft-3d"
             >
               {p.tag && (
                 <span className={`absolute top-3 left-3 z-10 text-[10px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full ${tagStyle[p.tag]}`}>
@@ -66,23 +66,23 @@ export default function Products() {
               )}
               <button
                 aria-label="Add to wishlist"
-                className="absolute top-3 right-3 z-10 h-8 w-8 flex items-center justify-center rounded-full bg-white/90 text-ink/60 hover:text-ruby transition-colors shadow-sm"
+                className="absolute top-3 right-3 z-10 h-8 w-8 flex items-center justify-center rounded-full bg-white/90 text-ink/60 hover:text-ruby transition-colors shadow-sm hover:scale-105 active:scale-95 duration-200"
               >
                 <Heart size={15} />
               </button>
 
-              <Link to={`/product/${p.id}`} className="block overflow-hidden aspect-[4/5] bg-white">
+              <Link to={`/product/${p.id}`} className="block overflow-hidden aspect-[4/5] bg-white premium-3d-deep">
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </Link>
 
-              <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+              <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between premium-3d-inner">
                 <div>
                   <p className="text-[11px] uppercase tracking-wide text-ink/40">{p.category}</p>
-                  <Link to={`/product/${p.id}`} className="hover:text-gold transition-colors">
+                  <Link to={`/product/${p.id}`} className="hover:text-gold transition-colors block">
                     <h3 className="font-display text-base sm:text-lg text-ink mt-1 leading-snug">{p.name}</h3>
                   </Link>
 
@@ -103,7 +103,7 @@ export default function Products() {
                   <button
                     onClick={() => handleAddClick(p)}
                     aria-label={`Add ${p.name} to bag`}
-                    className="h-9 w-9 flex items-center justify-center rounded-full bg-ink text-ivory hover:bg-emerald-dark transition-all duration-300 active:scale-90"
+                    className="h-9 w-9 flex items-center justify-center rounded-full bg-ink text-ivory hover:bg-emerald-dark transition-all duration-300 hover:scale-105 active:scale-90"
                   >
                     {addedId === p.id ? <Check size={14} className="text-emerald-light" /> : <ShoppingBag size={15} />}
                   </button>
