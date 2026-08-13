@@ -4,6 +4,7 @@ import { Heart, ShoppingBag, Star, Check } from 'lucide-react'
 import { products } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
+import { formatPrice } from '../utils/currency.js'
 
 const filters = ['All', 'Necklace', 'Kada', 'Chain Bracelet']
 
@@ -98,9 +99,9 @@ export default function Products() {
 
                 <div className="flex items-center justify-between mt-4 border-t border-ink/5 pt-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-display text-lg text-ink">${p.price}</span>
+                    <span className="font-display text-lg text-ink">{formatPrice(p)}</span>
                     {p.oldPrice && (
-                      <span className="text-xs text-ink/40 line-through">${p.oldPrice}</span>
+                      <span className="text-xs text-ink/40 line-through">{formatPrice({ ...p, price: p.oldPrice })}</span>
                     )}
                   </div>
                   <button

@@ -27,7 +27,7 @@ export const products = [
     price: 329,
     oldPrice: 379,
     tag: 'Bestseller',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     category: 'Chain Bracelet',
     price: 279,
     tag: 'New',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -45,7 +45,7 @@ export const products = [
     category: 'Necklace',
     price: 259,
     tag: 'New',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -54,7 +54,7 @@ export const products = [
     category: 'Chain Bracelet',
     price: 199,
     oldPrice: 239,
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -63,7 +63,7 @@ export const products = [
     category: 'Necklace',
     price: 1850,
     tag: 'Signature',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -72,7 +72,7 @@ export const products = [
     category: 'Kada',
     price: 1250,
     tag: 'Heritage',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -81,7 +81,7 @@ export const products = [
     category: 'Chain Bracelet',
     price: 890,
     tag: 'Modern',
-    currency: '$',
+    currency: '₹',
     img: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80',
   },
   {

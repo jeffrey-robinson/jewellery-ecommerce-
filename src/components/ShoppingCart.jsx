@@ -240,7 +240,7 @@ export default function ShoppingCart() {
               <div className="mt-6 space-y-3 text-sm text-ink/60">
                 <div className="flex items-start gap-2">
                   <span className="text-gold text-lg leading-tight">✓</span>
-                  <span>Free shipping on orders over $100</span>
+                  <span>Free shipping on orders over ₹1,000</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gold text-lg leading-tight">✓</span>

@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight, Eye, ShoppingBag, X, Check, Heart, Shield, Refres
 import { weddingProducts } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import TiltCard from './TiltCard.jsx'
+import { formatPrice } from '../utils/currency.js'
 
 // Three main collection cards for the top spotlight sections
 const collectionHighlights = [
@@ -209,7 +210,7 @@ export default function WeddingCollection() {
 
                   <div className="flex items-center justify-between border-t border-ink/5 mt-6 pt-4">
                     <span className="font-display text-xl text-ink font-semibold">
-                      ${product.price.toLocaleString()}
+                      {formatPrice(product)}
                     </span>
                     
                     <button 
@@ -347,7 +348,7 @@ export default function WeddingCollection() {
 
               <div className="flex items-center gap-4 border-t border-ink/10 pt-6 mt-auto">
                 <div className="text-2xl font-display font-semibold text-ink">
-                  ${selectedProduct.price.toLocaleString()}
+                  {formatPrice(selectedProduct)}
                 </div>
                 <div className="flex-grow flex gap-2">
                   <button 
