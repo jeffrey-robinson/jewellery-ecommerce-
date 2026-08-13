@@ -3,7 +3,6 @@ import Navbar from './components/Navbar.jsx'
 import HomeShowcase from './components/HomeShowcase.jsx'
 import Footer from './components/Footer.jsx'
 import WeddingCollection from './components/WeddingCollection.jsx'
-import CustomJewelry from './components/CustomJewelry.jsx'
 import ProductCatalog from './components/ProductCatalog.jsx'
 import NecklaceCollection from './components/NecklaceCollection.jsx'
 import KadaCollection from './components/KadaCollection.jsx'
@@ -43,7 +42,6 @@ export default function App() {
             <Route element={<StoreLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/collections" element={<ProductCatalog />} />
-              <Route path="/custom-jewelry" element={<CustomJewelry />} />
               <Route path="/collections/wedding" element={<WeddingCollection />} />
               <Route path="/collections/necklace" element={<NecklaceCollection />} />
               <Route path="/collections/kada" element={<KadaCollection />} />
