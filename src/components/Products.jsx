@@ -5,6 +5,7 @@ import { products } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
 import { formatPrice } from '../utils/currency.js'
+import ProductImageCarousel from './ProductImageCarousel.jsx'
 
 const filters = ['All', 'Necklace', 'Kada', 'Chain Bracelet']
 
@@ -76,11 +77,7 @@ export default function Products() {
               </button>
 
               <Link to={`/product/${p.id}`} className="block overflow-hidden aspect-[4/5] bg-white premium-3d-deep">
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
+                <ProductImageCarousel images={p.images} alt={p.name} />
               </Link>
 
               <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between premium-3d-inner">

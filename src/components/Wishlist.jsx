@@ -61,7 +61,7 @@ export default function Wishlist() {
               {/* Image Container */}
               <div className="relative w-full h-64 bg-ivory overflow-hidden">
                 <img
-                  src={product.img}
+                  src={product.images[0]}
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

@@ -5,6 +5,7 @@ import { catalogProducts } from '../data/content.js'
 import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
+import ProductImageCarousel from './ProductImageCarousel.jsx'
 
 const categories = ['All', ...new Set(catalogProducts.map((product) => product.category))]
 
@@ -64,7 +65,7 @@ export default function ProductCatalog() {
       {visibleProducts.length ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {visibleProducts.map((product) => <article key={product.id} className="group overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
           <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
-            <Link to={`/product/${product.id}`}><img src={product.img} alt={product.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" /></Link>
+            <Link to={`/product/${product.id}`} className="block w-full h-full"><ProductImageCarousel images={product.images} alt={product.name} /></Link>
             <button onClick={() => isInWishlist(product.id) ? removeFromWishlist(product.id) : addToWishlist(product)} aria-label="Toggle wishlist" className={`absolute right-3 top-3 rounded-full p-2.5 shadow ${isInWishlist(product.id) ? 'bg-ruby text-white' : 'bg-white text-ink/70'}`}><Heart size={17} fill={isInWishlist(product.id) ? 'currentColor' : 'none'} /></button>
           </div>
           <div className="p-4"><p className="text-xs text-ink/45">{product.category}</p><Link to={`/product/${product.id}`} className="mt-1 block min-h-12 font-display text-lg leading-snug text-ink hover:text-gold">{product.name}</Link><div className="mt-4 flex items-center justify-between"><span className="font-semibold text-gold">{formatPrice(product)}</span><button onClick={() => addToCart(product)} className="inline-flex items-center gap-2 rounded-lg bg-ink px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-dark"><ShoppingBag size={15} /> Add</button></div></div>

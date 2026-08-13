@@ -5,6 +5,7 @@ import { catalogProducts } from '../data/content.js'
 import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
+import ProductImageCarousel from './ProductImageCarousel.jsx'
 
 export default function ProductDetails() {
   const { id } = useParams()
@@ -13,7 +14,7 @@ export default function ProductDetails() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
 
   const [product, setProduct] = useState(null)
-  const [selectedImage, setSelectedImage] = useState('')
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
   const [activeTab, setActiveTab] = useState('details')
@@ -24,7 +25,7 @@ export default function ProductDetails() {
     const found = catalogProducts.find((p) => String(p.id) === String(id))
     if (found) {
       setProduct(found)
-      setSelectedImage(found.img)
+      setActiveImageIndex(0)
       setQuantity(1)
     } else {
       // If product not found, redirect to collections
@@ -45,12 +46,8 @@ export default function ProductDetails() {
     )
   }
 
-  // Create mocked thumbnails of different angles using the primary image with different classes or overlays
-  const thumbnails = [
-    product.img,
-    product.img + '&sat=-50', // Mocked alternate angle (different saturation/filter)
-    product.img + '&blur=2',   // Mocked details view
-  ]
+  // Get valid thumbnails from the images array (up to 2 elements)
+  const thumbnails = product.images ? product.images.filter(img => img && img.trim() !== '') : []
 
   const handleShare = () => {
     if (navigator.share) {
@@ -100,10 +97,12 @@ export default function ProductDetails() {
         {/* Left: Product Images Gallery */}
         <div className="flex flex-col gap-4">
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white border border-ink/5 group premium-3d-card shadow-soft-3d">
-            <img 
-              src={selectedImage} 
+            <ProductImageCarousel 
+              images={product.images} 
               alt={product.name} 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out premium-3d-deep"
+              className="w-full h-full"
+              activeImageIndex={activeImageIndex}
+              onChangeIndex={(index) => setActiveImageIndex(index)}
             />
             {product.tag && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-gold text-ink rounded-full">
@@ -113,19 +112,21 @@ export default function ProductDetails() {
           </div>
 
           {/* Thumbnail Strip */}
-          <div className="flex items-center gap-3">
-            {thumbnails.map((thumb, index) => (
-              <button 
-                key={index}
-                onClick={() => setSelectedImage(thumb)}
-                className={`w-20 aspect-square rounded-xl overflow-hidden bg-white border transition-all ${
-                  selectedImage === thumb ? 'border-gold ring-2 ring-gold/20 scale-95' : 'border-ink/10 opacity-70 hover:opacity-100'
-                }`}
-              >
-                <img src={thumb} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
-              </button>
-            ))}
-          </div>
+          {thumbnails.length > 1 && (
+            <div className="flex items-center gap-3">
+              {thumbnails.map((thumb, index) => (
+                <button 
+                  key={index}
+                  onClick={() => setActiveImageIndex(index)}
+                  className={`w-20 aspect-square rounded-xl overflow-hidden bg-white border transition-all ${
+                    activeImageIndex === index ? 'border-gold ring-2 ring-gold/20 scale-95' : 'border-ink/10 opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <img src={thumb} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Right: Product Details & Purchase Actions */}
@@ -374,11 +375,7 @@ export default function ProductDetails() {
                 className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:border-gold/20 transition-all duration-300 flex flex-col justify-between premium-3d-card shadow-soft-3d"
               >
                 <div className="aspect-[4/5] overflow-hidden bg-ivory premium-3d-deep shadow-sm">
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
+                  <ProductImageCarousel images={p.images} alt={p.name} />
                 </div>
                 <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between border-t border-ink/5 premium-3d-inner">
                   <div>

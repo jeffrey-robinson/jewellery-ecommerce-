@@ -5,6 +5,7 @@ import { weddingProducts } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import TiltCard from './TiltCard.jsx'
 import { formatPrice } from '../utils/currency.js'
+import ProductImageCarousel from './ProductImageCarousel.jsx'
 
 // Three main collection cards for the top spotlight sections
 const collectionHighlights = [
@@ -169,10 +170,10 @@ export default function WeddingCollection() {
                     </span>
                   )}
 
-                  <img 
-                    src={product.img} 
+                  <ProductImageCarousel 
+                    images={product.images} 
                     alt={product.name} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full"
                   />
 
                   {/* Absolute overlay on Hover */}
@@ -301,10 +302,10 @@ export default function WeddingCollection() {
             </button>
 
             <div className="w-full md:w-1/2 aspect-square md:aspect-auto md:h-auto min-h-[300px] relative bg-ivory">
-              <img 
-                src={selectedProduct.img} 
+              <ProductImageCarousel 
+                images={selectedProduct.images} 
                 alt={selectedProduct.name} 
-                className="w-full h-full object-cover"
+                className="w-full h-full"
               />
             </div>
 

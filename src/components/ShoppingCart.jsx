@@ -86,7 +86,7 @@ export default function ShoppingCart() {
                   {/* Product Image */}
                   <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 bg-ivory rounded-lg overflow-hidden">
                     <img
-                      src={item.product.img}
+                      src={item.product.images[0]}
                       alt={item.product.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />

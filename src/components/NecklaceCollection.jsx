@@ -4,6 +4,7 @@ import { Sparkles, Eye, ShoppingBag, X, Check, Heart } from 'lucide-react'
 import { products } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import TiltCard from './TiltCard.jsx'
+import ProductImageCarousel from './ProductImageCarousel.jsx'
 
 export default function NecklaceCollection() {
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -89,10 +90,10 @@ export default function NecklaceCollection() {
                     </span>
                   )}
 
-                  <img 
-                    src={product.img} 
+                  <ProductImageCarousel 
+                    images={product.images} 
                     alt={product.name} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full"
                   />
 
                   {/* Wishlist Heart Button */}
@@ -190,7 +191,7 @@ export default function NecklaceCollection() {
 
             {/* Left side Image */}
             <div className="w-full md:w-1/2 aspect-square md:aspect-auto md:h-96 overflow-hidden bg-white">
-              <img src={selectedProduct.img} alt={selectedProduct.name} className="w-full h-full object-cover" />
+              <ProductImageCarousel images={selectedProduct.images} alt={selectedProduct.name} className="w-full h-full" />
             </div>
 
             {/* Right side Details */}
