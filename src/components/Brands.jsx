@@ -11,7 +11,7 @@ export default function Brands() {
           {brands.map((b) => (
             <span
               key={b}
-              className="font-display text-lg sm:text-xl tracking-wide text-ink/35 hover:text-ink/70 transition-colors cursor-default"
+              className="font-display text-lg sm:text-xl tracking-wide text-ink/35 hover:text-ink/70 hover:-translate-y-0.5 transition-all duration-300 cursor-default inline-block"
             >
               {b}
             </span>

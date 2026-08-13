@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Sparkles, ArrowRight, Eye, ShoppingBag, X, Check, Heart, Shield, RefreshCw, Truck } from 'lucide-react'
 import { weddingProducts } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
+import TiltCard from './TiltCard.jsx'
 
 // Three main collection cards for the top spotlight sections
 const collectionHighlights = [
@@ -63,9 +64,11 @@ export default function WeddingCollection() {
         <div className="absolute inset-0 z-0 opacity-45 bg-cover bg-center mix-blend-overlay"
              style={{ backgroundImage: `url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80')` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent z-10" />
-        
+        <div className="pointer-events-none absolute top-10 left-[8%] h-64 w-64 rounded-full bg-gold/15 blur-3xl animate-drift z-10" />
+        <div className="pointer-events-none absolute bottom-0 right-[10%] h-72 w-72 rounded-full bg-ruby/15 blur-3xl animate-drift-slow z-10" />
+
         <div className="relative z-20 text-center px-6 max-w-3xl mx-auto flex flex-col items-center">
-          <span className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold font-semibold mb-3">
+          <span className="glass-panel-dark flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold font-semibold mb-3 px-4 py-2 rounded-full">
             <Sparkles size={14} className="animate-spin duration-[3000ms]" /> Handcrafted Heirlooms <Sparkles size={14} className="animate-spin duration-[3000ms]" />
           </span>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-ivory tracking-tight leading-tight">
@@ -99,21 +102,23 @@ export default function WeddingCollection() {
 
         <div className="grid md:grid-cols-3 gap-8 perspective-1000">
           {collectionHighlights.map((col) => (
-            <div 
-              key={col.id} 
-              className="group relative bg-white border border-ink/5 hover:border-gold/20 rounded-3xl overflow-hidden premium-3d-card shadow-soft-3d transition-all duration-500 flex flex-col justify-between"
+            <TiltCard
+              key={col.id}
+              max={8}
+              className="group relative bg-white border border-ink/5 hover:border-gold/20 rounded-3xl overflow-hidden shadow-soft-3d transition-colors duration-500 flex flex-col justify-between"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-ivory relative premium-3d-deep shadow-sm">
+              <div className="aspect-[4/5] overflow-hidden bg-ivory relative tilt-layer-deep shadow-sm">
                 <img 
                   src={col.img} 
                   alt={col.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
                   {col.category}
                 </span>
               </div>
-              <div className="p-6 flex flex-col items-start flex-grow premium-3d-inner">
+              <div className="p-6 flex flex-col items-start flex-grow tilt-layer-inner">
                 <h3 className="font-display text-xl text-ink group-hover:text-gold transition-colors duration-300">
                   {col.name}
                 </h3>
@@ -127,7 +132,7 @@ export default function WeddingCollection() {
                   Explore Collection <ArrowRight size={13} />
                 </Link>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </section>
@@ -146,12 +151,13 @@ export default function WeddingCollection() {
             const isAdded = addedId === product.id
 
             return (
-              <div 
-                key={product.id} 
-                className="group relative flex flex-col bg-white border border-ink/5 hover:border-gold/20 transition-all duration-500 rounded-2xl overflow-hidden premium-3d-card shadow-soft-3d"
+              <TiltCard
+                key={product.id}
+                max={6}
+                className="group relative flex flex-col bg-white border border-ink/5 hover:border-gold/20 transition-colors duration-500 rounded-2xl overflow-hidden shadow-soft-3d"
               >
                 {/* Image Section */}
-                <div className="relative overflow-hidden aspect-[4/5] bg-ivory premium-3d-deep shadow-sm">
+                <div className="relative overflow-hidden aspect-[4/5] bg-ivory tilt-layer-deep shadow-sm">
                   <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
                     {product.category}
                   </span>
@@ -188,7 +194,7 @@ export default function WeddingCollection() {
                 </div>
 
                 {/* Details Section */}
-                <div className="p-6 flex flex-col flex-grow premium-3d-inner">
+                <div className="p-6 flex flex-col flex-grow tilt-layer-inner">
                   <span className="text-[11px] font-semibold uppercase tracking-widest text-gold mb-1">
                     {product.material}
                   </span>
@@ -222,17 +228,18 @@ export default function WeddingCollection() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             )
           })}
         </div>
       </section>
 
       {/* Trust Badges - Brand Promise */}
-      <section className="bg-ink text-ivory py-16 mt-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid sm:grid-cols-3 gap-8 text-center">
+      <section className="relative bg-ink text-ivory py-16 mt-24 overflow-hidden">
+        <div className="pointer-events-none absolute -top-16 left-1/4 h-56 w-56 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid sm:grid-cols-3 gap-8 text-center relative z-10">
           <div className="flex flex-col items-center p-4">
-            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4">
+            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4 animate-float-soft">
               <Shield size={20} />
             </div>
             <h4 className="font-display text-lg mb-2">Lifetime Authenticity</h4>
@@ -241,7 +248,7 @@ export default function WeddingCollection() {
             </p>
           </div>
           <div className="flex flex-col items-center p-4">
-            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4">
+            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4 animate-float-soft" style={{ animationDelay: '0.6s' }}>
               <Truck size={20} />
             </div>
             <h4 className="font-display text-lg mb-2">Secure Insured Delivery</h4>
@@ -250,7 +257,7 @@ export default function WeddingCollection() {
             </p>
           </div>
           <div className="flex flex-col items-center p-4">
-            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4">
+            <div className="h-12 w-12 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-4 animate-float-soft" style={{ animationDelay: '1.2s' }}>
               <RefreshCw size={20} />
             </div>
             <h4 className="font-display text-lg mb-2">Complimentary Resizing</h4>
@@ -263,7 +270,8 @@ export default function WeddingCollection() {
 
       {/* CTA Section */}
       <section className="max-w-5xl mx-auto px-5 sm:px-8 mt-24">
-        <div className="bg-white rounded-3xl p-8 sm:p-16 border border-ink/5 shadow-soft text-center flex flex-col items-center">
+        <div className="relative bg-white rounded-3xl p-8 sm:p-16 border border-ink/5 shadow-soft-3d text-center flex flex-col items-center overflow-hidden">
+          <div className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full bg-gold/10 blur-3xl animate-drift" />
           <span className="text-[10px] font-bold tracking-[0.2em] text-gold uppercase mb-2">Private Atelier Review</span>
           <h2 className="font-display text-3xl sm:text-4xl text-ink max-w-lg mb-4">
             Bespoke Consultation

@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Star, Shield, Truck, RefreshCw, ShoppingBag, Heart, Share2, Plus, Minus, Check, ChevronRight } from 'lucide-react'
-import { products, weddingProducts } from '../data/content.js'
+import { catalogProducts } from '../data/content.js'
+import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
+import { useWishlist } from '../context/WishlistContext.jsx'
 
 export default function ProductDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { addToCart } = useCart()
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
 
   const [product, setProduct] = useState(null)
   const [selectedImage, setSelectedImage] = useState('')
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
-  const [wishlisted, setWishlisted] = useState(false)
   const [activeTab, setActiveTab] = useState('details')
   const [copied, setCopied] = useState(false)
 
   // Load product details
   useEffect(() => {
-    const allProducts = [...products, ...weddingProducts]
-    const found = allProducts.find((p) => String(p.id) === String(id))
+    const found = catalogProducts.find((p) => String(p.id) === String(id))
     if (found) {
       setProduct(found)
       setSelectedImage(found.img)
@@ -72,7 +73,7 @@ export default function ProductDetails() {
   }
 
   // Filter out the current product from related products
-  const related = products
+  const related = catalogProducts
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4)
 
@@ -131,7 +132,7 @@ export default function ProductDetails() {
         <div className="flex flex-col justify-between py-2 premium-3d-inner">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-gold mb-1 inline-block">
-              {product.category}
+              {product.category} {product.code && `• Code: ${product.code}`}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight">
               {product.name}
@@ -150,11 +151,11 @@ export default function ProductDetails() {
             {/* Pricing */}
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-display text-3xl text-ink font-semibold">
-                ${product.price.toLocaleString()}
+                {formatPrice(product)}
               </span>
               {product.oldPrice && (
                 <span className="text-lg text-ink/40 line-through">
-                  ${product.oldPrice.toLocaleString()}
+                  {formatPrice({ ...product, price: product.oldPrice })}
                 </span>
               )}
               <span className="text-xs uppercase tracking-wide px-2.5 py-0.5 border border-emerald-dark/20 text-emerald-dark rounded bg-emerald/5 ml-2 font-medium">
@@ -166,6 +167,20 @@ export default function ProductDetails() {
             <p className="text-sm text-ink/75 leading-relaxed font-body mb-8">
               {product.description || 'A timeless representation of meticulous handcraft. Meticulously faceted to mirror natural light, this signature piece represents JEM\'s commitment to lightweight structures and luxury minimal style.'}
             </p>
+
+            {/* Colors */}
+            {product.colors && (
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-xs font-semibold tracking-wider text-ink/50 uppercase">Available Colours</span>
+                <div className="flex gap-2">
+                  {product.colors.map((color) => (
+                    <span key={color} className="px-3 py-1 text-xs border border-ink/10 rounded-full font-body bg-white text-ink/80">
+                      {color}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Quantity Selector */}
             <div className="flex items-center gap-4 mb-8">
@@ -209,7 +224,7 @@ export default function ProductDetails() {
               <button 
                 onClick={() => {
                   addToCart(product, quantity)
-                  navigate('/collections')
+                  navigate('/cart')
                 }}
                 className="flex-grow py-4 px-8 rounded-full bg-gold hover:bg-gold-light text-ink text-sm font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-2 active:scale-95 duration-100 shadow-sm"
               >
@@ -218,15 +233,21 @@ export default function ProductDetails() {
 
               <div className="flex gap-2 justify-center sm:justify-start">
                 <button 
-                  onClick={() => setWishlisted(!wishlisted)}
+                  onClick={() => {
+                    if (isInWishlist(product.id)) {
+                      removeFromWishlist(product.id)
+                    } else {
+                      addToWishlist(product)
+                    }
+                  }}
                   className={`p-4 rounded-full border transition-all ${
-                    wishlisted 
+                    isInWishlist(product.id)
                       ? 'border-ruby bg-ruby/10 text-ruby' 
                       : 'border-ink/10 hover:border-ruby hover:text-ruby text-ink/60'
                   }`}
                   aria-label="Add to Wishlist"
                 >
-                  <Heart size={16} fill={wishlisted ? 'currentColor' : 'none'} />
+                  <Heart size={16} fill={isInWishlist(product.id) ? 'currentColor' : 'none'} />
                 </button>
                 
                 <button 
@@ -365,7 +386,7 @@ export default function ProductDetails() {
                     <h3 className="font-display text-base text-ink mt-1 group-hover:text-gold transition-colors duration-300 min-h-[44px] leading-snug">{p.name}</h3>
                   </div>
                   <div className="flex items-center justify-between mt-4">
-                    <span className="font-display text-base text-ink font-semibold">${p.price}</span>
+                    <span className="font-display text-base text-ink font-semibold">{formatPrice(p)}</span>
                     <span className="text-[10px] uppercase tracking-wider font-bold text-gold flex items-center gap-0.5">
                       View details <ChevronRight size={10} />
                     </span>

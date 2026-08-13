@@ -17,8 +17,10 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-ivory">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10">
+    <footer className="relative bg-ink text-ivory overflow-hidden">
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      <div className="pointer-events-none absolute -bottom-24 right-0 h-64 w-64 rounded-full bg-gold/5 blur-3xl animate-drift-slow" />
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10">
         <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
           {/* Brand + newsletter */}
           <div>
@@ -37,7 +39,7 @@ export default function Footer() {
               <label htmlFor="newsletter" className="text-xs uppercase tracking-wide text-ivory/50">
                 Join the list
               </label>
-              <div className="mt-2 flex items-center bg-white/10 rounded-full pl-4 pr-1.5 py-1.5 focus-within:ring-1 focus-within:ring-gold">
+              <div className="mt-2 flex items-center glass-panel-dark rounded-full pl-4 pr-1.5 py-1.5 focus-within:ring-1 focus-within:ring-gold transition-shadow">
                 <Mail size={15} className="text-ivory/50 shrink-0" />
                 <input
                   id="newsletter"

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { Heart, ShoppingBag, Star, Check } from 'lucide-react'
 import { products } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
+import { useWishlist } from '../context/WishlistContext.jsx'
 
-const filters = ['All', 'Rings', 'Necklaces', 'Earrings', 'Bracelets']
+const filters = ['All', 'Necklace', 'Kada', 'Chain Bracelet']
 
 const tagStyle = {
   Bestseller: 'bg-gold/15 text-gold-dark',
@@ -14,6 +15,7 @@ const tagStyle = {
 export default function Products() {
   const [active, setActive] = useState('All')
   const { addToCart } = useCart()
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
   const [addedId, setAddedId] = useState(null)
 
   const filtered = useMemo(
@@ -65,10 +67,11 @@ export default function Products() {
                 </span>
               )}
               <button
+                onClick={() => isInWishlist(p.id) ? removeFromWishlist(p.id) : addToWishlist(p)}
                 aria-label="Add to wishlist"
                 className="absolute top-3 right-3 z-10 h-8 w-8 flex items-center justify-center rounded-full bg-white/90 text-ink/60 hover:text-ruby transition-colors shadow-sm hover:scale-105 active:scale-95 duration-200"
               >
-                <Heart size={15} />
+                <Heart size={15} fill={isInWishlist(p.id) ? 'currentColor' : 'none'} className={isInWishlist(p.id) ? 'text-ruby' : ''} />
               </button>
 
               <Link to={`/product/${p.id}`} className="block overflow-hidden aspect-[4/5] bg-white premium-3d-deep">

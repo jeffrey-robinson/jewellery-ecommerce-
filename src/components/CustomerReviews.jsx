@@ -57,6 +57,7 @@ export default function CustomerReviews() {
       {/* Reviews Hero */}
       <section className="bg-ink text-ivory py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="pointer-events-none absolute -top-20 -right-10 h-72 w-72 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
             Testimonials
@@ -72,7 +73,7 @@ export default function CustomerReviews() {
 
       {/* Ratings Metrics Overview */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft grid md:grid-cols-[1fr_1.5fr] gap-10 items-center">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft-3d grid md:grid-cols-[1fr_1.5fr] gap-10 items-center">
           {/* Average Rating Card */}
           <div className="text-center md:border-r border-ink/10 md:pr-10 py-4 flex flex-col items-center">
             <span className="text-xs font-semibold tracking-wider text-ink/40 uppercase">Average Rating</span>
@@ -117,11 +118,11 @@ export default function CustomerReviews() {
         </div>
 
         {/* Masonry or Card Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
           {expandedReviews.map((rev) => (
             <div 
               key={rev.id} 
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 shadow-sm hover:shadow-soft hover:border-gold/25 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 hover:border-gold/25 premium-3d-card shadow-soft-3d transition-colors duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Header: User avatar + info */}
@@ -170,8 +171,9 @@ export default function CustomerReviews() {
 
       {/* Share Review CTA Banner */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-24">
-        <div className="bg-ink text-ivory rounded-3xl p-8 sm:p-12 border border-gold/15 shadow-soft relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="bg-ink text-ivory rounded-3xl p-8 sm:p-12 border border-gold/15 shadow-soft-3d relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:32px_32px] opacity-5 pointer-events-none" />
+          <div className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-gold/10 blur-3xl animate-drift" />
           <div className="relative z-10 max-w-lg">
             <h3 className="font-display text-2xl sm:text-3xl tracking-tight mb-3">
               Share Your JEM Story

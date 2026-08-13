@@ -124,3 +124,143 @@ button:focus-visible {
     0 20px 40px -15px rgba(31, 26, 43, 0.15),
     0 0 0 1px rgba(31, 26, 43, 0.02);
 }
+
+/* --- GLASS / LUXURY POLISH LAYER --- */
+
+/* Frosted glass panel used for chips, nav, floating cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(31, 26, 43, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gentle ambient float, slower/subtler than the card float — for hero blobs & badges */
+@keyframes float-soft {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+.animate-float-soft {
+  animation: float-soft 6.5s ease-in-out infinite;
+}
+
+/* Slow ambient drift for background glow orbs (parallax-ish, no scroll JS needed) */
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -22px, 0) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+.animate-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+.animate-drift-slow {
+  animation: drift 20s ease-in-out infinite;
+}
+
+/* Shimmer sweep — used on gold accents / buttons for a premium light-catch */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+.shimmer-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: shimmer-sweep 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Soft pulsing glow ring, used to draw the eye to premium badges */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.35); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 162, 39, 0); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
+/* Interactive mouse-tracking 3D tilt (JS-driven via useTilt hook).
+   The hook sets --rx / --ry / --mx / --my custom properties on the element. */
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  transform: perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+  transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.tilt-card.tilt-idle {
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Glare sheen that follows the cursor across a tilt-card */
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.55), transparent 55%);
+  transition: opacity 0.4s ease;
+  mix-blend-mode: overlay;
+}
+.tilt-card:hover .tilt-glare {
+  opacity: 1;
+}
+
+/* Lifted elevation + richer shadow while tilting */
+.tilt-card:hover {
+  box-shadow:
+    0 30px 60px -20px rgba(31, 26, 43, 0.28),
+    0 0 0 1px rgba(201, 162, 39, 0.18),
+    0 10px 20px -10px rgba(201, 162, 39, 0.12);
+}
+
+/* Elevate inner content on the Z-axis to sell the depth illusion */
+.tilt-layer-deep {
+  transform: translateZ(40px);
+  transition: transform 0.15s ease-out;
+}
+.tilt-layer-inner {
+  transform: translateZ(22px);
+  transition: transform 0.15s ease-out;
+}
+
+@media (hover: none) {
+  .tilt-card {
+    transform: none !important;
+  }
+  .tilt-glare {
+    display: none;
+  }
+}
+
+/* Scroll Reveal Animations */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-element.active-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}

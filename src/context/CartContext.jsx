@@ -4,8 +4,13 @@ const CartContext = createContext()
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState(() => {
-    const saved = localStorage.getItem('jem_cart')
-    return saved ? JSON.parse(saved) : []
+    try {
+      const saved = localStorage.getItem('jem_cart')
+      const parsed = saved ? JSON.parse(saved) : []
+      return Array.isArray(parsed) ? parsed.filter((item) => item?.product?.id && Number(item.quantity) > 0) : []
+    } catch {
+      return []
+    }
   })
 
   useEffect(() => {
@@ -13,11 +18,12 @@ export function CartProvider({ children }) {
   }, [cart])
 
   const addToCart = (product, quantity = 1) => {
+    if (!product?.id || quantity < 1) return
     setCart((prev) => {
-      const existing = prev.find((item) => item.product.id === product.id)
+      const existing = prev.find((item) => String(item.product.id) === String(product.id))
       if (existing) {
         return prev.map((item) =>
-          item.product.id === product.id
+          String(item.product.id) === String(product.id)
             ? { ...item, quantity: item.quantity + quantity }
             : item
         )
@@ -33,13 +39,13 @@ export function CartProvider({ children }) {
     }
     setCart((prev) =>
       prev.map((item) =>
-        item.product.id === productId ? { ...item, quantity } : item
+        String(item.product.id) === String(productId) ? { ...item, quantity } : item
       )
     )
   }
 
   const removeFromCart = (productId) => {
-    setCart((prev) => prev.filter((item) => item.product.id !== productId))
+    setCart((prev) => prev.filter((item) => String(item.product.id) !== String(productId)))
   }
 
   const clearCart = () => {

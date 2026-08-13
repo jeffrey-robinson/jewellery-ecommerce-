@@ -9,11 +9,11 @@ export default function Reviews() {
         <h2 className="font-display text-3xl sm:text-4xl text-ink mt-3">What our circle is saying.</h2>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6 perspective-1000">
         {reviews.map((r) => (
           <figure
             key={r.id}
-            className="relative bg-white rounded-3xl border border-ink/5 p-7 shadow-sm hover:shadow-soft transition-shadow duration-300"
+            className="relative bg-white rounded-3xl border border-ink/5 p-7 premium-3d-card shadow-soft-3d transition-colors duration-300"
           >
             <Quote size={28} className="text-emerald/25 mb-3" />
             <blockquote className="text-ink/75 text-sm leading-relaxed">

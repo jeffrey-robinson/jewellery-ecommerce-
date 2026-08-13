@@ -60,6 +60,7 @@ export default function FaqPage() {
       {/* FAQ Hero */}
       <section className="bg-ink text-ivory py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
             Support Center
@@ -92,8 +93,8 @@ export default function FaqPage() {
                 key={index} 
                 className={`bg-white rounded-2xl border transition-all duration-300 ${
                   isOpen 
-                    ? 'border-gold/40 shadow-soft ring-1 ring-gold/10' 
-                    : 'border-ink/5 hover:border-ink/15 shadow-sm'
+                    ? 'border-gold/40 shadow-soft-3d ring-1 ring-gold/10' 
+                    : 'border-ink/5 hover:border-ink/15 shadow-sm hover:shadow-soft-3d'
                 }`}
               >
                 {/* Accordion Trigger */}
@@ -130,7 +131,7 @@ export default function FaqPage() {
 
       {/* Still Need Help CTA */}
       <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 shadow-sm text-center flex flex-col items-center">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 shadow-soft-3d text-center flex flex-col items-center">
           <h3 className="font-display text-xl mb-2">Still have questions?</h3>
           <p className="text-xs text-ink/50 max-w-sm font-body leading-relaxed mb-6">
             If you cannot find the answer to your specific query, please contact our concierge team.

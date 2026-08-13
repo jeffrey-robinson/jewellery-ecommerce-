@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Mail, Phone, MapPin, Clock, Send, Check, Sparkles, Instagram, Facebook, Twitter } from 'lucide-react'
+import { Phone, MapPin, Send, Check, Sparkles, Instagram, Facebook, Twitter } from 'lucide-react'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    message: ''
+    phone: ''
   })
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -22,7 +21,7 @@ export default function ContactUs() {
     setTimeout(() => {
       setSubmitting(false)
       setSubmitted(true)
-      setFormData({ name: '', email: '', phone: '', message: '' })
+      setFormData({ name: '', email: '', phone: '' })
       setTimeout(() => setSubmitted(false), 5000)
     }, 1500)
   }
@@ -36,6 +35,7 @@ export default function ContactUs() {
       {/* Contact Hero */}
       <section className="bg-ink text-ivory py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-emerald/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
             Get in touch
@@ -66,19 +66,13 @@ export default function ContactUs() {
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-1">Telephone</h4>
-                <p className="text-sm font-medium text-ink">+1 (800) 456-JEWEL</p>
-                <p className="text-xs text-ink/50 font-body mt-0.5">Mon - Fri, 9am - 6pm EST</p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center text-gold shrink-0 bg-white shadow-sm">
-                <Mail size={16} />
-              </div>
-              <div>
-                <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-1">Direct Email</h4>
-                <p className="text-sm font-medium text-ink">concierge@jem-jewellery.com</p>
-                <p className="text-xs text-ink/50 font-body mt-0.5">We respond within 24 business hours</p>
+                <a 
+                  href="tel:9677727260" 
+                  className="text-sm font-medium text-ink hover:text-gold transition-colors"
+                >
+                  +91 96777 27260
+                </a>
+                <p className="text-xs text-ink/50 font-body mt-0.5">Mon - Sat, 9am - 7pm IST</p>
               </div>
             </div>
 
@@ -88,19 +82,26 @@ export default function ContactUs() {
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-1">Our Flagship Location</h4>
-                <p className="text-sm font-medium text-ink">Fifth Avenue Atelier, Suite 402</p>
-                <p className="text-xs text-ink/50 font-body mt-0.5">730 Fifth Avenue, New York, NY 10019</p>
+                <p className="text-sm font-medium text-ink">Angeripalayam</p>
+                <p className="text-xs text-ink/50 font-body mt-0.5">Tirupur, Tamil Nadu, India</p>
               </div>
             </div>
 
             <div className="flex gap-4">
               <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center text-gold shrink-0 bg-white shadow-sm">
-                <Clock size={16} />
+                <Instagram size={16} />
               </div>
               <div>
-                <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-1">Atelier Hours</h4>
-                <p className="text-sm font-medium text-ink">Private Appointments Only</p>
-                <p className="text-xs text-ink/50 font-body mt-0.5">Tuesday - Saturday: 10am - 7pm</p>
+                <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-1">Instagram Page</h4>
+                <a 
+                  href="https://www.instagram.com/jem_minimal_jewellery?igsh=MXFyMDRnampkZTNsZA==&igsi=MXFyMDRnampkZTNsZA==" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sm font-medium text-ink hover:text-gold transition-colors break-all"
+                >
+                  @jem_minimal_jewellery
+                </a>
+                <p className="text-xs text-ink/50 font-body mt-0.5">Follow for daily curation & stories</p>
               </div>
             </div>
           </div>
@@ -110,7 +111,7 @@ export default function ContactUs() {
             <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-4">Follow the Studio</h4>
             <div className="flex gap-3">
               {[
-                { Icon: Instagram, link: 'https://instagram.com' },
+                { Icon: Instagram, link: 'https://www.instagram.com/jem_minimal_jewellery?igsh=MXFyMDRnampkZTNsZA==&igsi=MXFyMDRnampkZTNsZA==' },
                 { Icon: Facebook, link: 'https://facebook.com' },
                 { Icon: Twitter, link: 'https://twitter.com' }
               ].map((item, i) => (
@@ -130,10 +131,10 @@ export default function ContactUs() {
         </div>
 
         {/* Right: Contact Form */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft-3d">
           <div className="mb-8">
             <h2 className="font-display text-2xl text-ink">Send an Inquiry</h2>
-            <p className="text-xs text-ink/50 mt-1 font-body">Bespoke sizing, customized gold selection, or general feedback</p>
+            <p className="text-xs text-ink/50 mt-1 font-body">Submit your details and our studio will reach out to you</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -146,7 +147,7 @@ export default function ContactUs() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Jeffrey Robinson"
+                  placeholder="Enter your name"
                   className="w-full bg-ivory/50 border border-ink/10 rounded-lg px-4 py-3 text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-ink"
                 />
               </div>
@@ -158,41 +159,29 @@ export default function ContactUs() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="jeffrey@email.com"
+                  placeholder="Enter your email address"
                   className="w-full bg-ivory/50 border border-ink/10 rounded-lg px-4 py-3 text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-ink"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="phone" className="text-[10px] font-semibold uppercase tracking-wider text-ink/50">Phone Number (Optional)</label>
+              <label htmlFor="phone" className="text-[10px] font-semibold uppercase tracking-wider text-ink/50">Phone Number</label>
               <input 
                 type="tel" 
                 id="phone" 
+                required
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+1 (555) 019-2834"
+                placeholder="Enter your phone number"
                 className="w-full bg-ivory/50 border border-ink/10 rounded-lg px-4 py-3 text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-ink"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-[10px] font-semibold uppercase tracking-wider text-ink/50">Message / Inquiry Details</label>
-              <textarea 
-                id="message" 
-                rows="5" 
-                required
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Details of your request (e.g. customized ring band sizes, special packaging requirements...)"
-                className="w-full bg-ivory/50 border border-ink/10 rounded-lg px-4 py-3 text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-ink resize-none"
               />
             </div>
 
             {submitted && (
               <div className="flex items-center gap-2 text-xs text-emerald font-semibold p-4 bg-emerald/5 border border-emerald/20 rounded-lg">
                 <Check size={16} />
-                <span>Thank you! Your inquiry was sent successfully. We will email you shortly.</span>
+                <span>Thank you! Your information was submitted successfully. We will reach out shortly.</span>
               </div>
             )}
 
@@ -242,16 +231,17 @@ export default function ContactUs() {
             <span className="flex items-center gap-1 text-[9px] uppercase tracking-widest text-gold font-bold mb-1">
               <Sparkles size={10} /> Visit Us
             </span>
-            <h3 className="font-display text-lg text-ink font-semibold">JEM NYC Atelier</h3>
+            <h3 className="font-display text-lg text-ink font-semibold">JEM Atelier</h3>
             <p className="text-xs text-ink/70 font-body leading-relaxed mt-2">
-              730 Fifth Avenue, NY 10019 • Suite 402<br />
-              Contact us at concierge@jem-jewellery.com to request an appointment.
+            Angeripalayam, Tirupur<br />
+            Tamil Nadu, India • Pin Code: 641603<br />
+            Contact us at +91 96777 27260 to request an appointment.
             </p>
           </div>
 
           {/* Coordinate Watermark */}
           <div className="absolute top-6 right-8 text-[10px] tracking-widest text-gold/30 font-mono hide-xs select-none">
-            40.7614° N, 73.9752° W
+            11.1085° N, 77.3411° E
           </div>
         </div>
       </section>

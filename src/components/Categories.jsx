@@ -21,23 +21,23 @@ export default function Categories() {
         </a>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 perspective-1000">
         {categories.map((c) => (
           <a
             href="#products"
             key={c.name}
-            className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 shadow-sm hover:shadow-soft transition-all duration-300"
+            className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 premium-3d-card shadow-soft-3d transition-colors duration-300"
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${ring[c.color]} opacity-70`} />
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className={`absolute inset-0 bg-gradient-to-br ${ring[c.color]} opacity-70 z-10`} />
+            <div className="relative aspect-[3/4] overflow-hidden premium-3d-deep">
               <img
                 src={c.img}
                 alt={c.name}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="relative p-4 sm:p-5 bg-white">
-              <h3 className="font-display text-lg text-ink">{c.name}</h3>
+            <div className="relative p-4 sm:p-5 bg-white premium-3d-inner">
+              <h3 className="font-display text-lg text-ink group-hover:text-gold-dark transition-colors duration-300">{c.name}</h3>
               <p className="text-xs text-ink/50 mt-0.5">{c.count}</p>
             </div>
           </a>
