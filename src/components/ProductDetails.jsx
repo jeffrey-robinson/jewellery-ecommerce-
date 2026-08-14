@@ -99,7 +99,7 @@ export default function ProductDetails() {
       </nav>
 
       {/* Main Layout */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 lg:gap-16 perspective-1000">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 lg:gap-16 perspective-1000 reveal-element">
         
         {/* Left: Product Images Gallery */}
         <div className="flex flex-col gap-4">

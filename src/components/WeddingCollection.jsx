@@ -88,7 +88,7 @@ export default function WeddingCollection() {
           <span className="text-xs uppercase tracking-wider text-gold font-semibold">Heirloom Catalog</span>
         </div>
 
-        <div className="grid md:grid-cols-1 max-w-md mx-auto gap-8 perspective-1000">
+        <div className="grid md:grid-cols-1 max-w-md mx-auto gap-8 perspective-1000 reveal-element">
           {collectionHighlights.map((col) => (
             <TiltCard
               key={col.id}
@@ -133,7 +133,7 @@ export default function WeddingCollection() {
           <p className="text-xs text-ink/50 mt-1 font-body">Browse specifications, sizing options, and diamond grading details</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
+        <div className="grid md:grid-cols-3 gap-8 perspective-1000 reveal-element">
           {weddingProducts.map((product) => {
             const isWishlisted = wishlist.includes(product.id)
             const isAdded = addedId === product.id

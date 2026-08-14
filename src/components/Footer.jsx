@@ -28,7 +28,7 @@ export default function Footer() {
               <img 
                 src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
                 alt="Brand Logo" 
-                className="h-10 w-auto object-contain rounded-md"
+                className="h-10 w-10 object-cover rounded-full shadow-sm"
               />
             </div>
             <p className="text-sm text-ivory/60 mt-4 max-w-xs leading-relaxed">

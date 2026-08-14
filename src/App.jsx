@@ -1,4 +1,5 @@
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
+import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
 import HomeShowcase from './components/HomeShowcase.jsx'
 import Footer from './components/Footer.jsx'
@@ -25,6 +26,32 @@ function Home() {
 }
 
 function StoreLayout() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active-reveal')
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.reveal-element')
+      elements.forEach((el) => observer.observe(el))
+    }, 200)
+
+    return () => {
+      clearTimeout(timer)
+      const elements = document.querySelectorAll('.reveal-element')
+      elements.forEach((el) => observer.unobserve(el))
+    }
+  }, [location.pathname])
+
   return <div className="min-h-screen bg-ivory"><Navbar /><main><Outlet /></main><Footer /></div>
 }
 

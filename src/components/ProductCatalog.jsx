@@ -55,7 +55,7 @@ export default function ProductCatalog() {
 
   return <section className="min-h-screen bg-gradient-to-b from-ivory to-white py-10 sm:py-16">
     <div className="max-w-7xl mx-auto px-5 sm:px-8">
-      <div className="max-w-2xl mb-8">
+      <div className="max-w-2xl mb-8 reveal-element">
         <p className="text-xs font-semibold tracking-[.2em] text-gold uppercase">JEM collection</p>
         <h1 className="font-display text-4xl sm:text-5xl text-ink mt-3">Find your signature piece.</h1>
         <div className="relative mt-6">
@@ -65,12 +65,12 @@ export default function ProductCatalog() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-8" aria-label="Product categories">
+      <div className="flex flex-wrap gap-2 mb-8 reveal-element" aria-label="Product categories">
         {categories.map((item) => <button key={item} onClick={() => updateCategory(item)} className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${category === item ? 'bg-ink text-white' : 'bg-white border border-ink/10 text-ink/65 hover:border-gold'}`}>{formatCategoryDisplay(item)}</button>)}
       </div>
       <p className="mb-5 text-sm text-ink/55">{visibleProducts.length} {visibleProducts.length === 1 ? 'piece' : 'pieces'} found</p>
 
-      {visibleProducts.length ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {visibleProducts.length ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 reveal-element">
         {visibleProducts.map((product) => <article key={product.id} className="group overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
           <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
             <Link to={`/product/${product.id}`} className="block w-full h-full"><ProductImageCarousel images={product.images} alt={product.name} /></Link>

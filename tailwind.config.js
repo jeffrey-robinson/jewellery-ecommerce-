@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#FFFBF5',
-        ink: '#2D1F1D',
+        ivory: '#FFFDF9',
+        ink: '#1F1A2B',
         emerald: {
           DEFAULT: '#D8B168',
           light: '#F3E2C4',
@@ -29,7 +29,7 @@ export default {
           light: '#F29C85',
           dark: '#BC4B32',
         },
-        blush: '#FFFBF5',
+        blush: '#FBF9F6',
         sapphire: '#BC4B32',
       },
       fontFamily: {

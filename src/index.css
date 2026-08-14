@@ -129,10 +129,11 @@ button:focus-visible {
 
 /* Frosted glass panel used for chips, nav, floating cards */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #1F1A2B !important;
 }
 
 .glass-panel-dark {

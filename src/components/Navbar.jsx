@@ -44,7 +44,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 glass-panel shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#F4F0FE]/95 backdrop-blur-md border-b border-[#E1D8FD]/75 shadow-sm text-ink">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -60,7 +60,7 @@ export default function Navbar() {
             <img 
               src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
               alt="Brand Logo" 
-              className="h-10 sm:h-12 w-auto object-contain hover:scale-[1.03] transition-transform duration-300 rounded-md shadow-sm"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-cover hover:scale-[1.03] transition-transform duration-300 rounded-full"
             />
           </Link>
 
