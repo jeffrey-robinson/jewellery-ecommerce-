@@ -21,7 +21,7 @@ export default function OfferBanner() {
 
         <a
           href="/collections"
-          className="shimmer-wrap group inline-flex items-center gap-2 bg-white text-ink px-8 py-4 rounded-full font-medium text-sm hover:bg-[#E57347] hover:text-white transition-colors duration-300 shrink-0 shadow-deep-3d hover:-translate-y-0.5 duration-300"
+          className="shimmer-wrap group inline-flex items-center gap-2 bg-white text-ink px-8 py-4 rounded-full font-medium text-sm hover:bg-[#D97706] hover:text-white transition-colors duration-300 shrink-0 shadow-deep-3d hover:-translate-y-0.5 duration-300"
         >
           Claim the Offer
           <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

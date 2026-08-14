@@ -216,7 +216,7 @@ export default function ProductDetails() {
             <div className="flex flex-col sm:flex-row gap-3 border-t border-ink/10 pt-8 mb-8">
               <button 
                 onClick={handleAddToCartClick}
-                className="flex-grow py-4 px-8 rounded-full bg-gradient-to-r from-[#FF7A45] to-[#E57347] hover:opacity-95 text-white text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2 active:scale-95 duration-100 shadow-sm"
+                className="flex-grow py-4 px-8 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:opacity-95 text-white text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2 active:scale-95 duration-100 shadow-sm"
               >
                 {added ? (
                   <>
@@ -234,7 +234,7 @@ export default function ProductDetails() {
                   addToCart(product, quantity)
                   navigate('/cart')
                 }}
-                className="flex-grow py-4 px-8 rounded-full bg-gradient-to-r from-[#FFB347] to-[#FF7A45] hover:opacity-95 text-white text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2 active:scale-95 duration-100 shadow-sm"
+                className="flex-grow py-4 px-8 rounded-full bg-gradient-to-r from-[#FCD34D] to-[#F59E0B] hover:opacity-95 text-white text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2 active:scale-95 duration-100 shadow-sm"
               >
                 Buy Now
               </button>
@@ -260,7 +260,7 @@ export default function ProductDetails() {
                 
                 <button 
                   onClick={handleShare}
-                  className={`p-4 rounded-full border border-ink/10 hover:border-[#E57347] hover:text-[#E57347] text-ink/60 transition-all relative`}
+                  className={`p-4 rounded-full border border-ink/10 hover:border-[#D97706] hover:text-[#D97706] text-ink/60 transition-all relative`}
                   aria-label="Share Product"
                 >
                   <Share2 size={16} />
@@ -280,7 +280,7 @@ export default function ProductDetails() {
               <button 
                 onClick={() => setActiveTab('details')}
                 className={`pb-2 border-b-2 transition-all ${
-                  activeTab === 'details' ? 'border-[#E57347] text-ink font-semibold' : 'border-transparent text-ink/40'
+                  activeTab === 'details' ? 'border-[#D97706] text-ink font-semibold' : 'border-transparent text-ink/40'
                 }`}
               >
                 Specifications
@@ -288,7 +288,7 @@ export default function ProductDetails() {
               <button 
                 onClick={() => setActiveTab('shipping')}
                 className={`pb-2 border-b-2 transition-all ${
-                  activeTab === 'shipping' ? 'border-[#E57347] text-ink font-semibold' : 'border-transparent text-ink/40'
+                  activeTab === 'shipping' ? 'border-[#D97706] text-ink font-semibold' : 'border-transparent text-ink/40'
                 }`}
               >
                 Delivery & Packaging
@@ -323,11 +323,11 @@ export default function ProductDetails() {
             ) : (
               <div className="space-y-4 text-xs text-ink/85 leading-relaxed font-body">
                 <p className="flex items-start gap-2">
-                  <Truck size={14} className="text-[#E57347] shrink-0 mt-0.5" />
+                  <Truck size={14} className="text-[#D97706] shrink-0 mt-0.5" />
                   <span>Complimentary insured shipping on all orders. Dispatch occurs within 24-48 hours (standard orders) or 4-5 weeks (bespoke/wedding collection).</span>
                 </p>
                 <p className="flex items-start gap-2">
-                  <Shield size={14} className="text-[#E57347] shrink-0 mt-0.5" />
+                  <Shield size={14} className="text-[#D97706] shrink-0 mt-0.5" />
                   <span>Shipped in our signature JEM leather-lined display box along with a certificate of precious metal authenticity.</span>
                 </p>
               </div>
@@ -339,7 +339,7 @@ export default function ProductDetails() {
       {/* Trust Badges */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 sm:grid-cols-3 gap-8 py-16 border-t border-ink/10 mt-20">
         <div className="flex items-center gap-4">
-          <div className="h-10 w-10 rounded-full border border-[#E57347]/30 flex items-center justify-center text-[#E57347] shrink-0">
+          <div className="h-10 w-10 rounded-full border border-[#D97706]/30 flex items-center justify-center text-[#D97706] shrink-0">
             <Shield size={16} />
           </div>
           <div>
@@ -348,7 +348,7 @@ export default function ProductDetails() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="h-10 w-10 rounded-full border border-[#E57347]/30 flex items-center justify-center text-[#E57347] shrink-0">
+          <div className="h-10 w-10 rounded-full border border-[#D97706]/30 flex items-center justify-center text-[#D97706] shrink-0">
             <Truck size={16} />
           </div>
           <div>
@@ -357,7 +357,7 @@ export default function ProductDetails() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="h-10 w-10 rounded-full border border-[#E57347]/30 flex items-center justify-center text-[#E57347] shrink-0">
+          <div className="h-10 w-10 rounded-full border border-[#D97706]/30 flex items-center justify-center text-[#D97706] shrink-0">
             <RefreshCw size={16} />
           </div>
           <div>
@@ -372,10 +372,10 @@ export default function ProductDetails() {
         <section className="max-w-7xl mx-auto px-5 sm:px-8 border-t border-ink/10 pt-16 mt-6">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <span className="text-xs font-semibold tracking-wider text-[#E57347] uppercase">Recommendation</span>
+              <span className="text-xs font-semibold tracking-wider text-[#D97706] uppercase">Recommendation</span>
               <h2 className="font-display text-2xl text-ink mt-2">Complete the Look</h2>
             </div>
-            <Link to="/collections" className="text-xs uppercase tracking-wider font-semibold text-[#E57347] hover:text-[#E57347]/80 transition-colors">
+            <Link to="/collections" className="text-xs uppercase tracking-wider font-semibold text-[#D97706] hover:text-[#D97706]/80 transition-colors">
               Explore All
             </Link>
           </div>
@@ -385,7 +385,7 @@ export default function ProductDetails() {
               <Link
                 key={p.id}
                 to={`/product/${p.id}`}
-                className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:border-[#E57347]/20 transition-all duration-300 flex flex-col justify-between premium-3d-card shadow-soft-3d"
+                className="group relative rounded-3xl overflow-hidden bg-white border border-ink/5 hover:border-[#D97706]/20 transition-all duration-300 flex flex-col justify-between premium-3d-card shadow-soft-3d"
               >
                 <div className="aspect-[4/5] overflow-hidden bg-ivory premium-3d-deep shadow-sm">
                   <ProductImageCarousel images={p.images} alt={p.name} />
@@ -393,11 +393,11 @@ export default function ProductDetails() {
                 <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between border-t border-ink/5 premium-3d-inner">
                   <div>
                     <p className="text-[10px] uppercase tracking-wide text-ink/40">{p.category}</p>
-                    <h3 className="font-display text-base text-ink mt-1 group-hover:text-[#E57347] transition-colors duration-300 min-h-[44px] leading-snug">{p.name}</h3>
+                    <h3 className="font-display text-base text-ink mt-1 group-hover:text-[#D97706] transition-colors duration-300 min-h-[44px] leading-snug">{p.name}</h3>
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <span className="font-display text-base text-ink font-semibold">{formatPrice(p)}</span>
-                    <span className="text-[10px] uppercase tracking-wider font-bold text-[#E57347] flex items-center gap-0.5">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-[#D97706] flex items-center gap-0.5">
                       View details <ChevronRight size={10} />
                     </span>
                   </div>

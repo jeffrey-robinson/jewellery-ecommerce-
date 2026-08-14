@@ -54,22 +54,22 @@ export default function HomeShowcase() {
           
           <div className="h-[1px] w-24 bg-gradient-to-r from-gold to-transparent" />
 
-          {/* Fancy Golden Orange Feature Card (Black text) */}
-          <div className="w-full max-w-md bg-gradient-to-br from-[#FFF8F3] via-[#FFF0E6] to-[#FFE5D4] rounded-3xl p-7 border border-[#FDBA74]/35 shadow-soft-3d space-y-5">
-            <h3 className="font-display text-xl text-black font-semibold italic border-b border-black/10 pb-3 tracking-wide">
+          {/* Fancy White Feature Card (Black/Ink text) */}
+          <div className="w-full max-w-md bg-white rounded-3xl p-7 border border-ink/5 shadow-soft-3d space-y-5">
+            <h3 className="font-display text-xl text-ink font-semibold italic border-b border-ink/10 pb-3 tracking-wide">
               Product Guarantee
             </h3>
             <ul className="space-y-4 font-display">
-              <li className="flex items-center gap-3 text-sm text-black font-medium tracking-wide">
+              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
                 <span className="text-lg">✨</span> 100% Anti-Tarnish
               </li>
-              <li className="flex items-center gap-3 text-sm text-black font-medium tracking-wide">
+              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
                 <span className="text-lg">💧</span> Water & Sweat Resistant
               </li>
-              <li className="flex items-center gap-3 text-sm text-black font-medium tracking-wide">
+              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
                 <span className="text-lg">🌸</span> Hypoallergenic
               </li>
-              <li className="flex items-center gap-3 text-sm text-black font-medium tracking-wide">
+              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
                 <span className="text-lg">🚚</span> Fast Shipping Across India
               </li>
             </ul>
@@ -103,10 +103,10 @@ export default function HomeShowcase() {
             Hand-faceted gemstone droplets set on high-purity tarnish-resistant chains. Designed carefully to mirror natural drapes and add effortless, long-lasting sparkle.
           </p>
 
-          {/* Only one Shop Now button styled with Orange gradient */}
+          {/* Only one Shop Now button styled with Amber gradient */}
           <Link 
             to="/shop" 
-            className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 shadow-deep-3d hover:-translate-y-0.5 hover:shadow-lg hover:scale-[1.01]"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 shadow-deep-3d hover:-translate-y-0.5 hover:shadow-lg hover:scale-[1.01]"
           >
             Shop Now
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

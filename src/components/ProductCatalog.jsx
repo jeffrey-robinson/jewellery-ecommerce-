@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Heart, Search, ShoppingBag, X } from 'lucide-react'
+import { Search, X, Heart, ShoppingBag } from 'lucide-react'
 import { catalogProducts } from '../data/content.js'
 import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
@@ -14,49 +14,50 @@ const formatCategoryDisplay = (cat) => {
   return cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase()
 }
 
-const categories = ['necklace', 'kada', 'bracelet']
-
 export default function ProductCatalog() {
-  const [params, setParams] = useSearchParams()
-  const [query, setQuery] = useState(params.get('q') || '')
-  const [category, setCategory] = useState(params.get('category') || 'necklace')
+  const [searchParams] = useSearchParams()
+  const initialQuery = searchParams.get('q') || ''
+  
+  const [category, setCategory] = useState('necklace')
+  const [query, setQuery] = useState(initialQuery)
   const { addToCart } = useCart()
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
 
   useEffect(() => {
-    setQuery(params.get('q') || '')
-    setCategory(params.get('category') || 'necklace')
-  }, [params])
+    window.scrollTo(0, 0)
+  }, [])
 
-  const visibleProducts = useMemo(() => {
+  useEffect(() => {
+    const q = searchParams.get('q') || ''
+    setQuery(q)
+  }, [searchParams])
+
+  const categories = ['necklace', 'kada', 'bracelet', 'wedding']
+
+  const updateSearch = (val) => {
+    setQuery(val)
+  }
+
+  const updateCategory = (val) => {
+    setCategory(val)
+  }
+
+  const visibleProducts = catalogProducts.filter((product) => {
     const term = query.trim().toLowerCase()
-    return catalogProducts.filter((product) =>
-      (product.category?.toLowerCase() === category?.toLowerCase()) &&
-      (!term || [product.name, product.category, product.code].filter(Boolean).some((field) => field.toLowerCase().includes(term)))
-    )
-  }, [category, query])
-
-  const updateSearch = (value) => {
-    setQuery(value)
-    const next = new URLSearchParams()
-    if (value) next.set('q', value)
-    next.set('category', category)
-    setParams(next, { replace: true })
-  }
-
-  const updateCategory = (value) => {
-    setCategory(value)
-    const next = new URLSearchParams()
-    if (query) next.set('q', query)
-    next.set('category', value)
-    setParams(next, { replace: true })
-  }
+    const matchesQuery = term
+      ? product.name.toLowerCase().includes(term) ||
+        product.category.toLowerCase().includes(term) ||
+        (product.code && product.code.toLowerCase().includes(term))
+      : true
+    const matchesCategory = product.category.toLowerCase() === category.toLowerCase()
+    return matchesQuery && matchesCategory
+  })
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-ivory to-white py-10 sm:py-16">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="max-w-2xl mb-8 reveal-element">
-          <p className="text-xs font-semibold tracking-[.2em] text-gold uppercase">JEM collection</p>
+    <section className="bg-ivory min-h-screen pb-20 pt-8 text-ink">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mb-10 max-w-2xl reveal-element">
+          <span className="text-xs font-semibold uppercase tracking-widest text-gold">Handmade jewelry</span>
           <h1 className="font-display text-4xl sm:text-5xl text-ink mt-3">Find your signature piece.</h1>
           <div className="relative mt-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/45" size={20} />
@@ -72,8 +73,8 @@ export default function ProductCatalog() {
               onClick={() => updateCategory(item)} 
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 category === item 
-                  ? 'bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white shadow-sm' 
-                  : 'bg-white border border-ink/10 text-ink/65 hover:border-[#E57347] hover:text-[#E57347]'
+                  ? 'bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white shadow-sm' 
+                  : 'bg-white border border-ink/10 text-ink/65 hover:border-[#D97706] hover:text-[#D97706]'
               }`}
             >
               {formatCategoryDisplay(item)}
@@ -102,7 +103,7 @@ export default function ProductCatalog() {
                 </div>
                 <div className="p-4">
                   <p className="text-xs text-ink/45">{formatCategoryDisplay(product.category)}</p>
-                  <Link to={`/product/${product.id}`} className="mt-1 block min-h-12 font-display text-lg leading-snug text-ink hover:text-[#E57347]">
+                  <Link to={`/product/${product.id}`} className="mt-1 block min-h-12 font-display text-lg leading-snug text-ink hover:text-[#D97706]">
                     {product.name}
                   </Link>
                   {product.code && (
@@ -112,7 +113,7 @@ export default function ProductCatalog() {
                     <span className="font-semibold text-gold">{formatPrice(product)}</span>
                     <button 
                       onClick={() => addToCart(product)} 
-                      className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#FF7A45] to-[#E57347] px-3 py-2 text-xs font-semibold text-white hover:opacity-95 transition-all shadow-sm"
+                      className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#F59E0B] to-[#D97706] px-3 py-2 text-xs font-semibold text-white hover:opacity-95 transition-all shadow-sm"
                     >
                       <ShoppingBag size={15} /> Add
                     </button>
@@ -124,7 +125,7 @@ export default function ProductCatalog() {
         ) : (
           <div className="rounded-2xl border border-dashed border-ink/20 bg-white p-14 text-center">
             <p className="font-display text-2xl text-ink">No pieces match that search.</p>
-            <button onClick={() => { updateSearch(''); updateCategory('necklace') }} className="mt-4 text-sm font-semibold text-[#E57347] hover:underline">
+            <button onClick={() => { updateSearch(''); updateCategory('necklace') }} className="mt-4 text-sm font-semibold text-[#D97706] hover:underline">
               Reset filters
             </button>
           </div>

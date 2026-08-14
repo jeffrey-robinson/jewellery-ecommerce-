@@ -107,7 +107,7 @@ export default function FaqPage() {
                     {faq.question}
                   </span>
                   <div className={`h-7 w-7 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                    isOpen ? 'border-[#E57347] text-[#E57347] bg-[#E57347]/5' : 'border-ink/10 text-ink/65 hover:border-[#E57347]'
+                    isOpen ? 'border-[#D97706] text-[#D97706] bg-[#D97706]/5' : 'border-ink/10 text-ink/65 hover:border-[#D97706]'
                   }`}>
                     {isOpen ? <Minus size={14} /> : <Plus size={14} />}
                   </div>
@@ -139,13 +139,13 @@ export default function FaqPage() {
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
             <a 
               href="mailto:concierge@jem-jewellery.com" 
-              className="px-5 py-3 rounded-full border border-[#E57347]/30 hover:border-[#E57347] hover:text-[#E57347] text-[#E57347] text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5 font-body"
+              className="px-5 py-3 rounded-full border border-[#D97706]/30 hover:border-[#D97706] hover:text-[#D97706] text-[#D97706] text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5 font-body"
             >
               <Mail size={13} /> Email Concierge
             </a>
             <a 
               href="/contact" 
-              className="px-5 py-3 rounded-full bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5 font-body hover:opacity-95 shadow-sm"
+              className="px-5 py-3 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5 font-body hover:opacity-95 shadow-sm"
             >
               Contact Atelier <ArrowRight size={13} />
             </a>

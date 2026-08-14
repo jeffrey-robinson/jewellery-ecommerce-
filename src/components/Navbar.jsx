@@ -71,8 +71,8 @@ export default function Navbar() {
                 key={l.name}
                 to={l.href}
                 onClick={(e) => handleLinkClick(e, l.href)}
-                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#FF8C69] after:transition-all hover:after:w-full ${
-                  location.pathname === l.href ? 'text-[#FF8C69] font-semibold after:w-full' : 'text-white/80 hover:text-white'
+                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#D97706] after:transition-all hover:after:w-full ${
+                  location.pathname === l.href ? 'text-[#D97706] font-semibold after:w-full' : 'text-white hover:text-[#D97706]'
                 }`}
               >
                 {l.name}
@@ -82,13 +82,13 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/80 hover:text-white">
+            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-white">
               <Search size={19} />
             </button>
             <Link 
               to="/wishlist" 
               aria-label="Wishlist" 
-              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/80 hover:text-white"
+              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D97706]"
               title="My Wishlist"
             >
               <Heart size={19} />
@@ -99,7 +99,7 @@ export default function Navbar() {
             <Link 
               to="/cart" 
               aria-label="Cart" 
-              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/80 hover:text-white"
+              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D97706]"
               title="Shopping Cart"
             >
               <ShoppingBag size={19} />
@@ -136,13 +136,13 @@ export default function Navbar() {
               to={l.href} 
               onClick={(e) => handleLinkClick(e, l.href)} 
               className={`text-base font-medium transition-colors ${
-                location.pathname === l.href ? 'text-[#FF8C69] font-semibold' : 'text-white/80 hover:text-white'
+                location.pathname === l.href ? 'text-[#D97706] font-semibold' : 'text-white hover:text-[#D97706]'
               }`}
             >
               {l.name}
             </Link>
           ))}
-          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-white/80 hover:text-white">Admin</Link>
+          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-white hover:text-[#D97706]">Admin</Link>
         </nav>
       )}
     </header>

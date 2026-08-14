@@ -189,7 +189,7 @@ export default function ContactUs() {
             <button 
               type="submit" 
               disabled={submitting}
-              className="w-full py-4 rounded-full bg-gradient-to-r from-[#FF7A45] to-[#E57347] hover:opacity-95 text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50 shadow-sm"
+              className="w-full py-4 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:opacity-95 text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50 shadow-sm"
             >
               {submitting ? (
                 <span className="h-4 w-4 border-2 border-white border-t-transparent animate-spin rounded-full inline-block" />

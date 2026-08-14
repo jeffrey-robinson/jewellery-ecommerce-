@@ -122,7 +122,7 @@ export default function CustomerReviews() {
           {expandedReviews.map((rev) => (
             <div 
               key={rev.id} 
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 hover:border-[#E57347]/25 premium-3d-card shadow-soft-3d transition-colors duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 hover:border-[#D97706]/25 premium-3d-card shadow-soft-3d transition-colors duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Header: User avatar + info */}
@@ -184,7 +184,7 @@ export default function CustomerReviews() {
           </div>
           <button 
             onClick={() => window.location.href = '/contact'}
-            className="relative z-10 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FF7A45] to-[#E57347] hover:opacity-95 text-white text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-2 shrink-0 active:scale-95 duration-100 shadow-sm"
+            className="relative z-10 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:opacity-95 text-white text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-2 shrink-0 active:scale-95 duration-100 shadow-sm"
           >
             Submit a Review <Edit3 size={13} />
           </button>

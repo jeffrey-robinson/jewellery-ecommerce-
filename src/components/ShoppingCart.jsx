@@ -52,7 +52,7 @@ export default function ShoppingCart() {
             <p className="text-ink/60 text-lg mb-8">Add some beautiful jewelry to get started!</p>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white rounded-lg hover:opacity-95 transition-colors font-semibold shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white rounded-lg hover:opacity-95 transition-colors font-semibold shadow-sm"
             >
               Continue Shopping
               <ArrowRight size={20} />
@@ -97,12 +97,12 @@ export default function ShoppingCart() {
                     <div>
                       <Link
                         to={`/product/${item.product.id}`}
-                        className="text-lg font-semibold text-ink hover:text-[#E57347] transition-colors line-clamp-2"
+                        className="text-lg font-semibold text-ink hover:text-[#D97706] transition-colors line-clamp-2"
                       >
                         {item.product.name}
                       </Link>
                       <p className="text-ink/60 text-sm mt-1">{item.product.category}</p>
-                      <p className="text-[#E57347] font-bold text-lg mt-2">
+                      <p className="text-[#D97706] font-bold text-lg mt-2">
                         {formatPrice(item.product, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </p>
                     </div>
@@ -123,7 +123,7 @@ export default function ShoppingCart() {
 
                       <button
                         onClick={() => removeFromCart(item.product.id)}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 text-sm rounded-lg hover:bg-[#E57347]/10 text-[#E57347] transition-colors ml-auto"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 text-sm rounded-lg hover:bg-[#D97706]/10 text-[#D97706] transition-colors ml-auto"
                       >
                         <Trash2 size={16} />
                         <span className="hidden sm:inline">Remove</span>
@@ -163,7 +163,7 @@ export default function ShoppingCart() {
             <div className="mt-6">
               <Link
                 to="/collections"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-ivory text-[#E57347] border border-[#E57347] rounded-lg hover:bg-[#E57347]/10 transition-colors font-semibold"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-ivory text-[#D97706] border border-[#D97706] rounded-lg hover:bg-[#D97706]/10 transition-colors font-semibold"
               >
                 <ArrowRight size={20} className="transform rotate-180" />
                 Continue Shopping
@@ -197,7 +197,7 @@ export default function ShoppingCart() {
 
                 <div className="border-t border-ink/10 pt-3 flex justify-between text-lg font-bold text-ink">
                   <span>Total</span>
-                  <span className="text-[#E57347]">{formatAmount(total, summaryCurrency)}</span>
+                  <span className="text-[#D97706]">{formatAmount(total, summaryCurrency)}</span>
                 </div>
               </div>
 
@@ -216,22 +216,22 @@ export default function ShoppingCart() {
                   />
                   <button
                     onClick={handleApplyCoupon}
-                    className="px-3 py-2 bg-ivory text-[#E57347] rounded-lg hover:bg-[#E57347]/10 transition-colors font-semibold text-sm whitespace-nowrap"
+                    className="px-3 py-2 bg-ivory text-[#D97706] rounded-lg hover:bg-[#D97706]/10 transition-colors font-semibold text-sm whitespace-nowrap"
                   >
                     Apply
                   </button>
                 </div>
-                <p className={`mt-2 text-xs ${couponMessage.includes('not valid') ? 'text-[#E57347]' : 'text-ink/60'}`}>{couponMessage || 'Try code: SAVE10'}</p>
+                <p className={`mt-2 text-xs ${couponMessage.includes('not valid') ? 'text-[#D97706]' : 'text-ink/60'}`}>{couponMessage || 'Try code: SAVE10'}</p>
               </div>
 
               {/* Checkout Button */}
-              <button className="w-full py-3 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white rounded-lg font-bold hover:shadow-lg transition-all duration-300 mb-3">
+              <button className="w-full py-3 bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white rounded-lg font-bold hover:shadow-lg transition-all duration-300 mb-3">
                 Proceed to Checkout
               </button>
 
               <button
                 onClick={clearCart}
-                className="w-full py-2 border border-[#E57347] text-[#E57347] rounded-lg font-semibold hover:bg-[#E57347]/5 transition-colors"
+                className="w-full py-2 border border-[#D97706] text-[#D97706] rounded-lg font-semibold hover:bg-[#D97706]/5 transition-colors"
               >
                 Clear Cart
               </button>
@@ -239,15 +239,15 @@ export default function ShoppingCart() {
               {/* Additional Info */}
               <div className="mt-6 space-y-3 text-sm text-ink/60">
                 <div className="flex items-start gap-2">
-                  <span className="text-[#E57347] text-lg leading-tight">✓</span>
+                  <span className="text-[#D97706] text-lg leading-tight">✓</span>
                   <span>Free shipping on orders over ₹1,000</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#E57347] text-lg leading-tight">✓</span>
+                  <span className="text-[#D97706] text-lg leading-tight">✓</span>
                   <span>30-day money-back guarantee</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#E57347] text-lg leading-tight">✓</span>
+                  <span className="text-[#D97706] text-lg leading-tight">✓</span>
                   <span>Secure checkout with SSL encryption</span>
                 </div>
               </div>
