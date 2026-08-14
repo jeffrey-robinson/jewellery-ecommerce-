@@ -32,7 +32,7 @@ export default function ProductCatalog() {
     setQuery(q)
   }, [searchParams])
 
-  const categories = ['necklace', 'kada', 'bracelet', 'wedding']
+  const categories = ['necklace', 'kada', 'bracelet']
 
   const updateSearch = (val) => {
     setQuery(val)
