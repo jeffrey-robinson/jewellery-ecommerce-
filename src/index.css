@@ -388,7 +388,7 @@ button:focus-visible {
     0 0 0 1.5px rgba(216, 177, 104, 0.35);
 }
 
-/* Global ivory background color override for white-purple-orange gradient theme */
+/* Global ivory background color override for light yellow-orange gradient theme */
 .bg-ivory {
-  background: linear-gradient(135deg, #FFFDF9 0%, #F3EEFF 50%, #FFF4ED 100%) !important;
+  background: linear-gradient(135deg, #FFFDF0 0%, #FFF8E7 50%, #FFEBE0 100%) !important;
 }

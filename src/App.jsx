@@ -68,6 +68,7 @@ export default function App() {
           <Routes>
             <Route element={<StoreLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<ProductCatalog />} />
               <Route path="/collections" element={<ProductCatalog />} />
               <Route path="/collections/wedding" element={<WeddingCollection />} />
               <Route path="/collections/necklace" element={<NecklaceCollection />} />

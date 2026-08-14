@@ -44,7 +44,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F4F0FE]/95 backdrop-blur-md border-b border-[#E1D8FD]/75 shadow-sm text-ink">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[#FF8C69] via-[#E2B755] to-[#8C5835] backdrop-blur-md border-b border-black/10 shadow-sm text-black">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -60,7 +60,7 @@ export default function Navbar() {
             <img 
               src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
               alt="Brand Logo" 
-              className="h-10 w-10 sm:h-12 sm:w-12 object-cover hover:scale-[1.03] transition-transform duration-300 rounded-full"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-cover hover:scale-[1.03] transition-transform duration-300 rounded-full border border-black/10"
             />
           </Link>
 
@@ -71,8 +71,8 @@ export default function Navbar() {
                 key={l.name}
                 to={l.href}
                 onClick={(e) => handleLinkClick(e, l.href)}
-                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gold after:transition-all hover:after:w-full ${
-                  location.pathname === l.href ? 'text-gold font-semibold after:w-full' : 'text-ink/70 hover:text-emerald'
+                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full ${
+                  location.pathname === l.href ? 'text-black font-semibold after:w-full' : 'text-black/80 hover:text-black'
                 }`}
               >
                 {l.name}
@@ -82,13 +82,13 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-ink/5 transition-colors text-ink/70 hover:text-ink">
+            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-black/10 transition-colors text-black/80 hover:text-black">
               <Search size={19} />
             </button>
             <Link 
               to="/wishlist" 
               aria-label="Wishlist" 
-              className="relative inline-flex p-2 rounded-full hover:bg-ink/5 transition-colors text-ink/70 hover:text-ink"
+              className="relative inline-flex p-2 rounded-full hover:bg-black/10 transition-colors text-black/80 hover:text-black"
               title="My Wishlist"
             >
               <Heart size={19} />
@@ -99,7 +99,7 @@ export default function Navbar() {
             <Link 
               to="/cart" 
               aria-label="Cart" 
-              className="relative inline-flex p-2 rounded-full hover:bg-ink/5 transition-colors text-ink/70 hover:text-ink"
+              className="relative inline-flex p-2 rounded-full hover:bg-black/10 transition-colors text-black/80 hover:text-black"
               title="Shopping Cart"
             >
               <ShoppingBag size={19} />
@@ -110,7 +110,7 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="lg:hidden p-2 rounded-full hover:bg-ink/5 transition-colors text-ink/80"
+              className="lg:hidden p-2 rounded-full hover:bg-black/10 transition-colors text-black/85"
             >
               {open ? <X size={21} /> : <Menu size={21} />}
             </button>
@@ -118,24 +118,31 @@ export default function Navbar() {
         </div>
       </div>
 
-      {searchOpen && <form onSubmit={submitSearch} className="border-t border-ink/10 bg-white/95 px-5 py-3"><div className="relative mx-auto max-w-3xl"><Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink/45" /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the collection" className="w-full rounded-xl border border-ink/10 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-gold" /></div></form>}
+      {searchOpen && (
+        <form onSubmit={submitSearch} className="border-t border-black/10 bg-white/95 px-5 py-3">
+          <div className="relative mx-auto max-w-3xl">
+            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink/45" />
+            <input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the collection" className="w-full rounded-xl border border-ink/10 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-gold" />
+          </div>
+        </form>
+      )}
 
       {/* Mobile menu */}
       {open && (
-        <nav className="lg:hidden border-t border-ink/10 glass-panel px-5 py-4 flex flex-col gap-4">
+        <nav className="lg:hidden border-t border-black/10 glass-panel px-5 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link 
               key={l.name} 
               to={l.href} 
               onClick={(e) => handleLinkClick(e, l.href)} 
               className={`text-base font-medium transition-colors ${
-                location.pathname === l.href ? 'text-gold font-semibold' : 'text-ink/80 hover:text-emerald'
+                location.pathname === l.href ? 'text-black font-semibold' : 'text-black/80 hover:text-black'
               }`}
             >
               {l.name}
             </Link>
           ))}
-          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-ink/80 hover:text-emerald">Admin</Link>
+          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-black/80 hover:text-black">Admin</Link>
         </nav>
       )}
     </header>
