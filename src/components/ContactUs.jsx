@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Send, Check, Phone, MapPin, Sparkles, Instagram } from 'lucide-react'
+import { Send, Check, Phone, MapPin, Sparkles, Instagram, Gem } from 'lucide-react'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -43,7 +43,16 @@ export default function ContactUs() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
             Contact JEM
           </h1>
-          <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
+          <div className="flex items-center justify-center gap-2 text-gold mt-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
+          
+          <p className="mt-6 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
             Whether inquiring about custom bridal bands, sizing, or tracking an heirloom, our studio is here to assist you.
           </p>
         </div>

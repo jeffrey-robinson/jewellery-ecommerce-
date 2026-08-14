@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Plus, Minus, HelpCircle, Mail, Phone, ArrowRight } from 'lucide-react'
+import { Plus, Minus, HelpCircle, Mail, Phone, ArrowRight, Gem } from 'lucide-react'
 
 const faqs = [
   {
@@ -68,7 +68,16 @@ export default function FaqPage() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
             Frequently Asked
           </h1>
-          <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
+          <div className="flex items-center justify-center gap-2 text-gold mt-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
+          
+          <p className="mt-6 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
             Find answers to commonly asked questions regarding custom ordering, insured shipping, diamond certificates, and jewellery care.
           </p>
         </div>

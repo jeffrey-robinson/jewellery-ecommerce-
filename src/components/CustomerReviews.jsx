@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Star, Check, MessageSquare, Edit3 } from 'lucide-react'
+import { Star, Check, MessageSquare, Edit3, Gem } from 'lucide-react'
 import { reviews } from '../data/content.js'
 
 // Supplement list with additional elegant reviews to make the reviews page full and premium
@@ -65,7 +65,16 @@ export default function CustomerReviews() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
             Client Journals
           </h1>
-          <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
+          <div className="flex items-center justify-center gap-2 text-gold mt-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
+          
+          <p className="mt-6 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
             Read stories of light and luxury shared by our clients. Honest reviews detailing their unwrapping experience, custom atelier sizing, and everyday wear.
           </p>
         </div>

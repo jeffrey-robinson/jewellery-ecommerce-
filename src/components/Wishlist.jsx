@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Trash2, ShoppingBag, Heart } from 'lucide-react'
+import { Trash2, ShoppingBag, Heart, Gem } from 'lucide-react'
 import { useWishlist } from '../context/WishlistContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
 
@@ -39,6 +39,14 @@ export default function Wishlist() {
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-4xl font-bold text-ink mb-2">My Wishlist</h1>
+            <div className="flex items-center gap-2 text-gold mt-3 mb-2">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+              <Gem size={16} className="animate-pulse" />
+              <Gem size={16} className="animate-pulse" />
+              <Gem size={16} className="animate-pulse" />
+              <Gem size={16} className="animate-pulse" />
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+            </div>
             <p className="text-ink/60">{wishlist.length} item{wishlist.length !== 1 ? 's' : ''} saved</p>
           </div>
           {wishlist.length > 0 && (

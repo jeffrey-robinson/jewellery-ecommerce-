@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Sparkles, ArrowRight } from 'lucide-react'
+import { Sparkles, ArrowRight, Gem } from 'lucide-react'
 import TiltCard from './TiltCard.jsx'
 
 export default function HomeShowcase() {
@@ -52,7 +52,14 @@ export default function HomeShowcase() {
             <span className="italic text-gold">Everyday Luxury</span>
           </h2>
           
-          <div className="h-[1px] w-24 bg-gradient-to-r from-gold to-transparent" />
+          <div className="flex items-center gap-2 text-gold">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={18} className="animate-pulse" />
+            <Gem size={18} className="animate-pulse" />
+            <Gem size={18} className="animate-pulse" />
+            <Gem size={18} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
 
           {/* Fancy White Feature Card (Black/Ink text) */}
           <div className="w-full max-w-md bg-white rounded-3xl p-7 border border-ink/5 shadow-soft-3d space-y-5">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Search, X, Heart, ShoppingBag } from 'lucide-react'
+import { Search, X, Heart, ShoppingBag, Gem } from 'lucide-react'
 import { catalogProducts } from '../data/content.js'
 import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
@@ -59,6 +59,15 @@ export default function ProductCatalog() {
         <div className="mb-10 max-w-2xl reveal-element">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold">Handmade jewelry</span>
           <h1 className="font-display text-4xl sm:text-5xl text-ink mt-3">Find your signature piece.</h1>
+          <div className="flex items-center gap-2 text-gold mt-3">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
+          
           <div className="relative mt-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/45" size={20} />
             <input value={query} onChange={(event) => updateSearch(event.target.value)} placeholder="Search necklaces, bracelets, product codes…" className="w-full rounded-2xl border border-ink/10 bg-white py-4 pl-12 pr-11 text-ink shadow-sm outline-none focus:border-gold focus:ring-4 focus:ring-gold/10" />

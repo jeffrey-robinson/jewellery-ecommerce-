@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, Heart } from 'lucide-react'
+import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, Heart, Gem } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
 import { formatAmount, formatPrice } from '../utils/currency.js'
 import { useWishlist } from '../context/WishlistContext.jsx'
@@ -69,6 +69,14 @@ export default function ShoppingCart() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-ink mb-2">Shopping Cart</h1>
+          <div className="flex items-center gap-2 text-gold mt-3 mb-2">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <Gem size={16} className="animate-pulse" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+          </div>
           <p className="text-ink/60">{cartCount} item{cartCount !== 1 ? 's' : ''} in your cart</p>
         </div>
 
