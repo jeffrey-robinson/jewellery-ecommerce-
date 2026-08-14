@@ -22,7 +22,7 @@ export default function Wishlist() {
             <p className="text-ink/60 text-lg mb-8">Add your favorite jewelry items to your wishlist!</p>
             <Link
               to="/collections"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-white rounded-lg hover:bg-gold/90 transition-colors font-semibold"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white rounded-lg hover:opacity-95 transition-colors font-semibold"
             >
               Explore Collections
             </Link>
@@ -44,7 +44,7 @@ export default function Wishlist() {
           {wishlist.length > 0 && (
             <button
               onClick={clearWishlist}
-              className="px-4 py-2 border border-ruby text-ruby rounded-lg hover:bg-ruby/5 transition-colors font-semibold w-full sm:w-auto"
+              className="px-4 py-2 border border-[#E57347] text-[#E57347] rounded-lg hover:bg-[#E57347]/5 transition-colors font-semibold w-full sm:w-auto"
             >
               Clear Wishlist
             </button>
@@ -129,7 +129,7 @@ export default function Wishlist() {
                 <div className="mt-auto flex gap-3">
                   <button
                     onClick={() => handleMoveToCart(product)}
-                    className="flex-1 py-2.5 bg-gold text-white rounded-lg font-semibold hover:bg-gold/90 transition-colors flex items-center justify-center gap-2 group/btn"
+                    className="flex-1 py-2.5 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white rounded-lg font-semibold hover:opacity-95 transition-colors flex items-center justify-center gap-2 group/btn shadow-sm"
                   >
                     <ShoppingBag size={18} />
                     <span>Move to Cart</span>
@@ -155,25 +155,25 @@ export default function Wishlist() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/collections"
-              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-gold hover:text-white transition-colors font-semibold text-center"
+              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-[#E57347] hover:text-white transition-colors font-semibold text-center"
             >
               Wedding Collection
             </Link>
             <Link
               to="/collections/necklace"
-              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-gold hover:text-white transition-colors font-semibold text-center"
+              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-[#E57347] hover:text-white transition-colors font-semibold text-center"
             >
               Necklaces
             </Link>
             <Link
               to="/collections/kada"
-              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-gold hover:text-white transition-colors font-semibold text-center"
+              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-[#E57347] hover:text-white transition-colors font-semibold text-center"
             >
               Kadas
             </Link>
             <Link
               to="/collections/bracelet"
-              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-gold hover:text-white transition-colors font-semibold text-center"
+              className="px-4 py-3 bg-ivory text-ink rounded-lg hover:bg-[#E57347] hover:text-white transition-colors font-semibold text-center"
             >
               Bracelets
             </Link>

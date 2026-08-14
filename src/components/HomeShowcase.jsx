@@ -28,9 +28,9 @@ export default function HomeShowcase() {
   return (
     <div className="bg-ivory min-h-screen w-full overflow-hidden flex items-center justify-center py-20 px-5 sm:px-8 relative">
       {/* Glow Effects */}
-      <div className="pointer-events-none absolute top-1/4 left-10 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl animate-drift-slow z-0" />
-      <div className="pointer-events-none absolute bottom-10 right-10 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl animate-drift z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(227,110,83,0.05)_1px,transparent_1px)] [background-size:32px_32px] opacity-25 z-0" />
+      <div className="pointer-events-none absolute top-1/4 left-10 h-96 w-96 rounded-full bg-purple-600/15 blur-3xl animate-drift-slow z-0" />
+      <div className="pointer-events-none absolute bottom-10 right-10 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl animate-drift z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(147,51,234,0.05)_1px,transparent_1px)] [background-size:32px_32px] opacity-25 z-0" />
 
       {/* Floating 3D Stickers */}
       <div className="absolute left-[5%] top-[12%] luxury-sticker luxury-sticker-orange animate-sticker-1 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2 z-20">
@@ -103,10 +103,10 @@ export default function HomeShowcase() {
             Hand-faceted gemstone droplets set on high-purity tarnish-resistant chains. Designed carefully to mirror natural drapes and add effortless, long-lasting sparkle.
           </p>
 
-          {/* Only one Shop Now button */}
+          {/* Only one Shop Now button styled with Orange gradient */}
           <Link 
             to="/shop" 
-            className="group inline-flex items-center gap-2 bg-ink text-white px-8 py-4 rounded-full font-medium text-sm hover:bg-gold hover:text-ink transition-all duration-300 shadow-deep-3d hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#FF7A45] to-[#E57347] text-white px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 shadow-deep-3d hover:-translate-y-0.5 hover:shadow-lg hover:scale-[1.01]"
           >
             Shop Now
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

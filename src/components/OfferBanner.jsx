@@ -12,7 +12,7 @@ export default function OfferBanner() {
           <span className="glass-panel-dark inline-block text-xs font-semibold tracking-[0.18em] text-white/85 px-3 py-1.5 rounded-full">LIMITED TIME</span>
           <h2 className="font-display text-3xl sm:text-5xl text-white mt-3 leading-tight">
             20% off your first
-            <span className="italic"> facet.</span>
+            <span className="italic"> JEM piece.</span>
           </h2>
           <p className="text-white/75 mt-4 max-w-md mx-auto lg:mx-0">
             New to JEM? Take a fifth off your first order and get free resizing on every ring, always.
@@ -20,8 +20,8 @@ export default function OfferBanner() {
         </div>
 
         <a
-          href="#products"
-          className="shimmer-wrap group inline-flex items-center gap-2 bg-white text-ink px-8 py-4 rounded-full font-medium text-sm hover:bg-gold hover:text-ink transition-colors duration-300 shrink-0 shadow-deep-3d hover:-translate-y-0.5 duration-300"
+          href="/collections"
+          className="shimmer-wrap group inline-flex items-center gap-2 bg-white text-ink px-8 py-4 rounded-full font-medium text-sm hover:bg-[#E57347] hover:text-white transition-colors duration-300 shrink-0 shadow-deep-3d hover:-translate-y-0.5 duration-300"
         >
           Claim the Offer
           <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

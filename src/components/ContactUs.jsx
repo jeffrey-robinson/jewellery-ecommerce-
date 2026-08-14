@@ -129,33 +129,6 @@ export default function ContactUs() {
               </div>
             </div>
           </div>
-
-          {/* Social Links */}
-          <div className="border-t border-ink/10 pt-8">
-            <h4 className="text-xs uppercase tracking-wider text-ink/40 font-semibold mb-4">Follow the Studio</h4>
-            <div className="flex gap-3">
-              <a 
-                href="https://www.instagram.com/jem_minimal_jewellery?igsh=MXFyMDRnampkZTNsZA==&igsi=MXFyMDRnampkZTNsZA==" 
-                target="_blank" 
-                rel="noreferrer" 
-                aria-label="Instagram Link"
-                className="h-10 w-10 rounded-full border border-ink/10 hover:border-gold hover:text-gold flex items-center justify-center text-ink/60 transition-colors bg-white shadow-sm"
-              >
-                <Instagram size={16} />
-              </a>
-              <a 
-                href="https://wa.me/919677727260" 
-                target="_blank" 
-                rel="noreferrer" 
-                aria-label="WhatsApp Link"
-                className="h-10 w-10 rounded-full border border-ink/10 hover:border-gold hover:text-gold flex items-center justify-center text-ink/60 transition-colors bg-white shadow-sm hover:text-[#25D366]"
-              >
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-[#25D366]">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.638 1.968 14.174 1.944 12 1.944c-5.437 0-9.862 4.373-9.866 9.802-.002 1.83.5 3.606 1.454 5.168L2.6 21.432l4.047-1.278zM17.18 14.49c-.3-.15-1.782-.88-2.057-.98-.275-.1-.475-.15-.675.15-.2.3-.775.98-.95 1.18-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.024-.915-1.492-1.954-1.692-2.304-.2-.35-.021-.539.129-.689.135-.135.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.588-.49-.508-.675-.518-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8 1.05-.275.975-1.05 3.1-1.05 3.325 0 .225.175.45.3.625.125.175 2.112 3.225 5.112 4.525.714.31 1.272.495 1.706.633.715.227 1.365.195 1.879.119.573-.085 1.782-.729 2.032-1.433.25-.704.25-1.309.175-1.433-.075-.124-.275-.199-.575-.349z" />
-                </svg>
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Right: Contact Form */}
@@ -216,7 +189,7 @@ export default function ContactUs() {
             <button 
               type="submit" 
               disabled={submitting}
-              className="w-full py-4 rounded-full bg-ink hover:bg-gold hover:text-ink text-white text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 duration-300 active:scale-98 disabled:opacity-50"
+              className="w-full py-4 rounded-full bg-gradient-to-r from-[#FF7A45] to-[#E57347] hover:opacity-95 text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50 shadow-sm"
             >
               {submitting ? (
                 <span className="h-4 w-4 border-2 border-white border-t-transparent animate-spin rounded-full inline-block" />
@@ -238,11 +211,9 @@ export default function ContactUs() {
         </div>
 
         <div className="relative h-96 rounded-3xl overflow-hidden border border-gold/15 shadow-soft-3d group">
-          {/* Animated Glow on Hover */}
-          <div className="absolute inset-0 bg-[#E1D8FD]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
-          
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.887854619702!2d77.32422057584147!3d11.121774052737604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba907ad53b8b15d%3A0xe9f2e46b0ec719c2!2sAngeripalayam%2C%20Tiruppur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+            title="Google Map showing JEM Atelier location in Angeripalayam, Tirupur"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.8696773347514!2d77.31973687570417!3d11.123018989047321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba907abcf673e4b%3A0xe543e0618035b4af!2sAngeripalayam%2C%20Tiruppur%2C%20Tamil%20Nadu%20641603!5e0!3m2!1sen!2sin!4v1723624892482!5m2!1sen!2sin" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 
