@@ -10,29 +10,28 @@ import ProductImageCarousel from './ProductImageCarousel.jsx'
 const formatCategoryDisplay = (cat) => {
   if (!cat) return ''
   const lower = cat.toLowerCase()
-  if (lower === 'all') return 'All'
   if (lower === 'chain-bracelet') return 'Chain Bracelet'
   return cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase()
 }
 
-const categories = ['All', ...new Set(catalogProducts.map((product) => product.category))]
+const categories = ['necklace', 'kada', 'bracelet']
 
 export default function ProductCatalog() {
   const [params, setParams] = useSearchParams()
   const [query, setQuery] = useState(params.get('q') || '')
-  const [category, setCategory] = useState(params.get('category') || 'All')
+  const [category, setCategory] = useState(params.get('category') || 'necklace')
   const { addToCart } = useCart()
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
 
   useEffect(() => {
     setQuery(params.get('q') || '')
-    setCategory(params.get('category') || 'All')
+    setCategory(params.get('category') || 'necklace')
   }, [params])
 
   const visibleProducts = useMemo(() => {
     const term = query.trim().toLowerCase()
     return catalogProducts.filter((product) =>
-      (category === 'All' || product.category?.toLowerCase() === category?.toLowerCase()) &&
+      (product.category?.toLowerCase() === category?.toLowerCase()) &&
       (!term || [product.name, product.category, product.code].filter(Boolean).some((field) => field.toLowerCase().includes(term)))
     )
   }, [category, query])
@@ -41,7 +40,7 @@ export default function ProductCatalog() {
     setQuery(value)
     const next = new URLSearchParams()
     if (value) next.set('q', value)
-    if (category !== 'All') next.set('category', category)
+    next.set('category', category)
     setParams(next, { replace: true })
   }
 
@@ -49,7 +48,7 @@ export default function ProductCatalog() {
     setCategory(value)
     const next = new URLSearchParams()
     if (query) next.set('q', query)
-    if (value !== 'All') next.set('category', value)
+    next.set('category', value)
     setParams(next, { replace: true })
   }
 
@@ -92,7 +91,7 @@ export default function ProductCatalog() {
             </div>
           </div>
         </article>)}
-      </div> : <div className="rounded-2xl border border-dashed border-ink/20 bg-white p-14 text-center"><p className="font-display text-2xl text-ink">No pieces match that search.</p><button onClick={() => { updateSearch(''); updateCategory('All') }} className="mt-4 text-sm font-semibold text-gold">Reset filters</button></div>}
+      </div> : <div className="rounded-2xl border border-dashed border-ink/20 bg-white p-14 text-center"><p className="font-display text-2xl text-ink">No pieces match that search.</p><button onClick={() => { updateSearch(''); updateCategory('necklace') }} className="mt-4 text-sm font-semibold text-gold">Reset filters</button></div>}
     </div>
   </section>
 }
