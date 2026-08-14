@@ -2,6 +2,52 @@ import { useEffect } from 'react'
 import { Star, Shield, Check, MessageSquare, Edit3, ArrowRight } from 'lucide-react'
 import { reviews } from '../data/content.js'
 
+function CartoonDiamond() {
+  return (
+    <div className="relative w-32 h-32 animate-float-soft flex items-center justify-center">
+      <div className="absolute inset-0 bg-[#E1D8FD]/30 rounded-full blur-xl animate-pulse" />
+      
+      <svg viewBox="0 0 100 100" className="w-full h-full relative z-10 drop-shadow-md">
+        <defs>
+          <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFFDF9" />
+            <stop offset="50%" stopColor="#EADFFD" />
+            <stop offset="100%" stopColor="#FFEADF" />
+          </linearGradient>
+        </defs>
+        {/* Outer Diamond shape */}
+        <polygon points="50,15 80,38 70,85 30,85 20,38" fill="url(#diamondGrad)" stroke="#1F1A2B" strokeWidth="2" />
+        {/* Facet Lines */}
+        <line x1="50" y1="15" x2="50" y2="85" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="20" y1="38" x2="80" y2="38" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="30" y1="85" x2="50" y2="38" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="70" y1="85" x2="50" y2="38" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="50" y1="15" x2="30" y2="38" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="50" y1="15" x2="70" y2="38" stroke="#1F1A2B" strokeWidth="1.5" />
+        
+        {/* Eyes */}
+        <circle cx="40" cy="50" r="4.5" fill="#1F1A2B" />
+        <circle cx="60" cy="50" r="4.5" fill="#1F1A2B" />
+        <circle cx="38" cy="48.5" r="1.5" fill="white" />
+        <circle cx="58" cy="48.5" r="1.5" fill="white" />
+        
+        {/* Blushing cheeks */}
+        <ellipse cx="34" cy="55" rx="4" ry="2" fill="#FFA588" opacity="0.8" />
+        <ellipse cx="66" cy="55" rx="4" ry="2" fill="#FFA588" opacity="0.8" />
+        
+        {/* Cute Smiling Mouth */}
+        <path d="M 46,56 Q 50,60 54,56" fill="none" stroke="#1F1A2B" strokeWidth="2" strokeLinecap="round" />
+        
+        {/* Tiny Gold Crown */}
+        <polygon points="42,10 46,14 50,8 54,14 58,10 57,17 43,17" fill="#D8B168" stroke="#1F1A2B" strokeWidth="1" />
+        <circle cx="42" cy="9" r="1" fill="#FFA588" />
+        <circle cx="50" cy="7" r="1.1" fill="#FFA588" />
+        <circle cx="58" cy="9" r="1" fill="#FFA588" />
+      </svg>
+    </div>
+  )
+}
+
 // Supplement list with additional elegant reviews to make the reviews page full and premium
 const expandedReviews = [
   ...reviews,
@@ -55,7 +101,7 @@ export default function CustomerReviews() {
   return (
     <div className="bg-ivory min-h-screen text-ink pb-24">
       {/* Reviews Hero */}
-      <section className="bg-ink text-ivory py-20 relative overflow-hidden">
+      <section className="bg-ink text-ivory py-20 relative overflow-hidden reveal-element">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
         <div className="pointer-events-none absolute -top-20 -right-10 h-72 w-72 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
@@ -72,8 +118,12 @@ export default function CustomerReviews() {
       </section>
 
       {/* Ratings Metrics Overview */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft-3d grid md:grid-cols-[1fr_1.5fr] gap-10 items-center">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 reveal-element">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink/5 shadow-soft-3d grid md:grid-cols-[0.8fr_1fr_1.5fr] gap-10 items-center">
+          {/* Column 1: Cartoon Mascot */}
+          <div className="flex justify-center md:border-r border-ink/10 md:pr-4 py-4">
+            <CartoonDiamond />
+          </div>
           {/* Average Rating Card */}
           <div className="text-center md:border-r border-ink/10 md:pr-10 py-4 flex flex-col items-center">
             <span className="text-xs font-semibold tracking-wider text-ink/40 uppercase">Average Rating</span>
@@ -106,7 +156,7 @@ export default function CustomerReviews() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 reveal-element">
         <div className="border-b border-ink/10 pb-6 mb-12 flex justify-between items-end">
           <div>
             <h2 className="font-display text-2xl text-ink">Featured Stories</h2>

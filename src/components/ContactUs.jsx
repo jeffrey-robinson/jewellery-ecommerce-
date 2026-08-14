@@ -1,6 +1,45 @@
 import { useState, useEffect } from 'react'
 import { Phone, MapPin, Send, Check, Sparkles, Instagram, Facebook, Twitter } from 'lucide-react'
 
+function CartoonMail() {
+  return (
+    <div className="relative w-32 h-32 animate-float-soft flex items-center justify-center">
+      <div className="absolute inset-0 bg-[#E6F0FA]/15 rounded-full blur-xl animate-pulse" />
+      
+      <svg viewBox="0 0 100 100" className="w-full h-full relative z-10 drop-shadow-md">
+        {/* Left Wing */}
+        <path d="M 25,48 C 10,48 5,30 20,38 C 25,41 26,45 25,48 Z" fill="#F4F1FE" stroke="#FFFDF9" strokeWidth="1.5" />
+        {/* Right Wing */}
+        <path d="M 75,48 C 90,48 95,30 80,38 C 75,41 74,45 75,48 Z" fill="#F4F1FE" stroke="#FFFDF9" strokeWidth="1.5" />
+        
+        {/* Envelope Body */}
+        <rect x="22" y="36" width="56" height="38" rx="4" fill="#FFFDF9" stroke="#1F1A2B" strokeWidth="2" />
+        
+        {/* Envelope flap lines */}
+        <polyline points="22,37 50,56 78,37" fill="none" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="22" y1="73" x2="42" y2="52" stroke="#1F1A2B" strokeWidth="1.5" />
+        <line x1="78" y1="73" x2="58" y2="52" stroke="#1F1A2B" strokeWidth="1.5" />
+        
+        {/* Cute Eyes on envelope */}
+        <circle cx="38" cy="62" r="3.5" fill="#1F1A2B" />
+        <circle cx="62" cy="62" r="3.5" fill="#1F1A2B" />
+        <circle cx="36.5" cy="60.5" r="1.5" fill="white" />
+        <circle cx="60.5" cy="60.5" r="1.5" fill="white" />
+        
+        {/* Orange Heart Seal stamp */}
+        <path d="M 50,53 C 50,53 47,49 45,51 C 43,53 47,58 50,60 C 53,58 57,53 55,51 C 53,49 50,53 50,53 Z" fill="#E36E53" stroke="#1F1A2B" strokeWidth="1" />
+        
+        {/* Blushing cheeks */}
+        <circle cx="32" cy="65" r="2.5" fill="#FFA588" opacity="0.8" />
+        <circle cx="68" cy="65" r="2.5" fill="#FFA588" opacity="0.8" />
+        
+        {/* Smiling mouth */}
+        <path d="M 48,65 Q 50,67 52,65" fill="none" stroke="#1F1A2B" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
+  )
+}
+
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,24 +72,29 @@ export default function ContactUs() {
   return (
     <div className="bg-ivory min-h-screen text-ink pb-24">
       {/* Contact Hero */}
-      <section className="bg-ink text-ivory py-20 relative overflow-hidden">
+      <section className="bg-ink text-ivory py-20 relative overflow-hidden reveal-element">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
         <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-emerald/10 blur-3xl animate-drift-slow" />
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
-            Get in touch
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
-            Contact JEM
-          </h1>
-          <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
-            Whether inquiring about custom bridal bands, sizing, or tracking an heirloom, our studio is here to assist you.
-          </p>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 grid md:grid-cols-[1.5fr_1fr] items-center gap-8">
+          <div className="text-center md:text-left">
+            <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
+              Get in touch
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+              Contact JEM
+            </h1>
+            <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto md:mx-0 font-body leading-relaxed">
+              Whether inquiring about custom bridal bands, sizing, or tracking an heirloom, our studio is here to assist you.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <CartoonMail />
+          </div>
         </div>
       </section>
 
       {/* Main Grid Layout */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 reveal-element">
         
         {/* Left: Contact Info details */}
         <div className="space-y-10">
@@ -203,7 +247,7 @@ export default function ContactUs() {
       </section>
 
       {/* Styled Location Map Section */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-24">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-24 reveal-element">
         <div className="mb-8">
           <h2 className="font-display text-2xl text-ink">Our Atelier Location</h2>
           <p className="text-xs text-ink/50 mt-1 font-body">Conveniently situated in the heart of New York City</p>

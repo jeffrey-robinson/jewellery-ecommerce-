@@ -1,6 +1,52 @@
 import { useState, useEffect } from 'react'
 import { Plus, Minus, HelpCircle, Mail, Phone, ArrowRight } from 'lucide-react'
 
+function CartoonGiftBox() {
+  return (
+    <div className="relative w-32 h-32 animate-float-soft flex items-center justify-center">
+      <div className="absolute inset-0 bg-[#FFEADF]/75 rounded-full blur-xl animate-pulse" />
+      
+      <svg viewBox="0 0 100 100" className="w-full h-full relative z-10 drop-shadow-md">
+        <defs>
+          <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#FFE8E1" />
+            <stop offset="100%" stopColor="#FFCBBF" />
+          </linearGradient>
+          <linearGradient id="lidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#F6F2FF" />
+            <stop offset="100%" stopColor="#E4D6FF" />
+          </linearGradient>
+        </defs>
+        
+        {/* Box Base */}
+        <rect x="25" y="48" width="50" height="38" rx="6" fill="url(#boxGrad)" stroke="#1F1A2B" strokeWidth="2" />
+        {/* Ribbon Stripe Base */}
+        <rect x="46" y="48" width="8" height="38" fill="#9F7AEA" stroke="#1F1A2B" strokeWidth="1.5" />
+        
+        {/* Open Lid (tilted slightly) */}
+        <g transform="rotate(-6 50 40)">
+          <rect x="21" y="34" width="58" height="15" rx="3" fill="url(#lidGrad)" stroke="#1F1A2B" strokeWidth="2" />
+          {/* Ribbon Stripe Lid */}
+          <rect x="46" y="34" width="8" height="15" fill="#9F7AEA" stroke="#1F1A2B" strokeWidth="1.5" />
+          
+          {/* Lid Eyes */}
+          <circle cx="40" cy="41.5" r="3.5" fill="#1F1A2B" />
+          <circle cx="60" cy="41.5" r="3.5" fill="#1F1A2B" />
+          <circle cx="39" cy="40" r="1.2" fill="white" />
+          <circle cx="59" cy="40" r="1.2" fill="white" />
+          
+          {/* Smiling mouth */}
+          <path d="M 47,43.5 Q 50,46.5 53,43.5" fill="none" stroke="#1F1A2B" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+        
+        {/* Big Ribbon Bow on top */}
+        <path d="M 40,24 C 32,20 38,12 47,21 C 49,23 51,23 53,21 C 62,12 68,20 60,24 C 55,27 45,27 40,24 Z" fill="#9F7AEA" stroke="#1F1A2B" strokeWidth="1.5" />
+        <circle cx="50" cy="24" r="3.5" fill="#D8B168" stroke="#1F1A2B" strokeWidth="1.5" />
+      </svg>
+    </div>
+  )
+}
+
 const faqs = [
   {
     question: 'How can I place an order?',
@@ -58,7 +104,7 @@ export default function FaqPage() {
   return (
     <div className="bg-ivory min-h-screen text-ink pb-24">
       {/* FAQ Hero */}
-      <section className="bg-ink text-ivory py-20 relative overflow-hidden">
+      <section className="bg-ink text-ivory py-20 relative overflow-hidden reveal-element">
         <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
         <div className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
@@ -75,7 +121,7 @@ export default function FaqPage() {
       </section>
 
       {/* Main Accordion Section */}
-      <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
+      <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 reveal-element">
         <div className="border-b border-ink/10 pb-6 mb-8 flex items-center justify-between">
           <h2 className="font-display text-2xl text-ink">General Questions</h2>
           <span className="text-xs uppercase tracking-wider text-ink/40 font-semibold flex items-center gap-1.5">
@@ -130,9 +176,10 @@ export default function FaqPage() {
       </section>
 
       {/* Still Need Help CTA */}
-      <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16">
+      <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16 reveal-element">
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 shadow-soft-3d text-center flex flex-col items-center">
-          <h3 className="font-display text-xl mb-2">Still have questions?</h3>
+          <CartoonGiftBox />
+          <h3 className="font-display text-xl mb-2 mt-4">Still have questions?</h3>
           <p className="text-xs text-ink/50 max-w-sm font-body leading-relaxed mb-6">
             If you cannot find the answer to your specific query, please contact our concierge team.
           </p>
