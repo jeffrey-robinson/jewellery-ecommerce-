@@ -7,25 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#FBF7F1',
-        ink: '#1F1A2B',
+        ivory: '#FFFBF5',
+        ink: '#2D1F1D',
         emerald: {
-          DEFAULT: '#0B6E4F',
-          light: '#12855F',
-          dark: '#084C37',
+          DEFAULT: '#D8B168',
+          light: '#F3E2C4',
+          dark: '#B08B45',
         },
         ruby: {
-          DEFAULT: '#B23A48',
-          light: '#C85462',
-          dark: '#8A2A36',
+          DEFAULT: '#E36E53',
+          light: '#F29C85',
+          dark: '#BC4B32',
         },
         gold: {
-          DEFAULT: '#C9A227',
-          light: '#E3C158',
-          dark: '#9C7E1C',
+          DEFAULT: '#D8B168',
+          light: '#F3E2C4',
+          dark: '#B08B45',
         },
-        blush: '#F3D9DF',
-        sapphire: '#2C4A7C',
+        orange: {
+          DEFAULT: '#E36E53',
+          light: '#F29C85',
+          dark: '#BC4B32',
+        },
+        blush: '#FFFBF5',
+        sapphire: '#BC4B32',
       },
       fontFamily: {
         display: ['"Fraunces"', 'serif'],
@@ -36,7 +41,7 @@ export default {
         glow: '0 0 0 1px rgba(201, 162, 39, 0.35)',
       },
       backgroundImage: {
-        'facet-gradient': 'linear-gradient(135deg, #0B6E4F 0%, #12855F 35%, #C9A227 100%)',
+        'facet-gradient': 'linear-gradient(135deg, #E36E53 0%, #F29C85 35%, #D8B168 100%)',
       },
     },
   },

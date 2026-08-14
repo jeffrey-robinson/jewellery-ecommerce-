@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Star, Shield, Truck, RefreshCw, ShoppingBag, Heart, Share2, Plus, Minus, Check, ChevronRight } from 'lucide-react'
 import { catalogProducts } from '../data/content.js'
+
+const formatCategoryDisplay = (cat) => {
+  if (!cat) return ''
+  const lower = cat.toLowerCase()
+  if (lower === 'chain-bracelet') return 'Chain Bracelet'
+  return cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase()
+}
 import { formatPrice } from '../utils/currency.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
@@ -133,7 +140,7 @@ export default function ProductDetails() {
         <div className="flex flex-col justify-between py-2 premium-3d-inner">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-gold mb-1 inline-block">
-              {product.category} {product.code && `• Code: ${product.code}`}
+              {formatCategoryDisplay(product.category)} {product.code && `• Code: ${product.code}`}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight">
               {product.name}
@@ -290,6 +297,12 @@ export default function ProductDetails() {
 
             {activeTab === 'details' ? (
               <div className="space-y-2.5 text-xs text-ink/80 font-body">
+                {product.code && (
+                  <div className="flex justify-between py-1 border-b border-ink/5">
+                    <span className="text-ink/40">Product Code</span>
+                    <span className="font-semibold text-ink">{product.code}</span>
+                  </div>
+                )}
                 <div className="flex justify-between py-1 border-b border-ink/5">
                   <span className="text-ink/40">Material Composition</span>
                   <span>{material}</span>

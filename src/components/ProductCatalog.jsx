@@ -7,6 +7,14 @@ import { useCart } from '../context/CartContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
 import ProductImageCarousel from './ProductImageCarousel.jsx'
 
+const formatCategoryDisplay = (cat) => {
+  if (!cat) return ''
+  const lower = cat.toLowerCase()
+  if (lower === 'all') return 'All'
+  if (lower === 'chain-bracelet') return 'Chain Bracelet'
+  return cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase()
+}
+
 const categories = ['All', ...new Set(catalogProducts.map((product) => product.category))]
 
 export default function ProductCatalog() {
@@ -24,7 +32,7 @@ export default function ProductCatalog() {
   const visibleProducts = useMemo(() => {
     const term = query.trim().toLowerCase()
     return catalogProducts.filter((product) =>
-      (category === 'All' || product.category === category) &&
+      (category === 'All' || product.category?.toLowerCase() === category?.toLowerCase()) &&
       (!term || [product.name, product.category, product.code].filter(Boolean).some((field) => field.toLowerCase().includes(term)))
     )
   }, [category, query])
@@ -58,7 +66,7 @@ export default function ProductCatalog() {
       </div>
 
       <div className="flex flex-wrap gap-2 mb-8" aria-label="Product categories">
-        {categories.map((item) => <button key={item} onClick={() => updateCategory(item)} className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${category === item ? 'bg-ink text-white' : 'bg-white border border-ink/10 text-ink/65 hover:border-gold'}`}>{item}</button>)}
+        {categories.map((item) => <button key={item} onClick={() => updateCategory(item)} className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${category === item ? 'bg-ink text-white' : 'bg-white border border-ink/10 text-ink/65 hover:border-gold'}`}>{formatCategoryDisplay(item)}</button>)}
       </div>
       <p className="mb-5 text-sm text-ink/55">{visibleProducts.length} {visibleProducts.length === 1 ? 'piece' : 'pieces'} found</p>
 
@@ -68,7 +76,21 @@ export default function ProductCatalog() {
             <Link to={`/product/${product.id}`} className="block w-full h-full"><ProductImageCarousel images={product.images} alt={product.name} /></Link>
             <button onClick={() => isInWishlist(product.id) ? removeFromWishlist(product.id) : addToWishlist(product)} aria-label="Toggle wishlist" className={`absolute right-3 top-3 rounded-full p-2.5 shadow ${isInWishlist(product.id) ? 'bg-ruby text-white' : 'bg-white text-ink/70'}`}><Heart size={17} fill={isInWishlist(product.id) ? 'currentColor' : 'none'} /></button>
           </div>
-          <div className="p-4"><p className="text-xs text-ink/45">{product.category}</p><Link to={`/product/${product.id}`} className="mt-1 block min-h-12 font-display text-lg leading-snug text-ink hover:text-gold">{product.name}</Link><div className="mt-4 flex items-center justify-between"><span className="font-semibold text-gold">{formatPrice(product)}</span><button onClick={() => addToCart(product)} className="inline-flex items-center gap-2 rounded-lg bg-ink px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-dark"><ShoppingBag size={15} /> Add</button></div></div>
+          <div className="p-4">
+            <p className="text-xs text-ink/45">{formatCategoryDisplay(product.category)}</p>
+            <Link to={`/product/${product.id}`} className="mt-1 block min-h-12 font-display text-lg leading-snug text-ink hover:text-gold">
+              {product.name}
+            </Link>
+            {product.code && (
+              <p className="text-[11px] text-ink/50 mt-1 font-body">Code: {product.code}</p>
+            )}
+            <div className="mt-4 flex items-center justify-between">
+              <span className="font-semibold text-gold">{formatPrice(product)}</span>
+              <button onClick={() => addToCart(product)} className="inline-flex items-center gap-2 rounded-lg bg-ink px-3 py-2 text-xs font-semibold text-white hover:bg-emerald-dark">
+                <ShoppingBag size={15} /> Add
+              </button>
+            </div>
+          </div>
         </article>)}
       </div> : <div className="rounded-2xl border border-dashed border-ink/20 bg-white p-14 text-center"><p className="font-display text-2xl text-ink">No pieces match that search.</p><button onClick={() => { updateSearch(''); updateCategory('All') }} className="mt-4 text-sm font-semibold text-gold">Reset filters</button></div>}
     </div>

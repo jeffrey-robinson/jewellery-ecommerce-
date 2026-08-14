@@ -18,7 +18,7 @@ export default function NecklaceCollection() {
   }, [])
 
   // Filter products to get only Necklaces
-  const necklaceItems = products.filter((p) => p.category === 'Necklace')
+  const necklaceItems = products.filter((p) => p.category?.toLowerCase() === 'necklace')
 
   const toggleWishlist = (id) => {
     if (wishlist.includes(id)) {
@@ -132,6 +132,9 @@ export default function NecklaceCollection() {
                         {product.name}
                       </h3>
                     </Link>
+                    {product.code && (
+                      <p className="text-[11px] text-ink/50 font-body">Code: {product.code}</p>
+                    )}
                     
                     {/* Available Colours where applicable */}
                     {product.colors ? (

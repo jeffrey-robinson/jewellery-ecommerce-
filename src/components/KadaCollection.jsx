@@ -17,8 +17,8 @@ export default function KadaCollection() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Filter products to get only the 8 unique Kadas
-  const kadaItems = products.filter((p) => p.category === 'Kada' && String(p.id).startsWith('K00'))
+  // Filter products to get only the unique Kadas
+  const kadaItems = products.filter((p) => p.category?.toLowerCase() === 'kada')
 
   const toggleWishlist = (id) => {
     if (wishlist.includes(id)) {
@@ -132,6 +132,9 @@ export default function KadaCollection() {
                         {product.name}
                       </h3>
                     </Link>
+                    {product.code && (
+                      <p className="text-[11px] text-ink/50 font-body">Code: {product.code}</p>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between border-t border-ink/5 mt-5 pt-3">

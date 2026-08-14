@@ -34,6 +34,14 @@ export default function HomeShowcase() {
         <div className="pointer-events-none absolute bottom-10 right-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl animate-drift z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(rgba(201,162,39,0.08)_1px,transparent_1px)] [background-size:32px_32px] opacity-25 z-0" />
 
+        {/* Floating 3D Stickers */}
+        <div className="absolute left-[5%] top-[8%] luxury-sticker luxury-sticker-orange animate-sticker-1 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          Special Offer
+        </div>
+        <div className="absolute right-[6%] top-[10%] luxury-sticker animate-sticker-2 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          Limited Offer
+        </div>
+
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
           {/* Left Text Column */}
           <div className="reveal-element flex flex-col items-start text-left space-y-6">
@@ -89,6 +97,14 @@ export default function HomeShowcase() {
         {/* Glow Effects */}
         <div className="pointer-events-none absolute bottom-1/4 left-10 h-96 w-96 rounded-full bg-gold/10 blur-3xl animate-drift z-0" />
         <div className="pointer-events-none absolute top-10 right-10 h-80 w-80 rounded-full bg-emerald/5 blur-3xl animate-drift-slow z-0" />
+
+        {/* Floating 3D Stickers */}
+        <div className="absolute left-[8%] top-[10%] luxury-sticker animate-sticker-3 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          30% OFF
+        </div>
+        <div className="absolute right-[10%] bottom-[8%] luxury-sticker luxury-sticker-orange animate-sticker-1 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          Flat ₹100 Off
+        </div>
         
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
           {/* Left Image Column (3D Card) - Inverted Layout */}
@@ -141,11 +157,19 @@ export default function HomeShowcase() {
       </section>
 
       {/* SECTION 3: THE BRACELET (Luxury Navy & Sapphire Theme) */}
-      <section className="min-h-screen w-full bg-[#0D1321] text-ivory flex items-center justify-center relative py-24 px-5 sm:px-8">
+      <section className="min-h-screen w-full bg-ink text-ivory flex items-center justify-center relative py-24 px-5 sm:px-8">
         {/* Glow Effects */}
         <div className="pointer-events-none absolute top-1/4 right-10 h-96 w-96 rounded-full bg-sapphire/20 blur-3xl animate-drift z-0" />
         <div className="pointer-events-none absolute bottom-10 left-10 h-80 w-80 rounded-full bg-ruby/10 blur-3xl animate-drift-slow z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(rgba(44,74,124,0.12)_1px,transparent_1px)] [background-size:32px_32px] opacity-30 z-0" />
+
+        {/* Floating 3D Stickers */}
+        <div className="absolute left-[10%] bottom-[10%] luxury-sticker luxury-sticker-orange animate-sticker-2 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          20% OFF
+        </div>
+        <div className="absolute right-[8%] top-[8%] luxury-sticker animate-sticker-3 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2">
+          Special Offer
+        </div>
 
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
           {/* Left Text Column */}
@@ -172,7 +196,7 @@ export default function HomeShowcase() {
           <div className="reveal-element flex justify-center">
             <TiltCard 
               max={6}
-              className="group relative w-full max-w-md aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-deep-3d border border-gold/20 bg-[#0D1321]"
+              className="group relative w-full max-w-md aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-deep-3d border border-gold/20 bg-ink"
             >
               {/* Floating Badge */}
               <div className="absolute top-6 left-6 z-30 glass-panel-dark px-4 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-white/90">

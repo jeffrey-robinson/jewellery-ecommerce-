@@ -10,20 +10,6 @@ import ProductImageCarousel from './ProductImageCarousel.jsx'
 // Three main collection cards for the top spotlight sections
 const collectionHighlights = [
   {
-    name: 'The Bridal Choker',
-    category: 'Necklace',
-    desc: 'An exquisite collar choker detailed with intricate leaf patterns and hand-faceted starlight diamonds.',
-    img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80',
-    id: 'w1'
-  },
-  {
-    name: 'The Heritage Kada',
-    category: 'Kada',
-    desc: 'A magnificent antique-brushed bangle capturing royal traditions in a modern lightweight structure.',
-    img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80',
-    id: 'w2'
-  },
-  {
     name: 'The Interlocking Cuff',
     category: 'Chain Bracelet',
     desc: 'Sleek geometric gold links embedded with solitaire micro-pave diamonds representing an eternal bond.',
@@ -92,7 +78,7 @@ export default function WeddingCollection() {
         </p>
       </section>
 
-      {/* Three Main Collection Cards */}
+      {/* Core Bridal Suite Highlights */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16">
         <div className="border-b border-ink/10 pb-6 mb-12 flex justify-between items-end">
           <div>
@@ -102,7 +88,7 @@ export default function WeddingCollection() {
           <span className="text-xs uppercase tracking-wider text-gold font-semibold">Heirloom Catalog</span>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
+        <div className="grid md:grid-cols-1 max-w-md mx-auto gap-8 perspective-1000">
           {collectionHighlights.map((col) => (
             <TiltCard
               key={col.id}
@@ -205,6 +191,9 @@ export default function WeddingCollection() {
                       {product.name}
                     </h3>
                   </Link>
+                  {product.code && (
+                    <p className="text-[11px] text-ink/50 mt-1 mb-2 font-body">Code: {product.code}</p>
+                  )}
                   <p className="text-xs text-ink/60 font-body mt-2 flex-grow line-clamp-3 leading-relaxed">
                     {product.description}
                   </p>

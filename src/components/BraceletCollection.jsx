@@ -17,8 +17,8 @@ export default function BraceletCollection() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Filter products to get only the 9 unique Chain Bracelets
-  const braceletItems = products.filter((p) => p.category === 'Chain Bracelet' && String(p.id).startsWith('B00'))
+  // Filter products to get only the unique Chain Bracelets
+  const braceletItems = products.filter((p) => p.category?.toLowerCase() === 'chain-bracelet' || p.category?.toLowerCase() === 'chain bracelet' || p.category?.toLowerCase() === 'bracelet')
 
   const toggleWishlist = (id) => {
     if (wishlist.includes(id)) {
@@ -132,6 +132,9 @@ export default function BraceletCollection() {
                         {product.name}
                       </h3>
                     </Link>
+                    {product.code && (
+                      <p className="text-[11px] text-ink/50 font-body">Code: {product.code}</p>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between border-t border-ink/5 mt-5 pt-3">
