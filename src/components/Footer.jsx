@@ -1,17 +1,34 @@
 import { Instagram, Facebook, Twitter, Mail, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const columns = [
   {
     title: 'Shop',
-    links: ['Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Gift Cards'],
+    links: [
+      { name: 'Rings', href: '/collections' },
+      { name: 'Necklaces', href: '/collections/necklace' },
+      { name: 'Earrings', href: '/collections' },
+      { name: 'Bracelets', href: '/collections/bracelet' },
+      { name: 'Gift Cards', href: '/collections' }
+    ],
   },
   {
     title: 'About',
-    links: ['Our Story', 'Craftsmanship', 'Sustainability', 'Journal'],
+    links: [
+      { name: 'Our Story', href: '/about' },
+      { name: 'Craftsmanship', href: '/about' },
+      { name: 'Sustainability', href: '/about' },
+      { name: 'Journal', href: '/' }
+    ],
   },
   {
     title: 'Support',
-    links: ['Contact Us', 'Sizing Guide', 'Shipping & Returns', 'FAQs'],
+    links: [
+      { name: 'Contact Us', href: '/contact' },
+      { name: 'Sizing Guide', href: '/faq' },
+      { name: 'Shipping & Returns', href: '/faq' },
+      { name: 'FAQs', href: '/faq' }
+    ],
   },
 ]
 
@@ -65,10 +82,10 @@ export default function Footer() {
               <h4 className="text-sm font-semibold tracking-wide mb-4 text-[#D4AF65]">{col.title}</h4>
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <a href="#top" className="text-sm text-white/60 hover:text-[#D4AF65] transition-colors">
-                      {l}
-                    </a>
+                  <li key={l.name}>
+                    <Link to={l.href} className="text-sm text-white/60 hover:text-[#D4AF65] transition-colors">
+                      {l.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

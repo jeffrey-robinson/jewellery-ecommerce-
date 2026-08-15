@@ -12,6 +12,7 @@ import ProductDetails from './components/ProductDetails.jsx'
 import ContactUs from './components/ContactUs.jsx'
 import CustomerReviews from './components/CustomerReviews.jsx'
 import FaqPage from './components/FaqPage.jsx'
+import AboutUs from './components/AboutUs.jsx'
 import ShoppingCart from './components/ShoppingCart.jsx'
 import Wishlist from './components/Wishlist.jsx'
 import { CartProvider } from './context/CartContext.jsx'
@@ -79,6 +80,7 @@ export default function App() {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/reviews" element={<CustomerReviews />} />
               <Route path="/faq" element={<FaqPage />} />
+              <Route path="/about" element={<AboutUs />} />
               <Route path="/cart" element={<ShoppingCart />} />
               <Route path="/wishlist" element={<Wishlist />} />
             </Route>

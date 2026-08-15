@@ -7,6 +7,7 @@ import { useWishlist } from '../context/WishlistContext.jsx'
 const links = [
   { name: 'Home', href: '/' },
   { name: 'Shop', href: '/collections' },
+  { name: 'About Us', href: '/about' },
   { name: 'Contact Us', href: '/contact' },
   { name: 'Reviews', href: '/reviews' },
   { name: 'FAQ', href: '/faq' }
