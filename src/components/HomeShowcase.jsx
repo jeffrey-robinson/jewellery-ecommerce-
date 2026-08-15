@@ -1,7 +1,14 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Sparkles, ArrowRight, Gem } from 'lucide-react'
+import { Shield, Truck, RefreshCw } from 'lucide-react'
+import Hero from './Hero.jsx'
+import Brands from './Brands.jsx'
+import Categories from './Categories.jsx'
+import Products from './Products.jsx'
+import OfferBanner from './OfferBanner.jsx'
+import Reviews from './Reviews.jsx'
 import TiltCard from './TiltCard.jsx'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 
 export default function HomeShowcase() {
   // Intersection Observer for scroll-reveal animations
@@ -14,112 +21,133 @@ export default function HomeShowcase() {
           }
         })
       },
-      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
     )
 
-    const elements = document.querySelectorAll('.reveal-element')
-    elements.forEach((el) => observer.observe(el))
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.reveal-element')
+      elements.forEach((el) => observer.observe(el))
+    }, 200)
 
     return () => {
+      clearTimeout(timer)
+      const elements = document.querySelectorAll('.reveal-element')
       elements.forEach((el) => observer.unobserve(el))
     }
   }, [])
 
   return (
-    <div className="bg-ivory min-h-screen w-full overflow-hidden flex items-center justify-center py-20 px-5 sm:px-8 relative">
-      {/* Glow Effects */}
-      <div className="pointer-events-none absolute top-1/4 left-10 h-96 w-96 rounded-full bg-purple-600/15 blur-3xl animate-drift-slow z-0" />
-      <div className="pointer-events-none absolute bottom-10 right-10 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl animate-drift z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(147,51,234,0.05)_1px,transparent_1px)] [background-size:32px_32px] opacity-25 z-0" />
-
-      {/* Floating 3D Stickers */}
-      <div className="absolute left-[5%] top-[12%] luxury-sticker luxury-sticker-orange animate-sticker-1 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2 z-20">
-        ✨ 100% Anti-Tarnish
-      </div>
-      <div className="absolute right-[6%] top-[15%] luxury-sticker animate-sticker-2 text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-2 z-20">
-        💧 Water Resistant
+    <div className="bg-[#FCF8F2] min-h-screen w-full overflow-hidden">
+      
+      {/* 1. Large Hero Section */}
+      <div className="reveal-element">
+        <Hero />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
-        {/* Left Column: Title & Styled Guarantee Feature Card */}
-        <div className="reveal-element flex flex-col items-start text-left space-y-8">
-          <span className="glass-panel flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-gold font-semibold px-4 py-2 rounded-full border border-gold/20 shadow-glow animate-glow-pulse">
-            <Sparkles size={12} className="animate-spin duration-[4000ms]" /> Elite Curation
-          </span>
-          
-          <h2 className="font-display font-medium text-4xl sm:text-5xl lg:text-6xl text-ink leading-[1.1] tracking-tight">
-            Sophisticated <br />
-            <span className="italic text-gold">Everyday Luxury</span>
-          </h2>
-          
-          <div className="flex items-center gap-2 text-gold">
-            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
-            <Gem size={18} className="animate-pulse" />
-            <Gem size={18} className="animate-pulse" />
-            <Gem size={18} className="animate-pulse" />
-            <Gem size={18} className="animate-pulse" />
-            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
-          </div>
+      {/* 2. Brand Statistics & Trusted Logos */}
+      <div className="reveal-element">
+        <Brands />
+      </div>
 
-          {/* Fancy White Feature Card (Black/Ink text) */}
-          <div className="w-full max-w-md bg-white rounded-3xl p-7 border border-ink/5 shadow-soft-3d space-y-5">
-            <h3 className="font-display text-xl text-ink font-semibold italic border-b border-ink/10 pb-3 tracking-wide">
-              Product Guarantee
-            </h3>
-            <ul className="space-y-4 font-display">
-              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
-                <span className="text-lg">✨</span> 100% Anti-Tarnish
-              </li>
-              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
-                <span className="text-lg">💧</span> Water & Sweat Resistant
-              </li>
-              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
-                <span className="text-lg">🌸</span> Hypoallergenic
-              </li>
-              <li className="flex items-center gap-3 text-sm text-ink font-medium tracking-wide">
-                <span className="text-lg">🚚</span> Fast Shipping Across India
-              </li>
-            </ul>
-          </div>
-        </div>
+      {/* 3. Editorial Collections Section */}
+      <div className="reveal-element">
+        <Categories />
+      </div>
 
-        {/* Right Column: Large Premium Image, Description, Shop Now Button */}
-        <div className="reveal-element flex flex-col items-center space-y-6">
-          <TiltCard 
-            max={6}
-            className="group relative w-full max-w-md aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-deep-3d border border-gold/20 bg-ivory"
-          >
-            {/* Floating Badge */}
-            <div className="absolute top-6 left-6 z-30 glass-panel px-4 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-white/90">
-              Studio Signature
+      {/* 4. Promotional Banner (Offer) */}
+      <div className="reveal-element">
+        <OfferBanner />
+      </div>
+
+      {/* 5. Product Presentation Showcase */}
+      <div className="reveal-element">
+        <Products />
+      </div>
+
+      {/* 6. Editorial Brand Story & Promises */}
+      <section className="bg-[#FCF8F2] py-24 border-t border-[#D4AF65]/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            {/* LEFT: Narrative */}
+            <div className="reveal-element flex flex-col items-start space-y-6">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[#6A3578] uppercase">OUR HERITAGE</span>
+              <h2 className="font-display text-4xl sm:text-5xl text-[#211522] leading-tight">
+                Designed to Celebrate You
+              </h2>
+              {/* Premium Gold Divider */}
+              <div className="h-0.5 w-16 bg-[#D4AF65]" />
+              <p className="text-sm sm:text-base text-[#211522]/70 leading-relaxed font-body">
+                At JEM, we believe that luxury is in the details, not the excess. Our atelier focuses on clean geometric silhouettes, high-purity tarnish-resistant settings, and hand-selected stones that capture everyday light. 
+              </p>
+              <p className="text-sm sm:text-base text-[#211522]/70 leading-relaxed font-body">
+                Every single piece is designed to tell a story of grace and modern sophistication, crafted painstakingly by hand so it moves with you from desk to dinner seamlessly.
+              </p>
+              <Link 
+                to="/shop" 
+                className="group inline-flex items-center gap-2 bg-[#6A3578] text-white border border-[#D4AF65]/35 hover:border-[#D4AF65] px-7 py-3 rounded-full font-semibold text-xs uppercase tracking-wider hover:bg-[#3B183F] transition-all duration-300 shadow-sm"
+              >
+                Explore Our Craft 
+                <ArrowRight size={13} className="text-[#D4AF65] group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
             
-            {/* Zoom image */}
-            <div className="w-full h-full overflow-hidden tilt-layer-deep">
-              <img 
-                src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80" 
-                alt="Premium Jewellery Collection" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ivory/65 via-transparent to-transparent z-10" />
+            {/* RIGHT: Editorial Visual */}
+            <div className="reveal-element flex justify-center">
+              <TiltCard 
+                max={6}
+                className="group relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden shadow-soft border border-[#D4AF65]/20 bg-white"
+              >
+                <div className="absolute inset-0 bg-[#3B183F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
+                <img 
+                  src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=80"
+                  alt="Crafting JEM Jewellery" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+              </TiltCard>
             </div>
-          </TiltCard>
+          </div>
 
-          {/* Short Description below the image */}
-          <p className="text-sm sm:text-base text-ink/75 font-body leading-relaxed max-w-md text-center">
-            Hand-faceted gemstone droplets set on high-purity tarnish-resistant chains. Designed carefully to mirror natural drapes and add effortless, long-lasting sparkle.
-          </p>
-
-          {/* Only one Shop Now button styled with Amber gradient */}
-          <Link 
-            to="/shop" 
-            className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 shadow-deep-3d hover:-translate-y-0.5 hover:shadow-lg hover:scale-[1.01]"
-          >
-            Shop Now
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+          {/* Guarantee Promises Row */}
+          <div className="reveal-element grid sm:grid-cols-3 gap-8 text-center pt-16 border-t border-[#D4AF65]/15">
+            <div className="flex flex-col items-center p-6 bg-white rounded-[2rem] border border-[#E8D8EE] shadow-soft">
+              <div className="h-12 w-12 rounded-full border border-[#D4AF65]/40 flex items-center justify-center text-[#6A3578] mb-4 bg-[#FCF8F2] shadow-sm">
+                <Shield size={20} className="text-[#D4AF65]" />
+              </div>
+              <h4 className="font-display text-lg mb-2 text-[#211522] font-semibold">100% Anti-Tarnish</h4>
+              <p className="text-xs text-[#211522]/60 max-w-xs leading-relaxed font-body">
+                Specially treated premium plating to ensure your jewelry remains bright, lustrous, and tarnish-resistant for years of everyday wear.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center p-6 bg-white rounded-[2rem] border border-[#E8D8EE] shadow-soft">
+              <div className="h-12 w-12 rounded-full border border-[#D4AF65]/40 flex items-center justify-center text-[#6A3578] mb-4 bg-[#FCF8F2] shadow-sm">
+                <Truck size={20} className="text-[#D4AF65]" />
+              </div>
+              <h4 className="font-display text-lg mb-2 text-[#211522] font-semibold">Fast Shipping Across India</h4>
+              <p className="text-xs text-[#211522]/60 max-w-xs leading-relaxed font-body">
+                Express premium delivery safely dispatched to your doorstep with signature confirmation and fully insured transit across India.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center p-6 bg-white rounded-[2rem] border border-[#E8D8EE] shadow-soft">
+              <div className="h-12 w-12 rounded-full border border-[#D4AF65]/40 flex items-center justify-center text-[#6A3578] mb-4 bg-[#FCF8F2] shadow-sm">
+                <RefreshCw size={20} className="text-[#D4AF65]" />
+              </div>
+              <h4 className="font-display text-lg mb-2 text-[#211522] font-semibold">Hypoallergenic & Water Resistant</h4>
+              <p className="text-xs text-[#211522]/60 max-w-xs leading-relaxed font-body">
+                Completely nickel-free, lead-free composition offering complete water and sweat resistance, designed carefully for sensitive skin.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* 7. Client Testimonials Section */}
+      <div className="reveal-element">
+        <Reviews />
       </div>
+
     </div>
   )
 }

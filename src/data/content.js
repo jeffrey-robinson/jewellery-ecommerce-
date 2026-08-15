@@ -293,7 +293,7 @@ export const products = [
     category: "bracelet",
     name: "Gold-Plated Anti Tarnish Flower Chain Bracelet",
     price: 285,
-    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786678203/WhatsApp_Image_2026-08-13_at_11.06.35_PM_ltcjj1.jpg", "https://res.cloudinary.com/djqflcckm/image/upload/v1786678202/WhatsApp_Image_2026-08-13_at_11.06.35_PM_1_ngbxhr.jpg"],
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786678203/WhatsApp_Image_2026-08-13_at_11.06.34_PM_btcntj.jpg", ""],
     description: "A classic flower-motif chain bracelet cast in gold plating with an anti-tarnish layer."
   },
   {
@@ -311,7 +311,7 @@ export const products = [
     category: "bracelet",
     name: "Gold-Plated Anti Tarnish White Flower Chain Bracelet",
     price: 285,
-    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786678203/WhatsApp_Image_2026-08-13_at_11.06.35_PM_ltcjj1.jpg", "https://res.cloudinary.com/djqflcckm/image/upload/v1786678202/WhatsApp_Image_2026-08-13_at_11.06.35_PM_1_ngbxhr.jpg"],
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786678203/WhatsApp_Image_2026-08-13_at_11.06.35_PM_ltcjj1.jpg", ""],
     description: "A charming gold-plated chain bracelet displaying elegant white flower segments, anti-tarnish coated."
   }
 ]

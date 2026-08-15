@@ -44,7 +44,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-[#7C3AED] via-[#C084FC] to-[#5B21B6] backdrop-blur-md border-b border-white/10 shadow-sm text-white">
+    <header className="sticky top-0 z-50 bg-[#3B183F] backdrop-blur-md border-b border-[#D4AF65]/20 shadow-sm text-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -60,7 +60,7 @@ export default function Navbar() {
             <img 
               src="https://res.cloudinary.com/djqflcckm/image/upload/v1786556786/logo_image_asmv3g.jpg" 
               alt="Brand Logo" 
-              className="h-10 w-10 sm:h-12 sm:w-12 object-cover hover:scale-[1.03] transition-transform duration-300 rounded-full border border-white/10"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-cover hover:scale-[1.03] transition-transform duration-300 rounded-full border border-[#D4AF65]/35 shadow-glow"
             />
           </Link>
 
@@ -71,8 +71,8 @@ export default function Navbar() {
                 key={l.name}
                 to={l.href}
                 onClick={(e) => handleLinkClick(e, l.href)}
-                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#D97706] after:transition-all hover:after:w-full ${
-                  location.pathname === l.href ? 'text-[#D97706] font-semibold after:w-full' : 'text-white hover:text-[#D97706]'
+                className={`text-sm font-medium transition-colors relative py-1 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#D4AF65] after:transition-all hover:after:w-full ${
+                  location.pathname === l.href ? 'text-[#D4AF65] font-semibold after:w-full' : 'text-white hover:text-[#D4AF65]'
                 }`}
               >
                 {l.name}
@@ -82,29 +82,29 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-white">
+            <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search the collection" aria-expanded={searchOpen} className="inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D4AF65]">
               <Search size={19} />
             </button>
             <Link 
               to="/wishlist" 
               aria-label="Wishlist" 
-              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D97706]"
+              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D4AF65]"
               title="My Wishlist"
             >
               <Heart size={19} />
               {wishlistCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-emerald text-[10px] leading-4 text-white text-center font-semibold animate-pulse">{wishlistCount}</span>
+                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-[#D4AF65] text-[10px] leading-4 text-[#3B183F] text-center font-bold animate-pulse">{wishlistCount}</span>
               )}
             </Link>
             <Link 
               to="/cart" 
               aria-label="Cart" 
-              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D97706]"
+              className="relative inline-flex p-2 rounded-full hover:bg-white/10 transition-colors text-white/85 hover:text-[#D4AF65]"
               title="Shopping Cart"
             >
               <ShoppingBag size={19} />
               {cartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-ruby text-[10px] leading-4 text-white text-center font-semibold animate-pulse">{cartCount}</span>
+                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-[#6A3578] text-[10px] leading-4 text-white text-center font-semibold animate-pulse">{cartCount}</span>
               )}
             </Link>
             <button
@@ -119,30 +119,30 @@ export default function Navbar() {
       </div>
 
       {searchOpen && (
-        <form onSubmit={submitSearch} className="border-t border-white/10 bg-white/95 px-5 py-3">
+        <form onSubmit={submitSearch} className="border-t border-[#D4AF65]/20 bg-[#FCF8F2] px-5 py-3">
           <div className="relative mx-auto max-w-3xl">
-            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink/45" />
-            <input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the collection" className="w-full rounded-xl border border-ink/10 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-gold" />
+            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#211522]/55" />
+            <input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the collection" className="w-full rounded-xl border border-[#211522]/15 bg-white py-2.5 pl-10 pr-4 text-sm text-[#211522] outline-none focus:border-[#D4AF65]" />
           </div>
         </form>
       )}
 
       {/* Mobile menu */}
       {open && (
-        <nav className="lg:hidden border-t border-white/10 glass-panel px-5 py-4 flex flex-col gap-4">
+        <nav className="lg:hidden border-t border-[#D4AF65]/20 bg-[#3B183F] px-5 py-4 flex flex-col gap-4 shadow-xl">
           {links.map((l) => (
             <Link 
               key={l.name} 
               to={l.href} 
               onClick={(e) => handleLinkClick(e, l.href)} 
               className={`text-base font-medium transition-colors ${
-                location.pathname === l.href ? 'text-[#D97706] font-semibold' : 'text-white hover:text-[#D97706]'
+                location.pathname === l.href ? 'text-[#D4AF65] font-semibold' : 'text-white/80 hover:text-[#D4AF65]'
               }`}
             >
               {l.name}
             </Link>
           ))}
-          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-white hover:text-[#D97706]">Admin</Link>
+          <Link to="/admin/login" onClick={() => setOpen(false)} className="text-base font-medium text-white/80 hover:text-[#D4AF65]">Admin</Link>
         </nav>
       )}
     </header>

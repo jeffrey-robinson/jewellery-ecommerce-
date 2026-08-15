@@ -37,19 +37,19 @@ export default function KadaCollection() {
   }
 
   return (
-    <div className="bg-ivory min-h-screen text-ink pb-24">
+    <div className="bg-[#FCF8F2] min-h-screen text-[#211522] pb-24">
       {/* Page Header */}
-      <section className="bg-ink text-ivory py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
-        <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-emerald/10 blur-3xl animate-drift-slow" />
+      <section className="bg-[#3B183F] text-white py-20 relative overflow-hidden border-b border-[#D4AF65]/20">
+        <div className="absolute inset-0 bg-[radial-gradient(#D4AF65_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-[#6A3578]/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF65] font-semibold mb-3 inline-block">
             Elite Curation
           </span>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
             The Kada Collection
           </h1>
-          <p className="mt-4 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
+          <p className="mt-4 text-sm text-white/70 max-w-lg mx-auto font-body leading-relaxed">
             Discover JEM's masterfully textured Kadas. Handcrafted in solid gold-plated and rose gold-plated finishes with long-lasting anti-tarnish protection.
           </p>
         </div>
@@ -57,12 +57,12 @@ export default function KadaCollection() {
 
       {/* Products Grid */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
-        <div className="border-b border-ink/10 pb-6 mb-12 flex justify-between items-end">
+        <div className="border-b border-[#E8D8EE] pb-6 mb-12 flex justify-between items-end">
           <div>
-            <h2 className="font-display text-2xl text-ink">Explore Traditional & Modern cuffs</h2>
-            <p className="text-xs text-ink/50 mt-1 font-body">Solid structures, delicate textures, and comfort-engineered closures</p>
+            <h2 className="font-display text-2xl text-[#211522] font-semibold">Explore Traditional & Modern cuffs</h2>
+            <p className="text-xs text-[#211522]/50 mt-1 font-body">Solid structures, delicate textures, and comfort-engineered closures</p>
           </div>
-          <span className="text-xs uppercase tracking-wider text-gold font-semibold">
+          <span className="text-xs uppercase tracking-wider text-[#6A3578] font-bold">
             {kadaItems.length} Designs
           </span>
         </div>
@@ -76,16 +76,16 @@ export default function KadaCollection() {
               <TiltCard
                 key={product.id}
                 max={6}
-                className="group relative flex flex-col bg-white border border-ink/5 hover:border-gold/20 transition-colors duration-500 rounded-2xl overflow-hidden shadow-soft-3d"
+                className="group relative flex flex-col bg-white border border-[#E8D8EE] hover:border-[#D4AF65]/40 transition-colors duration-500 rounded-[2rem] overflow-hidden shadow-soft"
               >
                 {/* Image Frame */}
-                <div className="relative overflow-hidden aspect-[4/5] bg-ivory tilt-layer-deep shadow-sm">
-                  <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[9px] font-semibold uppercase tracking-wider bg-ink text-ivory rounded-full">
+                <div className="relative overflow-hidden aspect-[4/5] bg-[#FCF8F2] tilt-layer-deep shadow-sm">
+                  <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[9px] font-bold tracking-wider uppercase bg-[#3B183F] text-white rounded-full">
                     {product.category}
                   </span>
                   
                   {product.code && (
-                    <span className="absolute top-4 right-4 z-20 px-3 py-1 text-[9px] font-semibold uppercase tracking-wider bg-gold text-ink rounded-full">
+                    <span className="absolute top-4 right-4 z-20 px-3 py-1 text-[9px] font-bold tracking-wider uppercase bg-[#D4AF65] text-[#3B183F] rounded-full">
                       Code: {product.code}
                     </span>
                   )}
@@ -99,25 +99,25 @@ export default function KadaCollection() {
                   {/* Wishlist Heart Button */}
                   <button 
                     onClick={() => toggleWishlist(product.id)}
-                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-white/95 text-ink/65 hover:text-ruby shadow-sm hover:scale-105 active:scale-95 duration-200 transition-all border border-ink/5"
+                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-white/95 text-[#211522]/75 hover:text-red-500 shadow-sm hover:scale-105 active:scale-95 duration-200 transition-all border border-[#E8D8EE]"
                     aria-label="Wishlist"
                   >
-                    <Heart size={14} fill={isWishlisted ? '#B23A48' : 'none'} className={isWishlisted ? 'text-ruby' : ''} />
+                    <Heart size={14} fill={isWishlisted ? '#EF4444' : 'none'} className={isWishlisted ? 'text-[#6A3578]' : ''} />
                   </button>
 
                   {/* Absolute Hover Action Overlay */}
-                  <div className="absolute inset-0 bg-ink/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
+                  <div className="absolute inset-0 bg-[#3B183F]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
                     <button 
                       onClick={() => setSelectedProduct(product)}
                       aria-label="Quick View" 
-                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
+                      className="p-3 bg-white hover:bg-[#D4AF65] hover:text-[#3B183F] text-[#3B183F] rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
                     >
                       <Eye size={18} />
                     </button>
                     <button 
                       onClick={() => handleAddToCart(product)}
                       aria-label="Add to Cart" 
-                      className="p-3 bg-white hover:bg-gold hover:text-ink text-ink rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
+                      className="p-3 bg-white hover:bg-[#6A3578] hover:text-white text-[#6A3578] rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
                     >
                       <ShoppingBag size={18} />
                     </button>
@@ -125,26 +125,26 @@ export default function KadaCollection() {
                 </div>
 
                 {/* Details Frame */}
-                <div className="p-5 flex flex-col flex-grow justify-between tilt-layer-inner">
+                <div className="p-5 flex flex-col flex-grow justify-between bg-white premium-3d-inner">
                   <div className="space-y-2">
-                    <Link to={`/product/${product.id}`} className="hover:text-gold transition-colors">
-                      <h3 className="font-display text-base text-ink group-hover:text-gold transition-colors duration-300 min-h-[48px] leading-snug line-clamp-2">
+                    <Link to={`/product/${product.id}`} className="hover:text-[#6A3578] transition-colors">
+                      <h3 className="font-display text-base text-[#211522] group-hover:text-[#6A3578] transition-colors duration-300 min-h-[48px] leading-snug line-clamp-2">
                         {product.name}
                       </h3>
                     </Link>
                     {product.code && (
-                      <p className="text-[11px] text-ink/50 font-body">Code: {product.code}</p>
+                      <p className="text-[11px] text-[#211522]/55 font-body">Code: {product.code}</p>
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between border-t border-ink/5 mt-5 pt-3">
-                    <span className="font-display text-lg text-ink font-semibold">
+                  <div className="flex items-center justify-between border-t border-[#E8D8EE]/60 mt-5 pt-3.5">
+                    <span className="font-display text-lg text-[#6A3578] font-bold">
                       {product.currency === '₹' ? `₹${product.price}` : `$${product.price}`}
                     </span>
                     
                     <button 
                       onClick={() => handleAddToCart(product)}
-                      className="text-[10px] font-bold tracking-wider uppercase text-ink hover:text-gold transition-colors flex items-center gap-1"
+                      className="text-[10px] font-bold tracking-wider uppercase text-[#211522] hover:text-[#6A3578] transition-colors flex items-center gap-1.5"
                     >
                       {isAdded ? (
                         <>
@@ -166,11 +166,11 @@ export default function KadaCollection() {
 
       {/* Quick View Modal Overlay */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-ivory rounded-3xl max-w-2xl w-full overflow-hidden border border-gold/20 shadow-soft relative flex flex-col md:flex-row">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3B183F]/70 backdrop-blur-sm animate-fade-in">
+          <div className="bg-[#FCF8F2] rounded-[2rem] max-w-2xl w-full overflow-hidden border border-[#D4AF65]/35 shadow-xl relative flex flex-col md:flex-row">
             <button 
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-30 p-2 rounded-full bg-white/95 text-ink/75 hover:bg-ink hover:text-ivory transition-all shadow-md"
+              className="absolute top-4 right-4 z-30 p-2 rounded-full bg-white/95 text-[#211522]/75 hover:bg-[#3B183F] hover:text-white transition-all shadow-md border border-[#E8D8EE]"
               aria-label="Close modal"
             >
               <X size={16} />
@@ -184,30 +184,30 @@ export default function KadaCollection() {
             {/* Right side Details */}
             <div className="p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gold">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#6A3578]">
                   {selectedProduct.category} {selectedProduct.code && `• Code: ${selectedProduct.code}`}
                 </span>
-                <h3 className="font-display text-2xl text-ink mt-1.5 leading-tight">{selectedProduct.name}</h3>
-                <p className="text-xs text-ink/60 font-body leading-relaxed mt-4">
+                <h3 className="font-display text-2xl text-[#211522] mt-1.5 leading-tight font-medium">{selectedProduct.name}</h3>
+                <p className="text-xs text-[#211522]/60 font-body leading-relaxed mt-4">
                   {selectedProduct.description}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between border-t border-ink/10 pt-4 mt-6">
-                <span className="font-display text-2xl text-ink font-semibold">
+              <div className="flex items-center justify-between border-t border-[#E8D8EE] pt-4 mt-6">
+                <span className="font-display text-2xl text-[#6A3578] font-bold">
                   {selectedProduct.currency === '₹' ? `₹${selectedProduct.price}` : `$${selectedProduct.price}`}
                 </span>
                 <div className="flex gap-2">
                   <button 
                     onClick={() => handleAddToCart(selectedProduct)}
-                    className="px-5 py-2.5 rounded-full bg-ink hover:bg-emerald-dark text-white text-xs font-semibold uppercase tracking-wider transition-colors"
+                    className="px-5 py-2.5 rounded-full bg-[#6A3578] hover:bg-[#3B183F] text-white text-xs font-semibold uppercase tracking-widest transition-colors shadow-sm"
                   >
                     Add to Cart
                   </button>
                   <Link 
                     to={`/product/${selectedProduct.id}`}
                     onClick={() => setSelectedProduct(null)}
-                    className="px-5 py-2.5 rounded-full bg-gold hover:bg-gold-light text-ink text-xs font-semibold uppercase tracking-wider transition-colors text-center"
+                    className="px-5 py-2.5 rounded-full bg-white border border-[#D4AF65] hover:bg-[#E8D8EE]/30 text-[#211522] text-xs font-semibold uppercase tracking-widest transition-colors text-center shadow-sm"
                   >
                     Details
                   </Link>

@@ -56,28 +56,28 @@ export default function FaqPage() {
   }
 
   return (
-    <div className="bg-ivory min-h-screen text-ink pb-24">
+    <div className="bg-[#FCF8F2] min-h-screen text-[#211522] pb-24">
       {/* FAQ Hero */}
-      <section className="bg-ink text-ivory py-20 relative overflow-hidden reveal-element">
-        <div className="absolute inset-0 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
-        <div className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-gold/10 blur-3xl animate-drift-slow" />
+      <section className="bg-[#3B183F] text-white py-20 relative overflow-hidden reveal-element border-b border-[#D4AF65]/20">
+        <div className="absolute inset-0 bg-[radial-gradient(#D4AF65_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="pointer-events-none absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-[#6A3578]/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3 inline-block">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF65] font-semibold mb-3 inline-block">
             Support Center
           </span>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
             Frequently Asked
           </h1>
-          <div className="flex items-center justify-center gap-2 text-gold mt-4">
-            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold" />
+          <div className="flex items-center justify-center gap-2 text-[#D4AF65] mt-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#D4AF65]" />
             <Gem size={16} className="animate-pulse" />
             <Gem size={16} className="animate-pulse" />
             <Gem size={16} className="animate-pulse" />
             <Gem size={16} className="animate-pulse" />
-            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#D4AF65]" />
           </div>
           
-          <p className="mt-6 text-sm text-ivory/65 max-w-lg mx-auto font-body leading-relaxed">
+          <p className="mt-6 text-sm text-white/70 max-w-lg mx-auto font-body leading-relaxed">
             Find answers to commonly asked questions regarding custom ordering, insured shipping, diamond certificates, and jewellery care.
           </p>
         </div>
@@ -85,10 +85,10 @@ export default function FaqPage() {
 
       {/* Main Accordion Section */}
       <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24 reveal-element">
-        <div className="border-b border-ink/10 pb-6 mb-8 flex items-center justify-between">
-          <h2 className="font-display text-2xl text-ink">General Questions</h2>
-          <span className="text-xs uppercase tracking-wider text-ink/40 font-semibold flex items-center gap-1.5">
-            <HelpCircle size={13} /> {faqs.length} Answers
+        <div className="border-b border-[#E8D8EE] pb-6 mb-8 flex items-center justify-between">
+          <h2 className="font-display text-2xl text-[#211522] font-semibold border-b-0">General Questions</h2>
+          <span className="text-xs uppercase tracking-wider text-[#6A3578] font-bold flex items-center gap-1.5">
+            <HelpCircle size={13} className="text-[#D4AF65]" /> {faqs.length} Answers
           </span>
         </div>
 
@@ -100,10 +100,10 @@ export default function FaqPage() {
             return (
               <div 
                 key={index} 
-                className={`bg-white rounded-2xl border transition-all duration-300 ${
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen 
-                    ? 'border-gold/40 shadow-soft-3d ring-1 ring-gold/10' 
-                    : 'border-ink/5 hover:border-ink/15 shadow-sm hover:shadow-soft-3d'
+                    ? 'border-[#D4AF65] shadow-soft' 
+                    : 'border-[#E8D8EE] hover:border-[#6A3578]/40 shadow-sm'
                 }`}
               >
                 {/* Accordion Trigger */}
@@ -112,11 +112,11 @@ export default function FaqPage() {
                   className="w-full flex items-center justify-between p-5 sm:p-6 text-left outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-base sm:text-lg text-ink pr-4 leading-snug">
+                  <span className="font-display text-base sm:text-lg text-[#211522] pr-4 leading-snug font-medium">
                     {faq.question}
                   </span>
                   <div className={`h-7 w-7 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                    isOpen ? 'border-[#D97706] text-[#D97706] bg-[#D97706]/5' : 'border-ink/10 text-ink/65 hover:border-[#D97706]'
+                    isOpen ? 'border-[#6A3578] text-[#6A3578] bg-[#E8D8EE]' : 'border-[#E8D8EE] text-[#211522]/65 hover:border-[#6A3578] hover:text-[#6A3578]'
                   }`}>
                     {isOpen ? <Minus size={14} /> : <Plus size={14} />}
                   </div>
@@ -125,10 +125,10 @@ export default function FaqPage() {
                 {/* Accordion Content */}
                 <div 
                   className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? 'max-h-60 border-t border-ink/5' : 'max-h-0'
+                    isOpen ? 'max-h-60 border-t border-[#E8D8EE]/60' : 'max-h-0'
                   }`}
                 >
-                  <p className="p-5 sm:p-6 text-xs sm:text-sm text-ink/75 leading-relaxed font-body">
+                  <p className="p-5 sm:p-6 text-xs sm:text-sm text-[#211522]/75 leading-relaxed font-body">
                     {faq.answer}
                   </p>
                 </div>
@@ -140,23 +140,23 @@ export default function FaqPage() {
 
       {/* Still Need Help CTA */}
       <section className="max-w-3xl mx-auto px-5 sm:px-8 mt-16 reveal-element">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-ink/5 shadow-soft-3d text-center flex flex-col items-center">
-          <h3 className="font-display text-xl mb-2">Still have questions?</h3>
-          <p className="text-xs text-ink/50 max-w-sm font-body leading-relaxed mb-6">
+        <div className="bg-white rounded-[2rem] p-6 sm:p-8 border border-[#E8D8EE] shadow-soft text-center flex flex-col items-center">
+          <h3 className="font-display text-xl mb-2 text-[#211522] font-semibold border-b-0 pb-0">Still have questions?</h3>
+          <p className="text-xs text-[#211522]/50 max-w-sm font-body leading-relaxed mb-6">
             If you cannot find the answer to your specific query, please contact our concierge team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
             <a 
               href="mailto:concierge@jem-jewellery.com" 
-              className="px-5 py-3 rounded-full border border-[#D97706]/30 hover:border-[#D97706] hover:text-[#D97706] text-[#D97706] text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5 font-body"
+              className="px-6 py-3 rounded-full border border-[#D4AF65] text-[#211522] hover:bg-[#E8D8EE]/30 text-xs font-semibold uppercase tracking-widest transition-colors inline-flex items-center justify-center gap-1.5 font-body shadow-sm"
             >
-              <Mail size={13} /> Email Concierge
+              <Mail size={13} className="text-[#D4AF65]" /> Email Concierge
             </a>
             <a 
               href="/contact" 
-              className="px-5 py-3 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5 font-body hover:opacity-95 shadow-sm"
+              className="px-6 py-3 rounded-full bg-[#6A3578] hover:bg-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] text-white text-xs font-semibold uppercase tracking-widest transition-all inline-flex items-center justify-center gap-1.5 font-body shadow-md"
             >
-              Contact Atelier <ArrowRight size={13} />
+              Contact Atelier <ArrowRight size={13} className="text-[#D4AF65]" />
             </a>
           </div>
         </div>
