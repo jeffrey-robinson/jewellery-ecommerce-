@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Plus, Minus, HelpCircle, Mail, Phone, ArrowRight, Gem } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const faqs = [
   {
@@ -152,12 +153,12 @@ export default function FaqPage() {
             >
               <Mail size={13} className="text-[#D4AF65]" /> Email Concierge
             </a>
-            <a 
-              href="/contact" 
+            <Link 
+              to="/contact" 
               className="px-6 py-3 rounded-full bg-[#6A3578] hover:bg-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] text-white text-xs font-semibold uppercase tracking-widest transition-all inline-flex items-center justify-center gap-1.5 font-body shadow-md"
             >
               Contact Atelier <ArrowRight size={13} className="text-[#D4AF65]" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

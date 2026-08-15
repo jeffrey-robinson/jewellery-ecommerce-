@@ -53,7 +53,7 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
-              to="/shop"
+              to="/collections"
               className="group inline-flex items-center gap-2 bg-[#6A3578] text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] transition-all duration-300 shadow-md hover:-translate-y-0.5"
             >
               Shop Now

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function OfferBanner() {
   return (
@@ -21,13 +22,13 @@ export default function OfferBanner() {
           </p>
         </div>
 
-        <a
-          href="/shop"
+        <Link
+          to="/collections"
           className="shimmer-wrap group inline-flex items-center gap-2 bg-[#FCF8F2] text-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] px-8 py-4 rounded-full font-semibold text-sm hover:bg-[#6A3578] hover:text-white transition-all duration-300 shrink-0 shadow-deep-3d hover:-translate-y-0.5"
         >
           Claim the Offer
           <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#D4AF65]" />
-        </a>
+        </Link>
       </div>
     </section>
   )
