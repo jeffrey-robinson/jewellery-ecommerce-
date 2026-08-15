@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Copy */}
         <div>
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-[#6A3578] bg-[#E8D8EE] px-3.5 py-1.5 rounded-full border border-[#6A3578]/10 shadow-sm">
-            <Sparkles size={13} className="text-[#D4AF65]" />
+            <Sparkles size={13} className="text-[#D4AF65] animate-[spin_6s_linear_infinite]" />
             THE AUTUMN FACET EDIT
           </span>
 
@@ -52,17 +52,11 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="#products"
+              href="/shop"
               className="group inline-flex items-center gap-2 bg-[#6A3578] text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] transition-all duration-300 shadow-md hover:-translate-y-0.5"
             >
-              Shop the Edit
+              Shop Now
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#D4AF65]" />
-            </a>
-            <a
-              href="#categories"
-              className="inline-flex items-center gap-2 bg-white/40 backdrop-blur-sm px-7 py-3.5 rounded-full font-medium text-sm text-[#211522]/80 border border-[#211522]/15 hover:border-[#6A3578] hover:bg-[#E8D8EE]/20 transition-all duration-300"
-            >
-              Explore Collections
             </a>
           </div>
 
