@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const artRef = useRef(null)
@@ -51,13 +52,13 @@ export default function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href="/shop"
+            <Link
+              to="/shop"
               className="group inline-flex items-center gap-2 bg-[#6A3578] text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-[#3B183F] border border-[#D4AF65]/35 hover:border-[#D4AF65] transition-all duration-300 shadow-md hover:-translate-y-0.5"
             >
               Shop Now
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#D4AF65]" />
-            </a>
+            </Link>
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-[#211522]/10 pt-7">
