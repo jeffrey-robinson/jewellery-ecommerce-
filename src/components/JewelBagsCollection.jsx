@@ -7,7 +7,7 @@ import TiltCard from './TiltCard.jsx'
 import ProductImageCarousel from './ProductImageCarousel.jsx'
 import { formatPrice } from '../utils/currency.js'
 
-export default function BraceletCollection() {
+export default function JewelBagsCollection() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [wishlist, setWishlist] = useState([])
   const { addToCart } = useCart()
@@ -18,8 +18,8 @@ export default function BraceletCollection() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Filter products to get only the unique Chain Bracelets
-  const braceletItems = products.filter((p) => p.category?.toLowerCase() === 'chain-bracelet' || p.category?.toLowerCase() === 'chain bracelet' || p.category?.toLowerCase() === 'bracelet')
+  // Filter products to get only Jewel Bags
+  const jewelBagItems = products.filter((p) => p.category?.toLowerCase() === 'jewel bags' || p.category?.toLowerCase() === 'jewel-bags')
 
   const toggleWishlist = (id) => {
     if (wishlist.includes(id)) {
@@ -45,13 +45,13 @@ export default function BraceletCollection() {
         <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-[#6A3578]/10 blur-3xl animate-drift-slow" />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 text-center">
           <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF65] font-semibold mb-3 inline-block">
-            Modern Curation
+            Storage & Travel
           </span>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
-            The Bracelet Collection
+            Jewel Bags Collection
           </h1>
           <p className="mt-4 text-sm text-white/70 max-w-lg mx-auto font-body leading-relaxed">
-            Explore JEM's delicate and structural chain bracelets. Cast in gold-plated and rose gold-plated finishes, featuring anti-tarnish protection and luxury charms.
+            Beautiful jewellery bags and organisers designed to keep your precious pieces safe, stylish and organised.
           </p>
         </div>
       </section>
@@ -60,16 +60,16 @@ export default function BraceletCollection() {
       <section className="max-w-7xl mx-auto px-5 sm:px-8 mt-16 lg:mt-24">
         <div className="border-b border-[#E8D8EE] pb-6 mb-12 flex justify-between items-end">
           <div>
-            <h2 className="font-display text-2xl text-[#211522] font-semibold">Explore Charm & Link Bracelets</h2>
-            <p className="text-xs text-[#211522]/50 mt-1 font-body">Refined details, sparkling charms, and comfort-fit closures</p>
+            <h2 className="font-display text-2xl text-[#211522] font-semibold">Explore Pouches & Organisers</h2>
+            <p className="text-xs text-[#211522]/50 mt-1 font-body">Luxurious fabric and leather pockets carefully padded for travel safety</p>
           </div>
           <span className="text-xs uppercase tracking-wider text-[#6A3578] font-bold">
-            {braceletItems.length} Designs
+            {jewelBagItems.length} Designs
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 perspective-1000 reveal-element">
-          {braceletItems.map((product) => {
+          {jewelBagItems.map((product) => {
             const isWishlisted = wishlist.includes(product.id)
             const isAdded = addedId === product.id
 
@@ -85,8 +85,6 @@ export default function BraceletCollection() {
                     {product.category}
                   </span>
                   
-                  
-
                   <Link to={`/product/${product.id}`} className="block w-full h-full">
                     <ProductImageCarousel 
                       images={product.images} 
@@ -117,7 +115,6 @@ export default function BraceletCollection() {
                         {product.name}
                       </h3>
                     </Link>
-                    
                   </div>
 
                   <div className="flex items-center justify-between border-t border-[#E8D8EE]/60 mt-5 pt-3.5">
@@ -135,7 +132,7 @@ export default function BraceletCollection() {
                         </>
                       ) : (
                         <>
-                          Bracelet
+                          Jewel Bag
                         </>
                       )}
                     </button>
@@ -174,6 +171,19 @@ export default function BraceletCollection() {
                 <p className="text-xs text-[#211522]/60 font-body leading-relaxed mt-4">
                   {selectedProduct.description}
                 </p>
+                
+                {selectedProduct.colors && (
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className="text-[10px] uppercase font-semibold text-[#211522]/40">Colours:</span>
+                    <div className="flex gap-1.5">
+                      {selectedProduct.colors.map(col => (
+                        <span key={col} className="px-2.5 py-0.5 text-[10px] border border-[#E8D8EE] rounded-full font-body bg-white text-[#211522]/80">
+                          {col}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center justify-between border-t border-[#E8D8EE] pt-4 mt-6">

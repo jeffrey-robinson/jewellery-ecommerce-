@@ -2,26 +2,26 @@ import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ImageOff } from 'lucide-react'
 
 export default function ProductImageCarousel({ images, alt, className = '', activeImageIndex = null, onChangeIndex = null }) {
+  // Normalize images array to ensure it's a valid array of non-empty strings
+  const imgList = Array.isArray(images) 
+    ? images.filter(img => img && img.trim() !== '')
+    : []
+
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [imageErrors, setImageErrors] = useState({ 0: false, 1: false })
+  const [imageErrors, setImageErrors] = useState({})
 
   // Reset to first image if the images list changes
   useEffect(() => {
     setCurrentIndex(0)
-    setImageErrors({ 0: false, 1: false })
+    setImageErrors({})
   }, [images])
 
   // Sync with external activeImageIndex if provided
   useEffect(() => {
-    if (activeImageIndex !== null && activeImageIndex >= 0 && activeImageIndex < 2) {
+    if (activeImageIndex !== null && activeImageIndex >= 0 && activeImageIndex < imgList.length) {
       setCurrentIndex(activeImageIndex)
     }
-  }, [activeImageIndex])
-
-  // Normalise images array to ensure exactly 2 elements
-  const imgList = Array.isArray(images) 
-    ? [...images, '', ''].slice(0, 2) 
-    : ['', '']
+  }, [activeImageIndex, imgList.length])
 
   // Determine if a slot has a valid, non-empty URL and has not errored
   const isImageValid = (index) => {
@@ -29,9 +29,7 @@ export default function ProductImageCarousel({ images, alt, className = '', acti
     return url && url.trim() !== '' && !imageErrors[index]
   }
 
-  const hasFirst = isImageValid(0)
-  const hasSecond = isImageValid(1)
-  const showCarouselControls = hasFirst && hasSecond
+  const showCarouselControls = imgList.length > 1
 
   const changeIndex = (index) => {
     setCurrentIndex(index)
@@ -45,7 +43,8 @@ export default function ProductImageCarousel({ images, alt, className = '', acti
     e.preventDefault()
     e.stopPropagation()
     if (showCarouselControls) {
-      changeIndex(0)
+      const nextIndex = (currentIndex - 1 + imgList.length) % imgList.length
+      changeIndex(nextIndex)
     }
   }
 
@@ -53,7 +52,8 @@ export default function ProductImageCarousel({ images, alt, className = '', acti
     e.preventDefault()
     e.stopPropagation()
     if (showCarouselControls) {
-      changeIndex(1)
+      const nextIndex = (currentIndex + 1) % imgList.length
+      changeIndex(nextIndex)
     }
   }
 
@@ -67,20 +67,53 @@ export default function ProductImageCarousel({ images, alt, className = '', acti
 
   const handleImageError = (index) => {
     setImageErrors((prev) => ({ ...prev, [index]: true }))
-    // If the active image errors out, revert to the other one if valid
-    if (index === 0 && isImageValid(1)) {
-      changeIndex(1)
-    } else if (index === 1) {
-      changeIndex(0)
+    // If the active image errors out, revert to another one if valid
+    const nextValidIndex = imgList.findIndex((_, idx) => idx !== index && !imageErrors[idx])
+    if (nextValidIndex !== -1) {
+      changeIndex(nextValidIndex)
     }
   }
 
-  // Determine what to display
-  const activeIndex = showCarouselControls ? currentIndex : (hasFirst ? 0 : (hasSecond ? 1 : null))
+  // Touch Swipe Handlers for Mobile Support
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  const minSwipeDistance = 50
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe && showCarouselControls) {
+      const nextIndex = (currentIndex + 1) % imgList.length
+      changeIndex(nextIndex)
+    }
+    if (isRightSwipe && showCarouselControls) {
+      const nextIndex = (currentIndex - 1 + imgList.length) % imgList.length
+      changeIndex(nextIndex)
+    }
+  }
+
+  const activeIndex = showCarouselControls ? currentIndex : (imgList.length > 0 ? 0 : null)
   const currentImageUrl = activeIndex !== null ? imgList[activeIndex] : null
 
   return (
-    <div className={`relative w-full h-full group/carousel overflow-hidden ${className}`}>
+    <div 
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className={`relative w-full h-full group/carousel overflow-hidden ${className}`}
+    >
       {currentImageUrl ? (
         <img
           src={currentImageUrl}
@@ -95,20 +128,20 @@ export default function ProductImageCarousel({ images, alt, className = '', acti
         </div>
       )}
 
-      {/* Overlaid Navigation Arrows (using z-30 to clear any overlays) */}
+      {/* Overlaid Navigation Arrows */}
       {showCarouselControls && (
         <>
           <button
             onClick={handlePrev}
             aria-label="Previous image"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white/75 backdrop-blur-sm border border-slate-200/50 flex items-center justify-center text-ink/75 hover:bg-gold hover:text-white hover:border-gold transition-all shadow-sm active:scale-90 opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100 duration-300"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white/75 backdrop-blur-sm border border-slate-200/50 flex items-center justify-center text-[#211522]/75 hover:bg-gold hover:text-white hover:border-gold transition-all shadow-sm active:scale-90 opacity-100 duration-300"
           >
             <ChevronLeft size={15} strokeWidth={2.5} />
           </button>
           <button
             onClick={handleNext}
             aria-label="Next image"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white/75 backdrop-blur-sm border border-slate-200/50 flex items-center justify-center text-ink/75 hover:bg-gold hover:text-white hover:border-gold transition-all shadow-sm active:scale-90 opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100 duration-300"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white/75 backdrop-blur-sm border border-slate-200/50 flex items-center justify-center text-[#211522]/75 hover:bg-gold hover:text-white hover:border-gold transition-all shadow-sm active:scale-90 opacity-100 duration-300"
           >
             <ChevronRight size={15} strokeWidth={2.5} />
           </button>

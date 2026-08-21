@@ -5,6 +5,7 @@ import { products } from '../data/content.js'
 import { useCart } from '../context/CartContext.jsx'
 import TiltCard from './TiltCard.jsx'
 import ProductImageCarousel from './ProductImageCarousel.jsx'
+import { formatPrice } from '../utils/currency.js'
 
 export default function NecklaceCollection() {
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -84,44 +85,28 @@ export default function NecklaceCollection() {
                     {product.category}
                   </span>
                   
-                  {product.code && (
-                    <span className="absolute top-4 right-4 z-20 px-3 py-1 text-[9px] font-bold tracking-wider uppercase bg-[#D4AF65] text-[#3B183F] rounded-full">
-                      Code: {product.code}
-                    </span>
-                  )}
+                  
 
-                  <ProductImageCarousel 
-                    images={product.images} 
-                    alt={product.name} 
-                    className="w-full h-full"
-                  />
+                  <Link to={`/product/${product.id}`} className="block w-full h-full">
+                    <ProductImageCarousel 
+                      images={product.images} 
+                      alt={product.name} 
+                      className="w-full h-full"
+                    />
+                  </Link>
 
                   {/* Wishlist Heart Button */}
                   <button 
-                    onClick={() => toggleWishlist(product.id)}
-                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-white/95 text-[#211522]/75 hover:text-red-500 shadow-sm hover:scale-105 active:scale-95 duration-200 transition-all border border-[#E8D8EE]"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      toggleWishlist(product.id)
+                    }}
+                    className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/95 text-[#211522]/75 hover:text-red-500 shadow-sm hover:scale-105 active:scale-95 duration-200 transition-all border border-[#E8D8EE]"
                     aria-label="Wishlist"
                   >
                     <Heart size={14} fill={isWishlisted ? '#EF4444' : 'none'} className={isWishlisted ? 'text-[#6A3578]' : ''} />
                   </button>
-
-                  {/* Absolute Hover Action Overlay */}
-                  <div className="absolute inset-0 bg-[#3B183F]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
-                    <button 
-                      onClick={() => setSelectedProduct(product)}
-                      aria-label="Quick View" 
-                      className="p-3 bg-white hover:bg-[#D4AF65] hover:text-[#3B183F] text-[#3B183F] rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
-                    >
-                      <Eye size={18} />
-                    </button>
-                    <button 
-                      onClick={() => handleAddToCart(product)}
-                      aria-label="Add to Cart" 
-                      className="p-3 bg-white hover:bg-[#6A3578] hover:text-white text-[#6A3578] rounded-full transition-colors shadow-lg duration-300 hover:scale-105 active:scale-95"
-                    >
-                      <ShoppingBag size={18} />
-                    </button>
-                  </div>
                 </div>
 
                 {/* Details Frame */}
@@ -132,14 +117,12 @@ export default function NecklaceCollection() {
                         {product.name}
                       </h3>
                     </Link>
-                    {product.code && (
-                      <p className="text-[11px] text-[#211522]/55 font-body">Code: {product.code}</p>
-                    )}
+                    
                   </div>
 
                   <div className="flex items-center justify-between border-t border-[#E8D8EE]/60 mt-5 pt-3.5">
                     <span className="font-display text-lg text-[#6A3578] font-bold">
-                      {product.currency === '₹' ? `₹${product.price}` : `$${product.price}`}
+                      {formatPrice(product)}
                     </span>
                     
                     <button 
@@ -152,7 +135,7 @@ export default function NecklaceCollection() {
                         </>
                       ) : (
                         <>
-                          Add <ShoppingBag size={11} />
+                          Necklace
                         </>
                       )}
                     </button>
@@ -208,7 +191,7 @@ export default function NecklaceCollection() {
 
               <div className="flex items-center justify-between border-t border-[#E8D8EE] pt-4 mt-6">
                 <span className="font-display text-2xl text-[#6A3578] font-bold">
-                  {selectedProduct.currency === '₹' ? `₹${selectedProduct.price}` : `$${selectedProduct.price}`}
+                  {formatPrice(selectedProduct)}
                 </span>
                 <div className="flex gap-2">
                   <button 

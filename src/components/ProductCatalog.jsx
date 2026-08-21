@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { Search, X, Heart, ShoppingBag, Gem } from 'lucide-react'
 import { catalogProducts } from '../data/content.js'
 import { formatPrice } from '../utils/currency.js'
@@ -11,12 +11,14 @@ const formatCategoryDisplay = (cat) => {
   if (!cat) return ''
   const lower = cat.toLowerCase()
   if (lower === 'chain-bracelet') return 'Chain Bracelet'
+  if (lower === 'jewel bags' || lower === 'jewel-bags') return 'Jewel Bags'
   return cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase()
 }
 
 export default function ProductCatalog() {
   const [searchParams] = useSearchParams()
   const initialQuery = searchParams.get('q') || ''
+  const navigate = useNavigate()
   
   const [category, setCategory] = useState('necklace')
   const [query, setQuery] = useState(initialQuery)
@@ -32,14 +34,18 @@ export default function ProductCatalog() {
     setQuery(q)
   }, [searchParams])
 
-  const categories = ['necklace', 'kada', 'bracelet']
+  const categories = ['necklace', 'kada', 'bracelet', 'jewel bags']
 
   const updateSearch = (val) => {
     setQuery(val)
   }
 
   const updateCategory = (val) => {
-    setCategory(val)
+    if (val === 'jewel bags') {
+      navigate('/jewel-bags')
+    } else {
+      setCategory(val)
+    }
   }
 
   const visibleProducts = catalogProducts.filter((product) => {
@@ -70,7 +76,7 @@ export default function ProductCatalog() {
           
           <div className="relative mt-8">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#211522]/45" size={20} />
-            <input value={query} onChange={(event) => updateSearch(event.target.value)} placeholder="Search necklaces, bracelets, product codes…" className="w-full rounded-2xl border border-[#D4AF65]/30 bg-white py-4 pl-12 pr-11 text-[#211522] shadow-sm outline-none focus:border-[#6A3578] focus:ring-1 focus:ring-[#6A3578]/25" />
+            <input value={query} onChange={(event) => updateSearch(event.target.value)} placeholder="Search necklaces, bracelets, jewel bags, product codes…" className="w-full rounded-2xl border border-[#D4AF65]/30 bg-white py-4 pl-12 pr-11 text-[#211522] shadow-sm outline-none focus:border-[#6A3578] focus:ring-1 focus:ring-[#6A3578]/25" />
             {query && <button onClick={() => updateSearch('')} aria-label="Clear search" className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-2 text-[#211522]/50 hover:bg-[#211522]/5"><X size={18} /></button>}
           </div>
         </div>

@@ -17,6 +17,12 @@ export const categories = [
     color: 'gold',
     img: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=600&q=80',
   },
+  {
+    name: 'Jewel Bags',
+    count: '6 pieces',
+    color: 'purple',
+    img: 'https://res.cloudinary.com/djqflcckm/image/upload/v1787298763/WhatsApp_Image_2026-08-20_at_1.03.26_PM_tv55bx.jpg',
+  },
 ]
 
 export const products = [
@@ -38,15 +44,6 @@ export const products = [
     price: 230,
     images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786641316/WhatsApp_Image_2026-08-12_at_3.46.35_PM_nlt7kt.jpg", ""],
     description: "A delicate rose silhouette cast in gold-plated anti-tarnish finish. Minimal design for absolute grace."
-  },
-  {
-    id: "KEYCHAIN001",
-    code: "KEYCHAIN001",
-    category: "necklace",
-    name: "Mini Jem Pouch Miniature Bag Keychain",
-    price: 185,
-    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786641316/WhatsApp_Image_2026-08-12_at_3.46.38_PM_mx5zdj.jpg", "https://res.cloudinary.com/djqflcckm/image/upload/v1786641316/WhatsApp_Image_2026-08-12_at_3.46.37_PM_bxzg2u.jpg"],
-    description: "A premium miniature leather pouch bag keychain from JEM, designed to hold tiny treasures with high fashion detail."
   },
   {
     id: "00326",
@@ -156,6 +153,78 @@ export const products = [
     price: 275,
     images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786641324/WhatsApp_Image_2026-08-12_at_4.16.17_PM_qri7iy.jpg", ""],
     description: "A beautiful butterfly silhouette detailed with a dangling natural freshwater pearl. Anti-tarnish gold plating."
+  },
+  {
+    id: "001726",
+    code: "001726",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Tulip White",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295651/jewel_1_qvtqty.jpg", ""],
+    description: "A gorgeous gold-plated anti-tarnish tulip pendant in a crisp white finish. Delicate and premium design crafted for modern minimalist style."
+  },
+  {
+    id: "001826",
+    code: "001826",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Tulip Green",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295650/jewel_2_p0oc0k.jpg", ""],
+    description: "An exquisite gold-plated anti-tarnish tulip pendant in a vibrant green finish. Captures natural elegance with a premium look."
+  },
+  {
+    id: "01926",
+    code: "01926",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish White Stone Flower Chain",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295650/jewel_3_elx3g1.jpg", ""],
+    description: "A delicate floral link chain adorned with brilliant white stones. Finished in tarnish-resistant gold plating for everyday comfort."
+  },
+  {
+    id: "02026",
+    code: "02026",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Bow-Green Chain",
+    price: 249,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295669/jewel_4_ggaval.jpg", ""],
+    description: "A charming green bow motif pendant set on an anti-tarnish gold-plated chain. Simple, elegant, and perfect for layering."
+  },
+  {
+    id: "02126",
+    code: "02126",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Pink stone ButterFly Chain",
+    price: 259,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295670/jewel_5_fwb7jr.jpg", ""],
+    description: "A beautiful butterfly silhouette detailed with a radiant pink stone accent. Crafted with tarnish-resistant gold plating."
+  },
+  {
+    id: "02326",
+    code: "02326",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Cross Pendant Chain 2",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295651/jewel_6_dyvor4.jpg", ""],
+    description: "A classic cross pendant on an anti-tarnish gold-plated chain. Hand-finished for structural brilliance and comfortable daily wear."
+  },
+  {
+    id: "02426",
+    code: "02426",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Blue Stone Pendant Chain",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295651/jewel_7_gcbasb.jpg", ""],
+    description: "A stunning blue stone focal point held in a gold-plated anti-tarnish setting. Elevates any outfit with a touch of color."
+  },
+  {
+    id: "02226",
+    code: "02226",
+    category: "necklace",
+    name: "Gold-Plated Anti Tarnish Cross Pendant Chain",
+    price: 269,
+    images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1787295650/jewel_8_xmi8m6.jpg", ""],
+    description: "An elegant cross pendant set on an anti-tarnish gold-plated chain. A timeless and versatile addition to your jewelry collection."
   },
 
   // KADAS
@@ -313,6 +382,91 @@ export const products = [
     price: 285,
     images: ["https://res.cloudinary.com/djqflcckm/image/upload/v1786678203/WhatsApp_Image_2026-08-13_at_11.06.35_PM_ltcjj1.jpg", ""],
     description: "A charming gold-plated chain bracelet displaying elegant white flower segments, anti-tarnish coated."
+  },
+  {
+    id: "jb001",
+    code: "JB001",
+    category: "Jewel Bags",
+    name: "Mini Jem Pouch",
+    price: 215,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298763/WhatsApp_Image_2026-08-20_at_1.03.26_PM_tv55bx.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298762/WhatsApp_Image_2026-08-20_at_1.03.25_PM_eprp2s.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298757/image_2_kwluxn.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298756/image_3_ybwgnt.jpg"
+    ],
+    description: "A premium mini jewellery pouch from JEM, designed to keep your rings, necklaces, and small treasures safe, compact, and organised during travel."
+  },
+  {
+    id: "jb002",
+    code: "JB002",
+    category: "Jewel Bags",
+    name: "Mini Jem Pouch",
+    price: 189,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298757/image_4_o83yee.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298756/image_5_jdv3oz.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298757/image_6_dtgmcw.jpg"
+    ],
+    description: "An elegant, travel-friendly mini jewellery organizer that provides secure compartments for your necklaces and rings while maintaining a sleek, luxury design."
+  },
+  {
+    id: "jb003",
+    code: "JB003",
+    category: "Jewel Bags",
+    name: "Mini Jem Pouch",
+    price: 199,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298760/image_10_lbws8d.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298760/image_12_j3s8uu.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298760/image_11_l4ilga.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298759/image_9_kmcnsw.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298758/image_7_hplhwg.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298758/image_8_kjnbby.jpg"
+    ],
+    description: "Multi-functional and stylish jewellery pouch with six dedicated slots and soft lining, keeping your bracelets, rings, and earrings pristine."
+  },
+  {
+    id: "jb004",
+    code: "JB004",
+    category: "Jewel Bags",
+    name: "Mini Jem Pouch",
+    price: 179,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298760/image_13_vissms.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298760/image_14_j3s3u6.jpg"
+    ],
+    description: "A compact velvet pouch featuring secure snap closures and custom slots. Designed specifically for the modern minimalist on the go."
+  },
+  {
+    id: "jb005",
+    code: "JB005",
+    category: "Jewel Bags",
+    name: "Jewellery Organiser",
+    price: 179,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298762/image_16_dcpwcv.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298761/image_15_n8jbrz.jpg"
+    ],
+    description: "A premium structured organiser that unfolds to reveal specialized grids for earrings, ring rolls, and zippered pockets for larger pieces."
+  },
+  {
+    id: "jb006",
+    code: "JB006",
+    category: "Jewel Bags",
+    name: "Jewellery Organiser",
+    price: 179,
+    currency: "₹",
+    images: [
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298762/image_17_maq9gg.jpg",
+      "https://res.cloudinary.com/djqflcckm/image/upload/v1787298762/image_18_d1utjg.jpg"
+    ],
+    description: "Durable and elegantly styled jewellery travel organiser bag with high-density padding to cushion and protect your collection."
   }
 ]
 

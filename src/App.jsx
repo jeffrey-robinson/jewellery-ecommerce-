@@ -8,6 +8,7 @@ import ProductCatalog from './components/ProductCatalog.jsx'
 import NecklaceCollection from './components/NecklaceCollection.jsx'
 import KadaCollection from './components/KadaCollection.jsx'
 import BraceletCollection from './components/BraceletCollection.jsx'
+import JewelBagsCollection from './components/JewelBagsCollection.jsx'
 import ProductDetails from './components/ProductDetails.jsx'
 import ContactUs from './components/ContactUs.jsx'
 import CustomerReviews from './components/CustomerReviews.jsx'
@@ -76,6 +77,7 @@ export default function App() {
               <Route path="/collections/kada" element={<KadaCollection />} />
               <Route path="/collections/bracelet" element={<BraceletCollection />} />
               <Route path="/collections/chain-bracelet" element={<BraceletCollection />} />
+              <Route path="/jewel-bags" element={<JewelBagsCollection />} />
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/reviews" element={<CustomerReviews />} />
